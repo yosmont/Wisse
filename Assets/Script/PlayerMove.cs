@@ -6,6 +6,7 @@ public class PlayerMove : MonoBehaviour
 {
     public float speed = 0.125F;
     private Vector2Int moveTo;
+    private bool isMoving = false;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +36,7 @@ public class PlayerMove : MonoBehaviour
     void UpdatePhone()
     {
         foreach (Touch touch in Input.touches) {
-            if (touch.phase == TouchPhase.Began) {
+            if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Stationary) {
                 Vector2 tmp = Camera.main.ScreenToWorldPoint(touch.position);
                 moveTo.x = (int)tmp.x;
                 moveTo.y = (int)tmp.y;
@@ -54,6 +55,15 @@ public class PlayerMove : MonoBehaviour
             tmp.y += speed;
         else if (transform.position.y > moveTo.y)
             tmp.y -= speed;
-        transform.position = tmp;
+        if (transform.position.x != tmp.x || transform.position.y != tmp.y) {
+            if (!isMoving) {
+                isMoving = true;
+                GetComponent<Animator>().Play("Move");
+            }
+            transform.position = tmp;
+        } else if (isMoving) {
+                isMoving = false;
+                GetComponent<Animator>().Play("Idle");
+        }
     }
 }

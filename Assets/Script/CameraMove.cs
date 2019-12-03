@@ -5,8 +5,8 @@ using UnityEngine;
 public class CameraMove : MonoBehaviour
 {
     public Vector2Int noMoveSize = new Vector2Int(1,1);
-    public Vector2Int levelOrigin = new Vector2Int(-15, 15);
-    public Vector2Int levelLow = new Vector2Int(15, -15);
+    public Vector2Int levelOrigin = new Vector2Int(-5, 10);
+    public Vector2Int levelLow = new Vector2Int(5, -10);
     public GameObject player;
     private float speed;
 
@@ -28,6 +28,7 @@ public class CameraMove : MonoBehaviour
             tmp.y += speed;
         else if (transform.position.y > (player.transform.position.y + noMoveSize.y) && transform.position.y > player.transform.position.y && transform.position.y > levelLow.y)
             tmp.y -= speed;
-        transform.position = tmp;
+        if (transform.position != tmp)
+            transform.position = tmp;
     }
 }
