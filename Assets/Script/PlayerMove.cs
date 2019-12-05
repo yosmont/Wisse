@@ -31,19 +31,29 @@ public class PlayerMove : MonoBehaviour
     void UpdatePC()
     {
         if (Input.GetMouseButtonDown(0)) {
-            Vector3 tmp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            tmp.z = 0;
-            agent.SetDestination(tmp);
+            Vector3 dest = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(new Vector2(dest.x, dest.y), Vector2.zero);
+            if (hit.collider != null && hit.collider.tag == "PNJ") {
+                hit.collider.GetComponent<APNJTalk>().Talk();
+            } else {
+                dest.z = 0;
+                agent.SetDestination(dest);
+            }
         }
     }
 
     void UpdatePhone()
     {
         foreach (Touch touch in Input.touches) {
-            if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Stationary) {
-                Vector3 tmp = Camera.main.ScreenToWorldPoint(touch.position);
-                tmp.z = 0;
-                agent.SetDestination(tmp);
+            if (touch.phase == TouchPhase.Began) {
+                Vector3 dest = Camera.main.ScreenToWorldPoint(touch.position);
+                RaycastHit2D hit = Physics2D.Raycast(new Vector2(dest.x, dest.y), Vector2.zero);
+                if (hit.collider != null && hit.collider.tag == "PNJ") {
+                    hit.collider.GetComponent<APNJTalk>().Talk();
+                } else {
+                    dest.z = 0;
+                    agent.SetDestination(dest);
+                }
             }
         }
     }
