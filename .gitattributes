@@ -25,16 +25,16 @@
 *.shadervariants -text merge=unityyamlmerge diff
 
 # Image formats
-*.psd filter=lfs diff=lfs merge=lfs -text
-*.jpg filter=lfs diff=lfs merge=lfs -text
-*.png filter=lfs diff=lfs merge=lfs -text
-*.gif filter=lfs diff=lfs merge=lfs -text
-*.bmp filter=lfs diff=lfs merge=lfs -text
-*.tga filter=lfs diff=lfs merge=lfs -text
-*.tiff filter=lfs diff=lfs merge=lfs -text
-*.tif filter=lfs diff=lfs merge=lfs -text
-*.iff filter=lfs diff=lfs merge=lfs -text
-*.pict filter=lfs diff=lfs merge=lfs -text
+*.psd filter=lfs diff=lfs merge=lfs -text -diff
+*.jpg filter=lfs diff=lfs merge=lfs -text -diff
+*.png filter=lfs diff=lfs merge=lfs -text -diff
+*.gif filter=lfs diff=lfs merge=lfs -text -diff
+*.bmp filter=lfs diff=lfs merge=lfs -text -diff
+*.tga filter=lfs diff=lfs merge=lfs -text -diff
+*.tiff filter=lfs diff=lfs merge=lfs -text -diff
+*.tif filter=lfs diff=lfs merge=lfs -text -diff
+*.iff filter=lfs diff=lfs merge=lfs -text -diff
+*.pict filter=lfs diff=lfs merge=lfs -text -diff
 *.dds filter=lfs diff=lfs merge=lfs -text
 *.xcf filter=lfs diff=lfs merge=lfs -text
 
