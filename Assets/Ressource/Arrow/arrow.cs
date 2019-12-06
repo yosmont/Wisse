@@ -33,10 +33,10 @@ public class arrow : MonoBehaviour
         {
             DragBall();
         }
-        if (cam.WorldToViewportPoint(rb.position).x < 0 ||
-            cam.WorldToViewportPoint(rb.position).x > 1 &&
-            cam.WorldToViewportPoint(rb.position).y > 1 ||
-            cam.WorldToViewportPoint(rb.position).y < 0) {
+        if (!((cam.WorldToViewportPoint(rb.position).x > 0 &&
+            cam.WorldToViewportPoint(rb.position).x < 1) &&
+            (cam.WorldToViewportPoint(rb.position).y < 1 &&
+            cam.WorldToViewportPoint(rb.position).y > 0))) {
             bow.transform.eulerAngles = new Vector3(0, 0, 180);
             transform.position = new Vector3((float)-7.7, 0, 0);
             transform.eulerAngles = new Vector3(0, 0, 0);
