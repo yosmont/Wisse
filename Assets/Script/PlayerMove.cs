@@ -77,4 +77,10 @@ public class PlayerMove : MonoBehaviour
             spriteObject.GetComponent<Animator>().Play("Idle");
         }
     }
+
+    public void Stop()
+    {
+        agent.SetDestination(new Vector3(transform.position.x, transform.position.y, 0));
+        spriteObject.GetComponent<Animator>().Play("Idle");
+    }
 }
