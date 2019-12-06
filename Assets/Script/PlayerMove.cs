@@ -1,17 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float speed = 0.125F;
-    private Vector2Int moveTo;
+    public GameObject spriteObject;
     private bool isMoving = false;
+    private bool moveRight = true;
+    private NavMeshAgent agent;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
     }
 
     // Update is called once per frame
@@ -27,43 +31,50 @@ public class PlayerMove : MonoBehaviour
     void UpdatePC()
     {
         if (Input.GetMouseButtonDown(0)) {
-            Vector2 tmp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            moveTo.x = (int)tmp.x;
-            moveTo.y = (int)tmp.y;
+            Vector3 dest = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(new Vector2(dest.x, dest.y), Vector2.zero);
+            if (hit.collider != null && hit.collider.tag == "PNJ") {
+                hit.collider.GetComponent<APNJTalk>().Talk();
+            } else {
+                dest.z = 0;
+                agent.SetDestination(dest);
+            }
         }
     }
 
     void UpdatePhone()
     {
         foreach (Touch touch in Input.touches) {
-            if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Stationary) {
-                Vector2 tmp = Camera.main.ScreenToWorldPoint(touch.position);
-                moveTo.x = (int)tmp.x;
-                moveTo.y = (int)tmp.y;
+            if (touch.phase == TouchPhase.Began) {
+                Vector3 dest = Camera.main.ScreenToWorldPoint(touch.position);
+                RaycastHit2D hit = Physics2D.Raycast(new Vector2(dest.x, dest.y), Vector2.zero);
+                if (hit.collider != null && hit.collider.tag == "PNJ") {
+                    hit.collider.GetComponent<APNJTalk>().Talk();
+                } else {
+                    dest.z = 0;
+                    agent.SetDestination(dest);
+                }
             }
         }
     }
 
     void Move()
     {
-        Vector2 tmp = new Vector2(transform.position.x, transform.position.y);
-        if (transform.position.x < moveTo.x)
-            tmp.x += speed;
-        else if (transform.position.x > moveTo.x)
-            tmp.x -= speed;
-        if (transform.position.y < moveTo.y)
-            tmp.y += speed;
-        else if (transform.position.y > moveTo.y)
-            tmp.y -= speed;
-        if (transform.position.x != tmp.x || transform.position.y != tmp.y) {
+        if (agent.velocity != Vector3.zero) {
+            if (agent.velocity.x < 0 && !moveRight) {
+                spriteObject.GetComponent<SpriteRenderer>().flipX = true;
+                moveRight = true;
+            } else if (agent.velocity.x > 0 && moveRight) {
+                spriteObject.GetComponent<SpriteRenderer>().flipX = false;
+                moveRight = false;
+            }
             if (!isMoving) {
                 isMoving = true;
-                GetComponent<Animator>().Play("Move");
+                spriteObject.GetComponent<Animator>().Play("Move");
             }
-            transform.position = tmp;
         } else if (isMoving) {
-                isMoving = false;
-                GetComponent<Animator>().Play("Idle");
+            isMoving = false;
+            spriteObject.GetComponent<Animator>().Play("Idle");
         }
     }
 }
