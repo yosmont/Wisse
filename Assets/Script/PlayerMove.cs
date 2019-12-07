@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class PlayerMove : MonoBehaviour
 {
     public GameObject spriteObject;
+    public Dictionary<string, bool> inventory;
     private bool isMoving = false;
     private bool moveRight = true;
     private NavMeshAgent agent;
