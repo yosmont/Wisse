@@ -6,7 +6,8 @@ using UnityEngine.AI;
 public class PlayerMove : MonoBehaviour
 {
     public GameObject spriteObject;
-    public Dictionary<string, bool> inventory;
+    [HideInInspector]
+    public Dictionary<string, bool> inventory = new Dictionary<string, bool>();
     private bool isMoving = false;
     private bool moveRight = true;
     private NavMeshAgent agent;
@@ -17,6 +18,10 @@ public class PlayerMove : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        GameObject[] collectableList = GameObject.FindGameObjectsWithTag("CollectableItem");
+        foreach (GameObject elem in collectableList) {
+            inventory.Add(elem.name, false);
+        }
     }
 
     // Update is called once per frame
@@ -36,6 +41,9 @@ public class PlayerMove : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(new Vector2(dest.x, dest.y), Vector2.zero);
             if (hit.collider != null && hit.collider.tag == "PNJ") {
                 hit.collider.GetComponent<APNJTalk>().Talk();
+            } else if (hit.collider != null && hit.collider.tag == "CollectableItem") {
+                inventory[hit.collider.name] = true;
+                Destroy(hit.collider.gameObject);
             } else {
                 dest.z = 0;
                 agent.SetDestination(dest);
@@ -51,6 +59,9 @@ public class PlayerMove : MonoBehaviour
                 RaycastHit2D hit = Physics2D.Raycast(new Vector2(dest.x, dest.y), Vector2.zero);
                 if (hit.collider != null && hit.collider.tag == "PNJ") {
                     hit.collider.GetComponent<APNJTalk>().Talk();
+                } else if (hit.collider != null && hit.collider.tag == "CollectableItem") {
+                    inventory[hit.collider.name] = true;
+                    Destroy(hit.collider.gameObject);
                 } else {
                     dest.z = 0;
                     agent.SetDestination(dest);
