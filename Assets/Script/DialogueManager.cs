@@ -62,7 +62,39 @@ public class DialogueManager : MonoBehaviour
             child.gameObject.SetActive(false);
         GameObject tmp = dialBox.transform.Find("DialBasic").gameObject;
         tmp.SetActive(true);
-        tmp.transform.Find("Name").GetComponent<Text>().text = PNJ.name + ":";
+        tmp.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = PNJ.name + ":";
+        currentDialogue = tmp.transform.Find("Dialogue").GetComponent<TextMeshProUGUI>();
+        currentDialogue.text = dial;
+        currentDialogue.pageToDisplay = 1;
+    }
+
+    public void SimpleDial(string dial, GameObject PNJ, string talkerName)
+    {
+        currentImportantPNJ = PNJ;
+        player.GetComponent<PlayerMove>().Stop();
+        player.GetComponent<PlayerMove>().enabled = false;
+        dialBox.SetActive(true);
+        foreach (Transform child in dialBox.transform)
+            child.gameObject.SetActive(false);
+        GameObject tmp = dialBox.transform.Find("DialBasic").gameObject;
+        tmp.SetActive(true);
+        tmp.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = talkerName + ":";
+        currentDialogue = tmp.transform.Find("Dialogue").GetComponent<TextMeshProUGUI>();
+        currentDialogue.text = dial;
+        currentDialogue.pageToDisplay = 1;
+    }
+    
+    public void SimpleDial(string dial, GameObject PNJ, GameObject talker)
+    {
+        currentImportantPNJ = PNJ;
+        player.GetComponent<PlayerMove>().Stop();
+        player.GetComponent<PlayerMove>().enabled = false;
+        dialBox.SetActive(true);
+        foreach (Transform child in dialBox.transform)
+            child.gameObject.SetActive(false);
+        GameObject tmp = dialBox.transform.Find("DialBasic").gameObject;
+        tmp.SetActive(true);
+        tmp.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = talker.name + ":";
         currentDialogue = tmp.transform.Find("Dialogue").GetComponent<TextMeshProUGUI>();
         currentDialogue.text = dial;
         currentDialogue.pageToDisplay = 1;
@@ -77,7 +109,7 @@ public class DialogueManager : MonoBehaviour
         currentPNJ = PNJ;
         followLifeTimer = followLifeTime;
         dialFollowBox.SetActive(true);
-        dialFollowBox.transform.Find("Dialogue").GetComponent<Text>().text = dial;
+        dialFollowBox.transform.Find("Dialogue").GetComponent<TextMeshProUGUI>().text = dial;
         Vector3 wantedPos = Camera.main.WorldToScreenPoint(PNJ.transform.position);
         wantedPos.x -= followShift.x;
         wantedPos.y -= followShift.y;

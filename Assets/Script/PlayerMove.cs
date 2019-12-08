@@ -5,9 +5,9 @@ using UnityEngine.AI;
 
 public class PlayerMove : MonoBehaviour
 {
-    public GameObject spriteObject;
     [HideInInspector]
     public Dictionary<string, bool> inventory = new Dictionary<string, bool>();
+    private GameObject spriteObject;
     private bool isMoving = false;
     private bool moveRight = true;
     private NavMeshAgent agent;
@@ -22,52 +22,35 @@ public class PlayerMove : MonoBehaviour
         foreach (GameObject elem in collectableList) {
             inventory.Add(elem.name, false);
         }
+        spriteObject = transform.Find("playerSprite").gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.Lumin || Application.platform == RuntimePlatform.IPhonePlayer)
-            UpdatePhone();
-        else
-            UpdatePC();
-        Move();
-    }
-
-    void UpdatePC()
-    {
-        if (Input.GetMouseButtonDown(0)) {
-            Vector3 dest = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(new Vector2(dest.x, dest.y), Vector2.zero);
+        Vector3 InputWorldPoint = Vector3.negativeInfinity;
+        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.Lumin || Application.platform == RuntimePlatform.IPhonePlayer) {
+            if (!Input.touches[0].Equals(null)) {
+                if (Input.touches[0].phase == TouchPhase.Began)
+                    InputWorldPoint = Camera.main.ScreenToWorldPoint(Input.touches[0].position); 
+            }
+        } else {
+            if (Input.GetMouseButtonDown(0))
+                InputWorldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
+        if (InputWorldPoint != Vector3.negativeInfinity) {
+            RaycastHit2D hit = Physics2D.Raycast(new Vector2(InputWorldPoint.x, InputWorldPoint.y), Vector2.zero);
             if (hit.collider != null && hit.collider.tag == "PNJ") {
                 hit.collider.GetComponent<APNJTalk>().Talk();
             } else if (hit.collider != null && hit.collider.tag == "CollectableItem") {
                 inventory[hit.collider.name] = true;
                 Destroy(hit.collider.gameObject);
             } else {
-                dest.z = 0;
-                agent.SetDestination(dest);
+                InputWorldPoint.z = 0;
+                agent.SetDestination(InputWorldPoint);
             }
         }
-    }
-
-    void UpdatePhone()
-    {
-        foreach (Touch touch in Input.touches) {
-            if (touch.phase == TouchPhase.Began) {
-                Vector3 dest = Camera.main.ScreenToWorldPoint(touch.position);
-                RaycastHit2D hit = Physics2D.Raycast(new Vector2(dest.x, dest.y), Vector2.zero);
-                if (hit.collider != null && hit.collider.tag == "PNJ") {
-                    hit.collider.GetComponent<APNJTalk>().Talk();
-                } else if (hit.collider != null && hit.collider.tag == "CollectableItem") {
-                    inventory[hit.collider.name] = true;
-                    Destroy(hit.collider.gameObject);
-                } else {
-                    dest.z = 0;
-                    agent.SetDestination(dest);
-                }
-            }
-        }
+        Move();
     }
 
     void Move()
