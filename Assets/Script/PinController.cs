@@ -11,6 +11,9 @@ public class PinController : MonoBehaviour
     [TextArea(1, 4)]
     public string Description;
 
+    [Range(1, 12)]
+    public int MissionCount;
+
     PolygonCollider2D pinShape;
 
     GameObject MissionStatement;
@@ -23,8 +26,8 @@ public class PinController : MonoBehaviour
         pinShape = GetComponent<PolygonCollider2D>();
         MissionStatement = GameObject.Find("MissionStatement");
         missionTitle = GameObject.Find("MissionTitle").GetComponent<Text>();
-        missionBody = GameObject.Find("MissionBody").GetComponent<Text>();
-        Debug.Log(missionBody.text);
+        //missionBody = GameObject.Find("MissionBody").GetComponent<Text>();
+        //Debug.Log(missionBody.text);
         Debug.Log(missionTitle.text);
     }
 
@@ -46,9 +49,9 @@ public class PinController : MonoBehaviour
                 }
                 Debug.Log($"Pressed pin {name}");
                 Debug.Log($"Setting title to {Title}");
-                Debug.Log($"Setting body to {Description}");
+                MissionStatement.GetComponentInChildren<MissionNodes>().NodeCount = MissionCount;
+                Debug.Log($"Setting Nodecount to {MissionStatement.GetComponentInChildren<MissionNodes>().NodeCount}");
                 missionTitle.text = Title;
-                missionBody.text = Description;
                 
             }
         }

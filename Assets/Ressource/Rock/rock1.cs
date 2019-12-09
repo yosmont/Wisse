@@ -10,7 +10,7 @@ public class rock1 : MonoBehaviour
     private Vector2 initialPos;
     private Vector2 mousePosition;
     private float deltaX, deltaY;
-    public static bool locked;
+    public bool locked;
 
     void Start()
     {
@@ -39,7 +39,7 @@ public class rock1 : MonoBehaviour
                         Mathf.Abs(transform.position.y - rockPlace.position.y) <= 0.5f)
         {
             transform.position = new Vector2(rockPlace.position.x, rockPlace.position.y);
-//            locked = true;
+            locked = true;
         }
         else
         {
@@ -65,7 +65,7 @@ public class rock1 : MonoBehaviour
                         Mathf.Abs(transform.position.y - rockPlace.position.y) <= 0.5f)
                     {
                         transform.position = new Vector2(rockPlace.position.x, rockPlace.position.y);
-//                        locked = true;
+                        locked = true;
                     }
                     else
                     {
