@@ -5,10 +5,11 @@ using UnityEngine.AI;
 
 public class PlayerMove : MonoBehaviour
 {
+    public UnityEngine.UI.Image ping;
     [HideInInspector]
     public Dictionary<string, bool> inventory = new Dictionary<string, bool>();
+    public bool isMoving = false;
     private GameObject spriteObject;
-    private bool isMoving = false;
     private bool moveRight = true;
     private NavMeshAgent agent;
 
@@ -23,6 +24,7 @@ public class PlayerMove : MonoBehaviour
             inventory.Add(elem.name, false);
         }
         spriteObject = transform.Find("playerSprite").gameObject;
+        ping.enabled = false;
     }
 
     // Update is called once per frame
@@ -56,6 +58,7 @@ public class PlayerMove : MonoBehaviour
     void Move()
     {
         if (agent.velocity != Vector3.zero) {
+            ping.transform.position = Camera.main.WorldToScreenPoint(agent.destination);
             if (agent.velocity.x < 0 && !moveRight) {
                 spriteObject.GetComponent<SpriteRenderer>().flipX = true;
                 moveRight = true;
@@ -66,15 +69,21 @@ public class PlayerMove : MonoBehaviour
             if (!isMoving) {
                 isMoving = true;
                 spriteObject.GetComponent<Animator>().Play("Move");
+                ping.enabled = true;
             }
         } else if (isMoving) {
+            RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.zero);
+            if (hit.collider != null && hit.collider.tag == "PortalToLevel")
+                hit.collider.GetComponent<PortalToLevel>().ChangeLevel();
             isMoving = false;
             spriteObject.GetComponent<Animator>().Play("Idle");
+            ping.enabled = false;
         }
     }
 
     public void Stop()
     {
+        ping.enabled = false;
         agent.SetDestination(new Vector3(transform.position.x, transform.position.y, 0));
         spriteObject.GetComponent<Animator>().Play("Idle");
     }

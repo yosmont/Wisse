@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PNJ
   - CollectableItem
+  - PortalToLevel
   layers:
   - Default
   - TransparentFX
