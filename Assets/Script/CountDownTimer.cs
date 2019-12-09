@@ -7,7 +7,7 @@ public class CountDownTimer : MonoBehaviour
 {
     private float currentTime = 0f;
     private float startingTime = 15f;
-    [SerializeField] Text countDownText;
+    [SerializeField] Text countDownText = null;
 
     void Start()
     {
