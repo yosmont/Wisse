@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 4968559}
   - component: {fileID: 4968558}
   - component: {fileID: 4968557}
+  - component: {fileID: 4968561}
   m_Layer: 0
   m_Name: rock2
   m_TagString: Untagged
@@ -151,7 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d27058eb38e38c04cb83c66e1fb99970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rockPlace: {fileID: 161392137}
 --- !u!61 &4968558
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -216,7 +216,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 0aa207dde210a354182d9d138e778a7e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d35c6ccbefcb0bd4eb5c2d8fb6e769d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -235,12 +235,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4968556}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.37, y: -1.52, z: 0}
+  m_LocalPosition: {x: -6.72, y: -3.45, z: 0}
   m_LocalScale: {x: 0.573, y: 0.573, z: 0.573}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4968561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4968556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebbf42c7398dd38499d39829377a42ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockPlace: {fileID: 161392137}
 --- !u!1 &18074295
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +317,7 @@ SpriteRenderer:
   m_Size: {x: 8.52, y: 4.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &18074297
@@ -469,7 +482,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 208cc2d6c93bd4f4f8a8caecbfe426fe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6f65d5c5756acbc488d81299f572e3a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -530,7 +543,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.09928499, g: 0.2830189, b: 0.052064802, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -632,7 +645,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c477f4198f8ed104e882c5bc1f4af4e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3ff8f49fe6a6d6040ad654be649724ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -669,6 +682,7 @@ GameObject:
   - component: {fileID: 175194792}
   - component: {fileID: 175194791}
   - component: {fileID: 175194790}
+  - component: {fileID: 175194794}
   m_Layer: 0
   m_Name: rock1
   m_TagString: Untagged
@@ -688,7 +702,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d27058eb38e38c04cb83c66e1fb99970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rockPlace: {fileID: 120084402}
 --- !u!61 &175194791
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -753,7 +766,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: d70264eb45fdb2f45811015bc1f2cea8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a153c839323365d4597348a1af2fccea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -772,12 +785,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 175194789}
   m_LocalRotation: {x: 0, y: 0, z: 0.1926076, w: 0.9812759}
-  m_LocalPosition: {x: -9.86, y: 0.85, z: 0}
+  m_LocalPosition: {x: -8.82, y: -0.46, z: 0}
   m_LocalScale: {x: 0.512, y: 0.512, z: 0.512}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 22.21}
+--- !u!114 &175194794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175194789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebbf42c7398dd38499d39829377a42ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockPlace: {fileID: 120084402}
 --- !u!1 &206447307
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,7 +859,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 6ca30922ec25d9942921757e433f13c1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c593b61ece71a344e8652a60c9a0ca91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -852,8 +878,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 206447307}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.94, y: 1.84, z: 0}
-  m_LocalScale: {x: 1.491, y: 1.491, z: 1.491}
+  m_LocalPosition: {x: 4.96, y: 1.29, z: 0}
+  m_LocalScale: {x: 1.41645, y: 1.41645, z: 1.41645}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -900,6 +926,7 @@ GameObject:
   - component: {fileID: 739668772}
   - component: {fileID: 739668771}
   - component: {fileID: 739668770}
+  - component: {fileID: 739668774}
   m_Layer: 0
   m_Name: rock5
   m_TagString: Untagged
@@ -919,7 +946,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d27058eb38e38c04cb83c66e1fb99970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rockPlace: {fileID: 1132410736}
 --- !u!61 &739668771
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -984,7 +1010,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: fd39eeee50d25e14fbb17d02a2567544, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 33e4ea83b1562d3409db852ecaea7295, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1002,13 +1028,26 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 739668769}
-  m_LocalRotation: {x: 0, y: -0, z: 0.9979437, w: -0.06409673}
-  m_LocalPosition: {x: -7.1681423, y: 4.320634, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.92, y: 4.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 187.35}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &739668774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739668769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebbf42c7398dd38499d39829377a42ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockPlace: {fileID: 1132410736}
 --- !u!1 &818133948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,6 +1060,7 @@ GameObject:
   - component: {fileID: 818133951}
   - component: {fileID: 818133950}
   - component: {fileID: 818133949}
+  - component: {fileID: 818133953}
   m_Layer: 0
   m_Name: rock4
   m_TagString: Untagged
@@ -1040,7 +1080,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d27058eb38e38c04cb83c66e1fb99970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rockPlace: {fileID: 1781930335}
 --- !u!61 &818133950
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1105,7 +1144,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 698ca0e002d95934799bd607d2603b5e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5815aab013e83f442b5266e049335c3e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1124,12 +1163,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818133948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.03, y: 2.94, z: 0}
+  m_LocalPosition: {x: -5.71, y: 2.25, z: 0}
   m_LocalScale: {x: 0.602, y: 0.602, z: 0.602}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &818133953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818133948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebbf42c7398dd38499d39829377a42ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockPlace: {fileID: 1781930335}
 --- !u!1 &822032370
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,13 +1239,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132410735}
-  m_LocalRotation: {x: -0, y: -0, z: 0.997944, w: -0.06409284}
-  m_LocalPosition: {x: 5.98, y: 2.17, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.24, y: 0.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 187.34999}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1132410737
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1232,7 +1284,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d1b660d61bc083841aae9f02e9721406, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a31403b59d5f6554da56c939751a9d5b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1316,6 +1368,7 @@ GameObject:
   - component: {fileID: 1268406331}
   - component: {fileID: 1268406330}
   - component: {fileID: 1268406329}
+  - component: {fileID: 1268406333}
   m_Layer: 0
   m_Name: rock3
   m_TagString: Untagged
@@ -1335,7 +1388,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d27058eb38e38c04cb83c66e1fb99970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rockPlace: {fileID: 2065991444}
 --- !u!61 &1268406330
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1400,7 +1452,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 39b1ef8cd329cdc408f5ba1eac07f3f3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 90ee0fad97fcd264ea376dcaa51598b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1418,13 +1470,26 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268406328}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.13, y: 1.85, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.43501106, w: 0.90042514}
+  m_LocalPosition: {x: -6.43, y: -0.66, z: 0}
   m_LocalScale: {x: 0.706, y: 0.706, z: 0.706}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 51.572}
+--- !u!114 &1268406333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268406328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebbf42c7398dd38499d39829377a42ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockPlace: {fileID: 2065991444}
 --- !u!1 &1293666309
 GameObject:
   m_ObjectHideFlags: 0
@@ -1547,7 +1612,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1293666309}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.79, y: 0.65, z: 0}
+  m_LocalPosition: {x: -9.37, y: 0.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 822032371}
@@ -1701,7 +1766,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: defeed6ae777dfa4485c1394b90d04a9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ac7e3740ce15264498724ceaef038868, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1781,7 +1846,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 618feef584d2f71419595f29d9503380, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9b5977608779e6b418ce1a2cc7e6e3c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1799,10 +1864,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2065991442}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.6043673, y: 0.5010299, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.4350138, w: 0.9004238}
+  m_LocalPosition: {x: 3.7, y: 1.94, z: 0}
   m_LocalScale: {x: 0.706, y: 0.706, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 51.572002}
