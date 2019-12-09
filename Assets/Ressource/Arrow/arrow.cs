@@ -43,7 +43,8 @@ public class arrow : MonoBehaviour
             sj.enabled = true;
             rb.isKinematic = false;
             rb.bodyType = RigidbodyType2D.Static;
-
+            rb.GetComponent<BoxCollider2D>().size = new Vector2(6.57f, 10f);
+            rb.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0f);
         }
     }
 
@@ -77,6 +78,8 @@ public class arrow : MonoBehaviour
     {
         IsPressed = false;
         rb.isKinematic = false;
+        rb.GetComponent<BoxCollider2D>().size = new Vector2(6f, 0.6f);
+        rb.GetComponent<BoxCollider2D>().offset = new Vector2(3f, 0f);
         StartCoroutine(Release());
     }
 

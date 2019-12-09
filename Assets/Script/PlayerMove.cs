@@ -30,7 +30,7 @@ public class PlayerMove : MonoBehaviour
     {
         Vector3 InputWorldPoint = Vector3.negativeInfinity;
         if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.Lumin || Application.platform == RuntimePlatform.IPhonePlayer) {
-            if (!Input.touches[0].Equals(null)) {
+            if (Input.touchCount > 0) {
                 if (Input.touches[0].phase == TouchPhase.Began)
                     InputWorldPoint = Camera.main.ScreenToWorldPoint(Input.touches[0].position); 
             }
