@@ -5,13 +5,12 @@ using UnityEngine.UI;
 
 public class PNJTalkBasic : APNJTalk
 {
+    [TextArea]
     public string talk;
-    public Image DialogueBox;
 
     // Start is called before the first frame update
     void Start()
     {
-        DialogueBox.enabled = false;
     }
 
     // Update is called once per frame
@@ -22,7 +21,16 @@ public class PNJTalkBasic : APNJTalk
 
     public override void Talk()
     {
-        DialogueBox.enabled = true;
-        DialogueBox.GetComponentInChildren<Text>().text = talk;
+        dialManager.GetComponent<DialogueManager>().SimpleDial(talk, gameObject);
+    }
+
+    public override bool continueTalk()
+    {
+        return false;
+    }
+
+    public override bool continueTalk(int choice)
+    {
+        throw new System.NotImplementedException();
     }
 }

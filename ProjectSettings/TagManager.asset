@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - PNJ
+  - CollectableItem
   layers:
   - Default
   - TransparentFX
