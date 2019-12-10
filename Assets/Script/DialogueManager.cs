@@ -6,12 +6,12 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    public GameObject dialBox;
-    public GameObject dialFollowBox;
     public GameObject player;
     public Vector2 followShift = new Vector2(125, -100);
     public float followLifeTime = 2;
     private float followLifeTimer;
+    private GameObject dialBox;
+    private GameObject dialFollowBox;
     private GameObject currentPNJ = null;
     private GameObject currentImportantPNJ = null;
     private TextMeshProUGUI currentDialogue = null;
@@ -19,6 +19,8 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dialBox = transform.Find("DialogueBox").gameObject;
+        dialFollowBox = transform.Find("DialogueFollowBox").gameObject;
         foreach (Transform child in dialBox.transform)
             child.gameObject.SetActive(false);
         dialBox.SetActive(false);

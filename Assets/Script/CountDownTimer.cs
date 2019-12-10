@@ -9,6 +9,8 @@ public class CountDownTimer : MonoBehaviour
     private float startingTime = 15f;
     [SerializeField] Text countDownText = null;
 
+    public StartMenu menu = null;
+
     void Start()
     {
         currentTime = startingTime;
@@ -21,6 +23,10 @@ public class CountDownTimer : MonoBehaviour
         countDownText.text = currentTime.ToString("0");
 
         if (currentTime <= 0)
-            return;
+        {
+            menu.End();
+            currentTime = startingTime;
+            countDownText.text = currentTime.ToString("0");
+        }
     }
 }
