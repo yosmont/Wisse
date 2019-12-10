@@ -70,6 +70,7 @@ public class PlayerMove : MonoBehaviour
                 isMoving = true;
                 spriteObject.GetComponent<Animator>().Play("Move");
                 ping.enabled = true;
+                ping.GetComponent<Animator>().Play("Ping");
             }
         } else if (isMoving) {
             RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.zero);
