@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class NodeControl : MonoBehaviour
@@ -40,6 +41,9 @@ public class NodeControl : MonoBehaviour
             {
                 // Load the scene here !
                 Debug.Log($"Clicked on chapter {number}");
+                //Config.Instance.sceneToLoad = 1;
+                //Config.Instance.loadingScene = 1;
+                SceneManager.LoadScene(3);
             }
         }
         if (open == false)
