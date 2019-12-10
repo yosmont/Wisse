@@ -43,13 +43,12 @@ public class DialogueThroneScene : APNJTalk
 
     void Start()
     {
-
     }
 
     void Update()
     {
-        
     }
+
     public override void Talk()
     {
         dialManager.GetComponent<DialogueManager>().SimpleDial(str[0], gameObject, "Héracles");
@@ -57,9 +56,11 @@ public class DialogueThroneScene : APNJTalk
 
     public override bool continueTalk()
     {
-        currDialogue++;
+        ++currDialogue;
+        if (!(currDialogue < str.Length))
+            return false;
         dialManager.GetComponent<DialogueManager>().SimpleDial(str[currDialogue], gameObject, PnjName[currDialogue]);
-        return currDialogue >= 15;
+        return true;
     }
 
     public override bool continueTalk(int choice)

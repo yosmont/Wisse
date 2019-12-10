@@ -19,6 +19,8 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!player)
+            transform.Find("ping").gameObject.SetActive(false);
         dialBox = transform.Find("DialogueBox").gameObject;
         dialFollowBox = transform.Find("DialogueFollowBox").gameObject;
         foreach (Transform child in dialBox.transform)
@@ -41,40 +43,28 @@ public class DialogueManager : MonoBehaviour
                 dialFollowBox.SetActive(false);
             }
         }
-        if (dialBox.activeInHierarchy) {
+        if (currentImportantPNJ) {
             if (Input.GetMouseButtonDown(0) || (Input.touches.Length != 0 && Input.touches[0].phase == TouchPhase.Began))
-                currentDialogue.pageToDisplay += 1;
+                ++currentDialogue.pageToDisplay;
             if (currentDialogue.pageToDisplay > currentDialogue.textInfo.pageCount) {
                 if (!currentImportantPNJ.GetComponent<APNJTalk>().continueTalk()) {
-                    player.GetComponent<PlayerMove>().enabled = true;
+                    if (player)
+                        player.GetComponent<PlayerMove>().enabled = true;
                     dialBox.SetActive(false);
                     currentDialogue = null;
+                    currentImportantPNJ = null;
                 }
             }
         }
     }
 
-    public void SimpleDial(string dial, GameObject PNJ)
-    {
-        currentImportantPNJ = PNJ;
-        player.GetComponent<PlayerMove>().Stop();
-        player.GetComponent<PlayerMove>().enabled = false;
-        dialBox.SetActive(true);
-        foreach (Transform child in dialBox.transform)
-            child.gameObject.SetActive(false);
-        GameObject tmp = dialBox.transform.Find("DialBasic").gameObject;
-        tmp.SetActive(true);
-        tmp.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = PNJ.name + ":";
-        currentDialogue = tmp.transform.Find("Dialogue").GetComponent<TextMeshProUGUI>();
-        currentDialogue.text = dial;
-        currentDialogue.pageToDisplay = 1;
-    }
-
     public void SimpleDial(string dial, GameObject PNJ, string talkerName)
     {
         currentImportantPNJ = PNJ;
-        player.GetComponent<PlayerMove>().Stop();
-        player.GetComponent<PlayerMove>().enabled = false;
+        if (player) {
+            player.GetComponent<PlayerMove>().Stop();
+            player.GetComponent<PlayerMove>().enabled = false;
+        }
         dialBox.SetActive(true);
         foreach (Transform child in dialBox.transform)
             child.gameObject.SetActive(false);
@@ -85,21 +75,15 @@ public class DialogueManager : MonoBehaviour
         currentDialogue.text = dial;
         currentDialogue.pageToDisplay = 1;
     }
+
+    public void SimpleDial(string dial, GameObject PNJ)
+    {
+        SimpleDial(dial, PNJ, PNJ.name);
+    }
     
     public void SimpleDial(string dial, GameObject PNJ, GameObject talker)
     {
-        currentImportantPNJ = PNJ;
-        player.GetComponent<PlayerMove>().Stop();
-        player.GetComponent<PlayerMove>().enabled = false;
-        dialBox.SetActive(true);
-        foreach (Transform child in dialBox.transform)
-            child.gameObject.SetActive(false);
-        GameObject tmp = dialBox.transform.Find("DialBasic").gameObject;
-        tmp.SetActive(true);
-        tmp.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = talker.name + ":";
-        currentDialogue = tmp.transform.Find("Dialogue").GetComponent<TextMeshProUGUI>();
-        currentDialogue.text = dial;
-        currentDialogue.pageToDisplay = 1;
+        SimpleDial(dial, PNJ, talker.name);
     }
 
     public void ChoiceDial(string dial, string[] choice, GameObject PNJ)
