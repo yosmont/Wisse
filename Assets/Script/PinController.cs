@@ -33,9 +33,6 @@ public class PinController : MonoBehaviour
         mpm = player.GetComponent<MenuPlayerMove>();
         MissionStatement = GameObject.Find("MissionStatement");
         missionTitle = GameObject.Find("MissionTitle").GetComponent<Text>();
-        //missionBody = GameObject.Find("MissionBody").GetComponent<Text>();
-        //Debug.Log(missionBody.text);
-        Debug.Log(missionTitle.text);
     }
 
     // Update is called once per frame

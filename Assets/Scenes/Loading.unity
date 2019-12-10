@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 246013156}
   - component: {fileID: 246013155}
   m_Layer: 5
-  m_Name: Loadbar
+  m_Name: LoadBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.9
+  m_FillAmount: 0.877
   m_FillClockwise: 1
   m_FillOrigin: 1
   m_UseSpriteMesh: 0
@@ -464,7 +464,7 @@ PrefabInstance:
     - target: {fileID: 6641745718671057635, guid: 34ea76d23ac4fdc49ab65a239c260fb7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.25
+      value: -4.42
       objectReference: {fileID: 0}
     - target: {fileID: 6641745718671057635, guid: 34ea76d23ac4fdc49ab65a239c260fb7,
         type: 3}
@@ -552,8 +552,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1799881639}
+  - component: {fileID: 1799881640}
   m_Layer: 0
-  m_Name: loadingbar
+  m_Name: bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -574,6 +575,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1799881640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799881638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ded55f12a126b489a846dbf7399f15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  playerTransform: {fileID: 0}
+  playerStart: -4.4
+  playerEnd: 4.4
+  progress: 0
 --- !u!1 &1806403885
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,7 +685,7 @@ GameObject:
   - component: {fileID: 1808394995}
   - component: {fileID: 1808394994}
   m_Layer: 5
-  m_Name: Okbar
+  m_Name: OkBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
