@@ -22,9 +22,15 @@ public class StartMenu : MonoBehaviour
 
     void Resume()
     {
-        PauseMenuUI.SetActive(false);
-        GameIsPaused = false;
-        Time.timeScale = 1f;
+        if (!GameIsEnded)
+        {
+            PauseMenuUI.SetActive(false);
+            GameIsPaused = false;
+            Time.timeScale = 1f;
+        } else
+        {
+
+        }
     }
 
     public void End()
