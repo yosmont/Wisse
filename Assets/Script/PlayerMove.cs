@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class PlayerMove : MonoBehaviour
 {
-    public UnityEngine.UI.Image ping;
+    public PingController ping;
     [HideInInspector]
     public Dictionary<string, bool> inventory = new Dictionary<string, bool>();
     public bool isMoving = false;
@@ -24,23 +24,25 @@ public class PlayerMove : MonoBehaviour
             inventory.Add(elem.name, false);
         }
         spriteObject = transform.Find("playerSprite").gameObject;
-        ping.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 InputWorldPoint = Vector3.negativeInfinity;
+        Vector3 InputWorldPoint = Vector3.zero;
         if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.Lumin || Application.platform == RuntimePlatform.IPhonePlayer) {
             if (Input.touchCount > 0) {
-                if (Input.touches[0].phase == TouchPhase.Began)
-                    InputWorldPoint = Camera.main.ScreenToWorldPoint(Input.touches[0].position); 
+                if (Input.touches[0].phase == TouchPhase.Began) {
+                    InputWorldPoint = Camera.main.ScreenToWorldPoint(Input.touches[0].position);
+                }
             }
         } else {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0)) {
                 InputWorldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            }
         }
-        if (InputWorldPoint != Vector3.negativeInfinity) {
+        Debug.Log(InputWorldPoint != Vector3.zero);
+        if (InputWorldPoint != Vector3.zero) {
             RaycastHit2D hit = Physics2D.Raycast(new Vector2(InputWorldPoint.x, InputWorldPoint.y), Vector2.zero);
             if (hit.collider != null && hit.collider.tag == "PNJ") {
                 hit.collider.GetComponent<APNJTalk>().Talk();
@@ -50,6 +52,7 @@ public class PlayerMove : MonoBehaviour
             } else {
                 InputWorldPoint.z = 0;
                 agent.SetDestination(InputWorldPoint);
+                ping.Move(agent.destination);
             }
         }
         Move();
@@ -58,7 +61,6 @@ public class PlayerMove : MonoBehaviour
     void Move()
     {
         if (agent.velocity != Vector3.zero) {
-            ping.transform.position = Camera.main.WorldToScreenPoint(agent.destination);
             if (agent.velocity.x < 0 && !moveRight) {
                 spriteObject.GetComponent<SpriteRenderer>().flipX = true;
                 moveRight = true;
@@ -69,8 +71,6 @@ public class PlayerMove : MonoBehaviour
             if (!isMoving) {
                 isMoving = true;
                 spriteObject.GetComponent<Animator>().Play("Move");
-                ping.enabled = true;
-                ping.GetComponent<Animator>().Play("Ping");
             }
         } else if (isMoving) {
             RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.zero);
@@ -78,13 +78,13 @@ public class PlayerMove : MonoBehaviour
                 hit.collider.GetComponent<PortalToLevel>().ChangeLevel();
             isMoving = false;
             spriteObject.GetComponent<Animator>().Play("Idle");
-            ping.enabled = false;
+            ping.Stop();
         }
     }
 
     public void Stop()
     {
-        ping.enabled = false;
+        ping.Stop();
         agent.SetDestination(new Vector3(transform.position.x, transform.position.y, 0));
         spriteObject.GetComponent<Animator>().Play("Idle");
     }
