@@ -34,4 +34,18 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
   m_ColliderType: 1
-  Sprites: []
+  Sprites:
+  - Sprite: {fileID: 21300000, guid: 6be0edcfe7f21654384d1b1837d7ec30, type: 3}
+    Weight: 130
+  - Sprite: {fileID: 21300000, guid: a755a42815d1ba9408ff4e3f07b2dd45, type: 3}
+    Weight: 50
+  - Sprite: {fileID: 21300000, guid: a57f87c0293668f41b4a3f14678e23f9, type: 3}
+    Weight: 50
+  - Sprite: {fileID: 21300000, guid: 766024411964a2941900723f139e444f, type: 3}
+    Weight: 50
+  - Sprite: {fileID: 21300000, guid: ac364dfb073c28a489ab5471f9fd6a18, type: 3}
+    Weight: 10
+  - Sprite: {fileID: 21300000, guid: 810ca1c788a55bc4996b5724f1afeb57, type: 3}
+    Weight: 8
+  - Sprite: {fileID: 0}
+    Weight: 120
