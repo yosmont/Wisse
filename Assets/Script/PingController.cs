@@ -10,10 +10,14 @@ public class PingController : MonoBehaviour
     private Image sprite  = null;
     private Vector3 dest;
 
+    private void Awake()
+    {
+        sprite = GetComponent<Image>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        sprite = GetComponent<Image>();
         sprite.enabled = false;
     }
 

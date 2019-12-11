@@ -13,17 +13,19 @@ public class PlayerMove : MonoBehaviour
     private bool moveRight = true;
     private NavMeshAgent agent;
 
+    private void Awake()
+    {
+        agent = GetComponent<NavMeshAgent>();
+        spriteObject = transform.Find("playerSprite").gameObject;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-        GameObject[] collectableList = GameObject.FindGameObjectsWithTag("CollectableItem");
-        foreach (GameObject elem in collectableList) {
+        foreach (GameObject elem in GameObject.FindGameObjectsWithTag("CollectableItem"))
             inventory.Add(elem.name, false);
-        }
-        spriteObject = transform.Find("playerSprite").gameObject;
     }
 
     // Update is called once per frame
