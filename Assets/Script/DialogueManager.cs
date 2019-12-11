@@ -15,7 +15,6 @@ public class DialogueManager : MonoBehaviour
     private GameObject currentPNJ = null;
     private GameObject currentImportantPNJ = null;
     private TextMeshProUGUI currentDialogue = null;
-    private bool begin = true;
 
     // Start is called before the first frame update
     void Start()
