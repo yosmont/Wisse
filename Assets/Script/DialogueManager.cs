@@ -15,6 +15,7 @@ public class DialogueManager : MonoBehaviour
     private GameObject currentPNJ = null;
     private GameObject currentImportantPNJ = null;
     private TextMeshProUGUI currentDialogue = null;
+    private bool begin = true;
 
     // Start is called before the first frame update
     void Start()
@@ -44,15 +45,16 @@ public class DialogueManager : MonoBehaviour
             }
         }
         if (currentImportantPNJ) {
-            if (Input.GetMouseButtonDown(0) || (Input.touches.Length != 0 && Input.touches[0].phase == TouchPhase.Began))
+            if (Input.GetMouseButtonDown(0) || (Input.touches.Length != 0 && Input.touches[0].phase == TouchPhase.Began)) {
                 ++currentDialogue.pageToDisplay;
-            if (currentDialogue.pageToDisplay > currentDialogue.textInfo.pageCount) {
-                if (!currentImportantPNJ.GetComponent<APNJTalk>().continueTalk()) {
-                    if (player)
-                        player.GetComponent<PlayerMove>().enabled = true;
-                    dialBox.SetActive(false);
-                    currentDialogue = null;
-                    currentImportantPNJ = null;
+                if (currentDialogue.pageToDisplay > currentDialogue.textInfo.pageCount) {
+                    if (!currentImportantPNJ.GetComponent<APNJTalk>().continueTalk()) {
+                        if (player)
+                            player.GetComponent<PlayerMove>().enabled = true;
+                        dialBox.SetActive(false);
+                        currentDialogue = null;
+                        currentImportantPNJ = null;
+                    }
                 }
             }
         }
