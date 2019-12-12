@@ -17,6 +17,7 @@ public class PlayerMove : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         spriteObject = transform.Find("playerSprite").gameObject;
+        spriteObject.GetComponent<Animator>().Play("Idle");
     }
 
     // Start is called before the first frame update
