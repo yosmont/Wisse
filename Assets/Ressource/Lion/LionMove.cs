@@ -6,7 +6,6 @@ public class LionMove : MonoBehaviour
 {
     private float currentTime = 0f;
     private float startingTime = 15f;
-    private Vector2 move;
     private Rigidbody2D lion;
     private Vector3 speed;
     private float moveSpeed = 150.0f;
@@ -21,7 +20,6 @@ public class LionMove : MonoBehaviour
         currentTime = startingTime;
         moveType = GetComponent<Animator>();
         lion = GetComponent<Rigidbody2D>();
-        move = new Vector2(1, 0);
         pos = new Vector3(7.5f, 2.6f, 0);
         speed = new Vector3(0, dirUp * moveSpeed * Time.deltaTime, 0);
         lion.velocity = speed;

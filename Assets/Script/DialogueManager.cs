@@ -16,13 +16,17 @@ public class DialogueManager : MonoBehaviour
     private GameObject currentImportantPNJ = null;
     private TextMeshProUGUI currentDialogue = null;
 
+    private void Awake()
+    {
+        dialBox = transform.Find("DialogueBox").gameObject;
+        dialFollowBox = transform.Find("DialogueFollowBox").gameObject;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         if (!player)
             transform.Find("ping").gameObject.SetActive(false);
-        dialBox = transform.Find("DialogueBox").gameObject;
-        dialFollowBox = transform.Find("DialogueFollowBox").gameObject;
         foreach (Transform child in dialBox.transform)
             child.gameObject.SetActive(false);
         dialBox.SetActive(false);
@@ -44,15 +48,16 @@ public class DialogueManager : MonoBehaviour
             }
         }
         if (currentImportantPNJ) {
-            if (Input.GetMouseButtonDown(0) || (Input.touches.Length != 0 && Input.touches[0].phase == TouchPhase.Began))
+            if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)) {
                 ++currentDialogue.pageToDisplay;
-            if (currentDialogue.pageToDisplay > currentDialogue.textInfo.pageCount) {
-                if (!currentImportantPNJ.GetComponent<APNJTalk>().continueTalk()) {
-                    if (player)
-                        player.GetComponent<PlayerMove>().enabled = true;
-                    dialBox.SetActive(false);
-                    currentDialogue = null;
-                    currentImportantPNJ = null;
+                if (currentDialogue.pageToDisplay > currentDialogue.textInfo.pageCount) {
+                    if (!currentImportantPNJ.GetComponent<APNJTalk>().continueTalk()) {
+                        if (player)
+                            player.GetComponent<PlayerMove>().enabled = true;
+                        dialBox.SetActive(false);
+                        currentDialogue = null;
+                        currentImportantPNJ = null;
+                    }
                 }
             }
         }
