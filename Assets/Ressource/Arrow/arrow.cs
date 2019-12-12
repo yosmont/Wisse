@@ -78,14 +78,14 @@ public class arrow : MonoBehaviour
     {
         IsPressed = false;
         rb.isKinematic = false;
-        rb.GetComponent<BoxCollider2D>().size = new Vector2(6f, 0.6f);
-        rb.GetComponent<BoxCollider2D>().offset = new Vector2(3f, 0f);
         StartCoroutine(Release());
     }
 
     private IEnumerator Release() {
         yield return new WaitForSeconds(releaseDelay);
         sj.enabled = false;
+        rb.GetComponent<BoxCollider2D>().size = new Vector2(6f, 0.6f);
+        rb.GetComponent<BoxCollider2D>().offset = new Vector2(3f, 0f);
     }
 }
 
