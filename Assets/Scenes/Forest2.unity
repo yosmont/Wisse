@@ -35181,6 +35181,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3411235798252199705, guid: 01d9785404cf20341bd80a8aff1fa3c0,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3411235799439537528, guid: 01d9785404cf20341bd80a8aff1fa3c0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -35902,7 +35907,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0
   far clip plane: 1000
   field of view: 60
   orthographic: 1
