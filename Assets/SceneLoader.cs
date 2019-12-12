@@ -11,7 +11,6 @@ public class SceneLoader : MonoBehaviour
     void Start()
     {
         Config.Instance.loadingProgress = 0f;
-        Debug.Log($"You're supposed to load {Config.Instance.sceneToLoad}");
     }
 
     // Update is called once per frame
@@ -21,9 +20,7 @@ public class SceneLoader : MonoBehaviour
             Config.Instance.loadingProgress += coef * Time.deltaTime;
         else
         {
-            Debug.Log($"Loading completed, running scene {Config.Instance.sceneToLoad}");
-            if (Config.Instance.sceneToLoad != "")
-                SceneManager.LoadScene(Config.Instance.sceneToLoad);
+            SceneManager.LoadScene("Scenes/SalleDuTrone");
 
         }
         /*
@@ -40,7 +37,6 @@ public class SceneLoader : MonoBehaviour
     IEnumerator LoadOtherScene(string sceneName)
     {
         AsyncOperation loader = SceneManager.LoadSceneAsync(sceneName);
-        Debug.Log($"SCLD - Loading scene : {sceneName}");
 
         while (loader.progress < 1)
         {

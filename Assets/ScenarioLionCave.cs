@@ -23,7 +23,7 @@ public class ScenarioLionCave : MonoBehaviour
         pos = heracles.position;
         if (pos.x >= 5 && !hasTalked)
             player.GetComponent<APNJTalk>().Talk();
-        if (pos.x >= 9 && pos.y <= -2.5 && !hasTalked2)
+        if (pos.x >= 9 && pos.y <= 0 && !hasTalked2)
             player.GetComponent<APNJTalk>().Talk();
     }
 }

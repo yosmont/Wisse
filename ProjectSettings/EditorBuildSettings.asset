@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MapMenu.unity
     guid: b2a59b2b6c8623245b1f7c8a0ae8a461
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Loading.unity
     guid: 2aa677e21948ded44beabc41e824badd
   - enabled: 0

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class gameLoop : MonoBehaviour
 {
@@ -20,7 +21,10 @@ public class gameLoop : MonoBehaviour
     public Transform rock5;
     public Transform rockContainer5;
 
-    public Text victory;
+    public string levelPath;
+
+    public Image black;
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +40,14 @@ public class gameLoop : MonoBehaviour
             && rock3.position == rockContainer3.position 
             && rock4.position == rockContainer4.position 
             && rock5.position == rockContainer5.position)
-            victory.text = "Gagné !";
-
+            StartCoroutine(Fading());
     }
+
+    IEnumerator Fading()
+    {
+        anim.SetBool("Fade", true);
+        yield return new WaitUntil(() => black.color.a == 1);
+        SceneManager.LoadScene(levelPath);
+    }
+
 }

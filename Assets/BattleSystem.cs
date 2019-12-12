@@ -30,9 +30,6 @@ public class BattleSystem : MonoBehaviour
     Unit playerUnit;
     Unit enemyUnit;
 
-    public Image black;
-    public Animator anim;
-
     void Start()
     {
         state = BattleState.START;
@@ -53,7 +50,7 @@ public class BattleSystem : MonoBehaviour
         playerHUD.SetHUD(playerUnit);
         enemyHUD.SetHUD(enemyUnit);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         state = BattleState.PLAYERTURN;
         PlayerTurn();
@@ -98,10 +95,16 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.WIN)
         {
             DialogueText.text = "Tu as gagné ! Mais tu perds un doigt.";
-            StartCoroutine(Fading());
+            StartCoroutine(LoadScene());
         }
         else
             DialogueText.text = "Tu as perdu !";
+    }
+
+    IEnumerator LoadScene()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(levelPath);
     }
 
     IEnumerator EnemyTurn()
@@ -168,13 +171,6 @@ public class BattleSystem : MonoBehaviour
             if (state == BattleState.PLAYERTURN)
                 DialogueText.text = "Ton épée est cassée";
         }
-    }
-
-    IEnumerator Fading()
-    {
-        anim.SetBool("Fade", true);
-        yield return new WaitUntil(() => black.color.a == 1);
-        SceneManager.LoadScene(levelPath);
     }
 
 }

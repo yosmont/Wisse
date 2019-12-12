@@ -6,7 +6,7 @@ public class DialogueCave : APNJTalk
 {
     private int currDialogue = 0;
     private string dialogue = "J'entends un courant d'air, j'ai l'impression qu'il y a une autre entrée. Il va falloir que je la ferme si je veux éviter que le lion s'enfuit.";
-    private string postDialogue = "Je devrais pouvoir utiliser ces pierres.";
+    private string postDialogue = "Je devrais pouvoir utiliser ces pierres pour boucher l'entrée.";
     public bool hasTalked = false;
     public bool hasTalked2 = false;
     void Start()

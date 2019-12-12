@@ -899,7 +899,9 @@ MonoBehaviour:
   rockContainer4: {fileID: 1781930335}
   rock5: {fileID: 739668773}
   rockContainer5: {fileID: 1132410736}
-  victory: {fileID: 0}
+  levelPath: Scenes/LionCave2
+  black: {fileID: 1941953293}
+  anim: {fileID: 1941953292}
 --- !u!4 &264719002
 Transform:
   m_ObjectHideFlags: 0
@@ -1365,7 +1367,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1194810903
 GameObject:
@@ -2036,7 +2038,7 @@ RectTransform:
   m_Children:
   - {fileID: 1941953291}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

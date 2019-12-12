@@ -14551,6 +14551,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: rock1
   levelPath: Scenes/CaveMiniGame
+  black: {fileID: 91891620}
+  anim: {fileID: 91891619}
 --- !u!50 &1724449617
 Rigidbody2D:
   serializedVersion: 4
