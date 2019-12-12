@@ -10,13 +10,17 @@ public class ScenarioForest2 : MonoBehaviour
     private Rigidbody2D lion;
     private Vector3 speed;
 
-    void Start()
+    private void Awake()
     {
         Lion = GameObject.Find("lion");
         Player = GameObject.Find("player");
-        Player.GetComponent<PlayerMove>().enabled = false;
         moveType = Lion.GetComponent<Animator>();
         lion = Lion.GetComponent<Rigidbody2D>();
+    }
+
+    void Start()
+    {
+        Player.GetComponent<PlayerMove>().enabled = false;
         speed = new Vector3(95f * Time.deltaTime, 150f * Time.deltaTime, 0);
         lion.velocity = speed;
         moveType.Play("walk");

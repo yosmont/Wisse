@@ -28,7 +28,7 @@ public class DialogueThroneScene : APNJTalk
 
     private string[] str = {
         "Eurysthée !",
-        "Heraclès? Pourquoi es-tu là, que me veux-tu cousin ?",
+        "Heraclès ? Pourquoi es-tu là, que me veux-tu cousin ?",
         "J’ai commis l’impossible ! Fait l’irréparable ! Que les dieux me pardonnent ! Que vais-je faire ?",
         "Reprends-toi donc et cesses tes jérémiades, expliques-moi plutôt ce qu’il s’est passé !",
         "Tout à coup, j’ai perdu le contrôle. Je n’arrivais plus à retenir mes coups. Mes enfants … Ma femme … Je les ai tués et j’ai brûlé leurs corps. Je suis allé à Delphes pour demander conseil à la Pythie et elle m’a redirigé vers toi.",
@@ -53,7 +53,7 @@ public class DialogueThroneScene : APNJTalk
     private string[] afterDial =
     {
         "A condition bien sûr que tu survives à cette épreuve !",
-        "Aucune armes ne peut transpercer la peau de ce lion, Héraclès va mourir d’épuisement ou sous les coups du lion avant d’avoir pu faire la moindre chose. Ahahahaha"
+        "Aucune arme ne peut transpercer la peau de ce lion, Héraclès va mourir d’épuisement ou sous les coups du lion avant d’avoir pu faire la moindre chose. Ahahahaha"
     };
 
     void Start()
