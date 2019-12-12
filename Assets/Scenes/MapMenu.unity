@@ -521,6 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e716614494e429a45975414091f2d5ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneToLoad: 
 --- !u!4 &226602695
 Transform:
   m_ObjectHideFlags: 0
@@ -2782,7 +2783,7 @@ PrefabInstance:
     - target: {fileID: 8086490302391806067, guid: 547c4630250758141b169a4867f47747,
         type: 3}
       propertyPath: SceneNames.Array.data[0]
-      value: ShootLion
+      value: SalleDuTrone
       objectReference: {fileID: 0}
     - target: {fileID: 8086490302391806067, guid: 547c4630250758141b169a4867f47747,
         type: 3}
