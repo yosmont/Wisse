@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LaunchGame : MonoBehaviour
 {
+    public string name;
     public string levelPath;
+
+    public Image black;
+    public Animator anim;
 
     void Start()
     {
@@ -28,8 +33,15 @@ public class LaunchGame : MonoBehaviour
         }
         if (InputWorldPoint != Vector3.zero) {
             RaycastHit2D hit = Physics2D.Raycast(new Vector2(InputWorldPoint.x, InputWorldPoint.y), Vector2.zero);
-            if (hit.collider != null && hit.collider.name == "lion")
-                SceneManager.LoadScene(levelPath);
+            if (hit.collider != null && hit.collider.name == name)
+                StartCoroutine(Fading());
         }
+    }
+
+    IEnumerator Fading()
+    {
+        anim.SetBool("Fade", true);
+        yield return new WaitUntil(() => black.color.a == 1);
+        SceneManager.LoadScene(levelPath);
     }
 }

@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public enum BattleState { START, PLAYERTURN, PLAYERATTACK, ENEMYTURN, WIN, LOSE }
 
 public class BattleSystem : MonoBehaviour
 {
+    public string levelPath;
+
     public BattleState state;
     public GameObject player;
     public GameObject enemy;
@@ -23,12 +26,13 @@ public class BattleSystem : MonoBehaviour
 
     private GameObject Button;
     private bool sword = true;
+    private bool mace = true;
     Unit playerUnit;
     Unit enemyUnit;
 
+    public Image black;
+    public Animator anim;
 
-    
-    // Start is called before the first frame update
     void Start()
     {
         state = BattleState.START;
@@ -75,6 +79,8 @@ public class BattleSystem : MonoBehaviour
         {
             DialogueText.text = "Le bruit dérange " + enemyUnit.unitName;
             yield return new WaitForSeconds(2f);
+            DialogueText.text = "La massue s'est brisée";
+            yield return new WaitForSeconds(2f);
         }
         if (isDead)
         {
@@ -91,7 +97,8 @@ public class BattleSystem : MonoBehaviour
     {
         if (state == BattleState.WIN)
         {
-            DialogueText.text = "Tu as gagné !";
+            DialogueText.text = "Tu as gagné ! Mais tu perds un doigt.";
+            StartCoroutine(Fading());
         }
         else
             DialogueText.text = "Tu as perdu !";
@@ -118,17 +125,25 @@ public class BattleSystem : MonoBehaviour
 
     void PlayerTurn()
     {
-        if (sword == false)
+        if (sword == false && mace == false)
             Button.SetActive(true);
         DialogueText.text = "À ton tour !";
     }
 
     public void OnMaceButton()
     {
-        if (state != BattleState.PLAYERTURN)
-            return;
-        state = BattleState.PLAYERATTACK;
-        StartCoroutine(PlayerAttack("mace", 1));
+        if (mace)
+        {
+            if (state != BattleState.PLAYERTURN)
+                return;
+            state = BattleState.PLAYERATTACK;
+            mace = false;
+            StartCoroutine(PlayerAttack("mace", 1));
+        }
+        else {
+            if (state == BattleState.PLAYERTURN)
+                DialogueText.text = "Ta massue est cassée";
+        }
     }
 
     public void OnThrottlingButton()
@@ -155,5 +170,11 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
+    IEnumerator Fading()
+    {
+        anim.SetBool("Fade", true);
+        yield return new WaitUntil(() => black.color.a == 1);
+        SceneManager.LoadScene(levelPath);
+    }
 
 }

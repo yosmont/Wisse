@@ -17,10 +17,11 @@ public class LionMove : MonoBehaviour
 
     void Start()
     {
+        currentTime = Time.deltaTime;
         currentTime = startingTime;
         moveType = GetComponent<Animator>();
         lion = GetComponent<Rigidbody2D>();
-        pos = new Vector3(7.5f, 2.6f, 0);
+        pos = new Vector3(7.5f, -3.7f, 0);
         speed = new Vector3(0, dirUp * moveSpeed * Time.deltaTime, 0);
         lion.velocity = speed;
         moveType.Play("walk");
