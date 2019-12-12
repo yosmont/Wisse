@@ -36122,7 +36122,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 1.5, y: 1.5, z: 0}
   m_MaxChunkCount: 16
@@ -84186,7 +84186,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fdf5f2802e7022e4cb03f6bdf44267ad, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3d9b26f463ab9974fb20a4d6ff6fe199, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

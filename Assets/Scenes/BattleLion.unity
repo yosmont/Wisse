@@ -220,7 +220,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0bcabc0bcbe829942a5275df10de9fda, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 206a82665e5a2694a91289de76dd80f4, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -467,7 +467,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232277479}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -230.9, y: -124.3, z: -5247}
+  m_LocalPosition: {x: -440, y: -124.3, z: -5247}
   m_LocalScale: {x: 73.890175, y: 73.890175, z: 73.890175}
   m_Children: []
   m_Father: {fileID: 686351703}
@@ -1260,7 +1260,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 861430333}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 303.35, y: 106.59, z: -5247}
+  m_LocalPosition: {x: 542, y: 106.59, z: -5247}
   m_LocalScale: {x: 75.84865, y: 75.84865, z: 75.84865}
   m_Children: []
   m_Father: {fileID: 686351703}
@@ -2437,7 +2437,6 @@ MonoBehaviour:
   playerHUD: {fileID: 2078127377}
   enemyHUD: {fileID: 1665666763}
   DialogueText: {fileID: 714713748}
-
 --- !u!4 &1979954212
 Transform:
   m_ObjectHideFlags: 0
