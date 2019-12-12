@@ -14,6 +14,9 @@ public class PinController : MonoBehaviour
     [Range(1, 12)]
     public int MissionCount;
 
+    [ExecuteInEditMode]
+    public string[] SceneNames;
+
     public float moveSpeed;
 
     PolygonCollider2D pinShape;
@@ -55,8 +58,9 @@ public class PinController : MonoBehaviour
                 Debug.Log($"Pressed pin {name}");
                 Debug.Log($"Setting title to {Title}");
                 MissionStatement.GetComponentInChildren<MissionNodes>().NodeCount = MissionCount;
+                MissionStatement.GetComponentInChildren<MissionNodes>().prefix = name;
                 Debug.Log($"Setting Nodecount to {MissionStatement.GetComponentInChildren<MissionNodes>().NodeCount}");
-                mpm.destination = new Vector3(transform.position.x - 0.6f, transform.position.y - 0.2f, transform.position.z);
+                mpm.destination = new Vector3(transform.position.x - 0.8f, transform.position.y + 0.65f, transform.position.z);
                 mpm.moving = true;
                 Debug.Log("Move player to pin coordinates");
                 missionTitle.text = Title;

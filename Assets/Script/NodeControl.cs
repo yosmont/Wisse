@@ -13,11 +13,13 @@ public class NodeControl : MonoBehaviour
 
     PolygonCollider2D zone;
     SpriteRenderer sp;
+    MissionNodes msn;
     Text txZone;
 
     // Start is called before the first frame update
     void Start()
     {
+        msn = GetComponentInParent<MissionNodes>();
         zone = GetComponent<PolygonCollider2D>();
         txZone = GetComponentInChildren<Text>();
         sp = GetComponent<SpriteRenderer>();
@@ -40,10 +42,18 @@ public class NodeControl : MonoBehaviour
             if (zone.bounds.Contains(mpos))
             {
                 // Load the scene here !
-                Debug.Log($"Clicked on chapter {number}");
-                //Config.Instance.sceneToLoad = 1;
-                //Config.Instance.loadingScene = 1;
-                SceneManager.LoadScene(3);
+                Debug.Log($"[Map] - Clicked on chapter {number} from chapter {msn.prefix}");
+                string[] names = GameObject.Find(msn.prefix).GetComponent<PinController>().SceneNames;
+                Debug.Log($"[Map] - The scene to load should be {names[number - 1]}");
+                if (Application.CanStreamedLevelBeLoaded(names[number - 1]) == false)
+                {
+                    Debug.Log("[Map] - Scene doesnt' exist, so fuck you");
+                } else {
+                    Config.Instance.sceneToLoad = names[number - 1];
+                    //Config.Instance.loadingScene = 1;
+                    SceneManager.LoadScene("Loading");
+                }
+
             }
         }
         if (open == false)

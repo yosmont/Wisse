@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ProgressBar : MonoBehaviour
 {
     public GameObject player = null;
+    public SceneLoader loader;
     public Transform playerTransform;
     public float playerStart = -4.3f;
     public float playerEnd = 4.3f;
@@ -16,7 +17,6 @@ public class ProgressBar : MonoBehaviour
     Image redBar;
     bool moving = false;
 
-
     [ExecuteInEditMode]
     // Start is called before the first frame update
     void Start()
@@ -25,15 +25,17 @@ public class ProgressBar : MonoBehaviour
         {
             player = GameObject.Find("Player");
             player.GetComponentInChildren<Animator>().Play("Idle");
-            playerTransform = GameObject.Find("playerSprite").GetComponent<Transform>();
         }
 
+        playerTransform = GameObject.Find("playerSprite").GetComponent<Transform>();
         redBar = GameObject.Find("LoadBar").GetComponent<Image>();
+        Debug.Log($"[Load] - Should be loading {Config.Instance.sceneToLoad}");
     }
 
     // Update is called once per frame
     void Update()
     {
+        progress = Config.Instance.loadingProgress;
         redBar.fillAmount = 1 - progress;
         if (!moving && progress > 0.05 && progress < 0.95)
         {
@@ -47,7 +49,7 @@ public class ProgressBar : MonoBehaviour
         if (progress >= 0.07)
         {
             Vector2 tmp = playerTransform.position;
-            tmp.x = playerStart + ((Mathf.Abs(playerStart) + Mathf.Abs(playerEnd)) * progress) - ((1 - progress) / 2) - 0.15f;
+            tmp.x = playerStart + ((Mathf.Abs(playerStart) + Mathf.Abs(playerEnd)) * progress) - (1 - progress) + 0.25f;
             tmp.y = playerTransform.position.y;
             playerTransform.position = tmp;
         }
