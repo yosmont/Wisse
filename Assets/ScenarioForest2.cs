@@ -20,7 +20,6 @@ public class ScenarioForest2 : MonoBehaviour
 
     void Start()
     {
-        Player.GetComponent<PlayerMove>().enabled = false;
         speed = new Vector3(95f * Time.deltaTime, 150f * Time.deltaTime, 0);
         lion.velocity = speed;
         moveType.Play("walk");
@@ -32,7 +31,6 @@ public class ScenarioForest2 : MonoBehaviour
     {
         if (Camera.main.WorldToViewportPoint(lion.position).y > 1 &&
         Camera.main.WorldToViewportPoint(lion.position).x > 1) {
-            Player.GetComponent<PlayerMove>().enabled = true;
             Lion.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
