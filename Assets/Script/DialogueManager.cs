@@ -20,17 +20,17 @@ public class DialogueManager : MonoBehaviour
     {
         dialBox = transform.Find("DialogueBox").gameObject;
         dialFollowBox = transform.Find("DialogueFollowBox").gameObject;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
         if (!player)
             transform.Find("ping").gameObject.SetActive(false);
         foreach (Transform child in dialBox.transform)
             child.gameObject.SetActive(false);
         dialBox.SetActive(false);
         dialFollowBox.SetActive(false);
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
     }
 
     // Update is called once per frame
