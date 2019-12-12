@@ -2437,11 +2437,7 @@ MonoBehaviour:
   playerHUD: {fileID: 2078127377}
   enemyHUD: {fileID: 1665666763}
   DialogueText: {fileID: 714713748}
-<<<<<<< HEAD
-=======
-  black: {fileID: 0}
-  anim: {fileID: 0}
->>>>>>> 78f470ca7ea5919f11d55428f86be1cd1b4b2f27
+
 --- !u!4 &1979954212
 Transform:
   m_ObjectHideFlags: 0
