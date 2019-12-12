@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
+    public string levelPath;
+
     public static bool GameIsPaused = true;
     public static bool GameIsEnded = false;
     public GameObject PauseMenuUI;
@@ -29,7 +32,7 @@ public class StartMenu : MonoBehaviour
             Time.timeScale = 1f;
         } else
         {
-
+            SceneManager.LoadScene(levelPath);
         }
     }
 

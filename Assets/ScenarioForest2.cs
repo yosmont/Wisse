@@ -17,7 +17,7 @@ public class ScenarioForest2 : MonoBehaviour
         Player.GetComponent<PlayerMove>().enabled = false;
         moveType = Lion.GetComponent<Animator>();
         lion = Lion.GetComponent<Rigidbody2D>();
-        speed = new Vector3(100f * Time.deltaTime, 150f * Time.deltaTime, 0);
+        speed = new Vector3(95f * Time.deltaTime, 150f * Time.deltaTime, 0);
         lion.velocity = speed;
         moveType.Play("walk");
         StartCoroutine(MoveLion());
@@ -27,7 +27,7 @@ public class ScenarioForest2 : MonoBehaviour
     void Update()
     {
         if (Camera.main.WorldToViewportPoint(lion.position).y > 1 &&
-        Camera.main.WorldToViewportPoint(lion.position).x > 0.9) {
+        Camera.main.WorldToViewportPoint(lion.position).x > 1) {
             Player.GetComponent<PlayerMove>().enabled = true;
             Lion.GetComponent<SpriteRenderer>().enabled = false;
         }
