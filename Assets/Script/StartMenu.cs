@@ -27,9 +27,9 @@ public class StartMenu : MonoBehaviour
     {
         if (!GameIsEnded)
         {
+            Time.timeScale = 1f;
             PauseMenuUI.SetActive(false);
             GameIsPaused = false;
-            Time.timeScale = 1f;
         } else
         {
             SceneManager.LoadScene(levelPath);
@@ -47,7 +47,7 @@ public class StartMenu : MonoBehaviour
     {
         PauseMenuUI.SetActive(true);
         displayText.text = "Mes flèches lui rebondissent dessus, en plus il s'est enfui.\n\nIl va falloir trouver autre chose.";
-        Time.timeScale = 0f;
+        GetComponent<CountDownTimer>().enabled = false;
         GameIsPaused = true;
         GameIsEnded = true;
     }
