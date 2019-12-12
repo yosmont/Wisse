@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum BattleState { START, PLAYERTURNE, ENEMYTURN, WIN, LOSE }
+public enum BattleState { START, PLAYERTURN, PLAYERATTACK, ENEMYTURN, WIN, LOSE }
 
 public class BattleSystem : MonoBehaviour
 {
@@ -51,7 +51,7 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        state = BattleState.PLAYERTURNE;
+        state = BattleState.PLAYERTURN;
         PlayerTurn();
     }
 
@@ -111,7 +111,7 @@ public class BattleSystem : MonoBehaviour
             endBattle();
         }
         else {
-            state = BattleState.PLAYERTURNE;
+            state = BattleState.PLAYERTURN;
             PlayerTurn();
         }
     }
@@ -125,15 +125,17 @@ public class BattleSystem : MonoBehaviour
 
     public void OnMaceButton()
     {
-        if (state != BattleState.PLAYERTURNE)
+        if (state != BattleState.PLAYERTURN)
             return;
+        state = BattleState.PLAYERATTACK;
         StartCoroutine(PlayerAttack("mace", 1));
     }
 
     public void OnThrottlingButton()
     {
-        if (state != BattleState.PLAYERTURNE)
+        if (state != BattleState.PLAYERTURN)
             return;
+        state = BattleState.PLAYERATTACK;
         StartCoroutine(PlayerAttack("throttling", 100));
     }
 
@@ -141,13 +143,15 @@ public class BattleSystem : MonoBehaviour
     {
         if (sword)
         {
-            if (state != BattleState.PLAYERTURNE)
+            if (state != BattleState.PLAYERTURN)
                 return;
             sword = false;
+            state = BattleState.PLAYERATTACK;
             StartCoroutine(PlayerAttack("sword", 1));
         }
         else {
-            DialogueText.text = "Ton épée est cassée";
+            if (state == BattleState.PLAYERTURN)
+                DialogueText.text = "Ton épée est cassée";
         }
     }
 
