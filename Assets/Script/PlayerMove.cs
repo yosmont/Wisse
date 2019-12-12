@@ -43,7 +43,6 @@ public class PlayerMove : MonoBehaviour
                 InputWorldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }
         }
-      //  Debug.Log(InputWorldPoint != Vector3.zero);
         if (InputWorldPoint != Vector3.zero) {
             RaycastHit2D hit = Physics2D.Raycast(new Vector2(InputWorldPoint.x, InputWorldPoint.y), Vector2.zero);
             if (hit.collider != null && hit.collider.tag == "PNJ") {
