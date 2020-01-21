@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/BattleLion.unity
-    guid: b5d3c9f2318dfe8439a11328cf362cbe
-  - enabled: 1
     path: Assets/Scenes/SalleDuTrone.unity
     guid: f6b9a0a48d868a0439d82c6a26bacecc
   - enabled: 1
@@ -41,4 +38,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LionCave2.unity
     guid: 39ff7861815f6da40ab443019f947e62
+  - enabled: 1
+    path: Assets/Scenes/BattleLion.unity
+    guid: b5d3c9f2318dfe8439a11328cf362cbe
   m_configObjects: {}

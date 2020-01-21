@@ -12,10 +12,11 @@ public class MolorchosDialogue : APNJTalk
     public bool alreadyTalk = false;
     private int currDialogue = 0;
 
-    private string afterTalk = "Bonne courage pour ta mission !";
+    private string afterTalk = "Bon courage pour ta mission !";
 
     private string[] pnjName =
     {
+        "",
         "Molorchos",
         "Héraclès",
         "Molorchos",
@@ -28,6 +29,7 @@ public class MolorchosDialogue : APNJTalk
 
     private string[] dialogue =
     {
+        "",
         "Que faites-vous par ici ?",
         "On m’envoie tuer le lion de Némée.",
         "Qui donc serait assez fou pour vous confier une telle tâche.",
