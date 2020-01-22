@@ -4242,7 +4242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: lion
-  levelPath: Scenes/BattleLion
+  levelPath: 12Labours/MiniGame/BattleLion
   black: {fileID: 1063868227}
   anim: {fileID: 1063868226}
 --- !u!61 &916001087

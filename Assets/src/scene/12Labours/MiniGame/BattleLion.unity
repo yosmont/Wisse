@@ -2301,7 +2301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7284cc76ae4401a4d9cffb1b2e7f6c17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelPath: Scenes/Loading
+  levelPath: 12Labours/ProtoLoop/Loading
   state: 0
   player: {fileID: 4905974060950741586, guid: 6b8f6a3bed3ad5849ac1f8519d1658b9, type: 3}
   enemy: {fileID: 6764559227624120642, guid: 14421abae9dc80f49a19939caf35dd6f, type: 3}

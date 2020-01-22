@@ -32,7 +32,7 @@ public class StartMenu : MonoBehaviour
             GameIsPaused = false;
         } else
         {
-            SceneManager.LoadScene(levelPath);
+            SceneManager.LoadScene("src/scene/" + levelPath);
         }
     }
 

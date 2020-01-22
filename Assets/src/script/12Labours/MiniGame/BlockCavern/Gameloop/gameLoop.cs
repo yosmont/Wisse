@@ -47,7 +47,7 @@ public class gameLoop : MonoBehaviour
     {
         anim.SetBool("Fade", true);
         yield return new WaitUntil(() => black.color.a == 1);
-        SceneManager.LoadScene(levelPath);
+        SceneManager.LoadScene("src/scene/" + levelPath);
     }
 
 }

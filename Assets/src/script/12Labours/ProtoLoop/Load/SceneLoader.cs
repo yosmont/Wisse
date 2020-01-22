@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public float coef = 0.1f;
+    public string levelPath = "12Labours/Level/SalleDuTrone";
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,7 @@ public class SceneLoader : MonoBehaviour
             Config.Instance.loadingProgress += coef * Time.deltaTime;
         else
         {
-            SceneManager.LoadScene("Scenes/SalleDuTrone");
+            SceneManager.LoadScene("src/scene/" + this.levelPath);
 
         }
         /*

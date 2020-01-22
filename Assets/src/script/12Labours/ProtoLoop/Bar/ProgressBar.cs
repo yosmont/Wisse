@@ -5,29 +5,29 @@ using UnityEngine.UI;
 
 public class ProgressBar : MonoBehaviour
 {
-    public GameObject player = null;
+    //public GameObject player = null;
     public SceneLoader loader;
-    public Transform playerTransform;
+    /*public Transform playerTransform;
     public float playerStart = -4.3f;
-    public float playerEnd = 4.3f;
+    public float playerEnd = 4.3f;*/
 
     [Range(0f, 1f)]
     public float progress = 0;
 
     Image redBar;
-    bool moving = false;
+    //bool moving = false;
 
     [ExecuteInEditMode]
     // Start is called before the first frame update
     void Start()
     {
-        if (player == null)
+        /*if (player == null)
         {
             player = GameObject.Find("Player");
             player.GetComponentInChildren<Animator>().Play("Idle");
         }
 
-        playerTransform = GameObject.Find("playerSprite").GetComponent<Transform>();
+        playerTransform = GameObject.Find("playerSprite").GetComponent<Transform>();*/
         redBar = GameObject.Find("LoadBar").GetComponent<Image>();
         Debug.Log($"[Load] - Should be loading {Config.Instance.sceneToLoad}");
     }
@@ -37,7 +37,7 @@ public class ProgressBar : MonoBehaviour
     {
         progress = Config.Instance.loadingProgress;
         redBar.fillAmount = 1 - progress;
-        if (!moving && progress > 0.05 && progress < 0.95)
+        /*if (!moving && progress > 0.05 && progress < 0.95)
         {
             player.GetComponentInChildren<Animator>().Play("Move");
             moving = true;
@@ -52,6 +52,6 @@ public class ProgressBar : MonoBehaviour
             tmp.x = playerStart + ((Mathf.Abs(playerStart) + Mathf.Abs(playerEnd)) * progress) - (1 - progress) + 0.25f;
             tmp.y = playerTransform.position.y;
             playerTransform.position = tmp;
-        }
+        }*/
     }
 }

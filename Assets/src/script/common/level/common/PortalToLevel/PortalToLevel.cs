@@ -21,6 +21,6 @@ public class PortalToLevel : MonoBehaviour
 
     public void ChangeLevel()
     {
-        SceneManager.LoadScene(levelPath);
+        SceneManager.LoadScene("src/scene/" + levelPath);
     }
 }

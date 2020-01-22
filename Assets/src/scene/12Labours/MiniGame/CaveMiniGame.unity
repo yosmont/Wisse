@@ -899,7 +899,7 @@ MonoBehaviour:
   rockContainer4: {fileID: 1781930335}
   rock5: {fileID: 739668773}
   rockContainer5: {fileID: 1132410736}
-  levelPath: Scenes/LionCave2
+  levelPath: 12Labours/Level/LionCave2
   black: {fileID: 1941953293}
   anim: {fileID: 1941953292}
 --- !u!4 &264719002

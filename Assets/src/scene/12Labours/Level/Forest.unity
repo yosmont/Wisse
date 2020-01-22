@@ -35323,7 +35323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: lion
-  levelPath: Scenes/ShootLion
+  levelPath: 12Labours/MiniGame/ShootLion
   black: {fileID: 1843917890}
   anim: {fileID: 1843917889}
 --- !u!1 &325843974
@@ -35357,7 +35357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d246f02b07dc46547b5acbe60a773c17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelPath: Scenes/Campagne
+  levelPath: 12Labours/Level/Campagne
 --- !u!58 &325843976
 CircleCollider2D:
   m_ObjectHideFlags: 0

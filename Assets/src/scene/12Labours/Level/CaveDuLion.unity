@@ -14550,7 +14550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: rock1
-  levelPath: Scenes/CaveMiniGame
+  levelPath: 12Labours/MiniGame/CaveMiniGame
   black: {fileID: 91891620}
   anim: {fileID: 91891619}
 --- !u!50 &1724449617

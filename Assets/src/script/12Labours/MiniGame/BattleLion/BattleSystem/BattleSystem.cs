@@ -104,7 +104,7 @@ public class BattleSystem : MonoBehaviour
     IEnumerator LoadScene()
     {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(levelPath);
+        SceneManager.LoadScene("src/scene/" + levelPath);
     }
 
     IEnumerator EnemyTurn()

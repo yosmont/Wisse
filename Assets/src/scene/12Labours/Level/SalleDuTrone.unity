@@ -7492,7 +7492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea7ff3cee2f233d4d9bad5c74a2be065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelPath: Scenes/Campagne
+  levelPath: 12Labours/Level/Campagne
   cam: {fileID: 708488595}
   black: {fileID: 1007599294}
   anim: {fileID: 1007599293}
