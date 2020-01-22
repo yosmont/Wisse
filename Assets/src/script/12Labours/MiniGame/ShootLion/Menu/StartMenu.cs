@@ -8,8 +8,8 @@ public class StartMenu : MonoBehaviour
 {
     public string levelPath;
 
-    public static bool GameIsPaused = true;
-    public static bool GameIsEnded = false;
+    public bool GameIsPaused = true;
+    public bool GameIsEnded = false;
     public GameObject PauseMenuUI;
     [SerializeField] Text displayText = null;
 
