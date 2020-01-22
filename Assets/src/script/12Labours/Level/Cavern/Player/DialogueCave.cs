@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class DialogueCave : APNJTalk
 {
-    private int currDialogue = 0;
-    private string dialogue = "J'entends un courant d'air, j'ai l'impression qu'il y a une autre entrée. Il va falloir que je la ferme si je veux éviter que le lion s'enfuit.";
-    private string postDialogue = "Je devrais pouvoir utiliser ces pierres pour boucher l'entrée.";
-    public bool hasTalked = false;
-    public bool hasTalked2 = false;
+    private string _dialogue = "J'entends un courant d'air, j'ai l'impression qu'il y a une autre entrée. Il va falloir que je la ferme si je veux éviter que le lion s'enfuit.";
+    private string _postDialogue = "Je devrais pouvoir utiliser ces pierres pour boucher l'entrée.";
+    private int _step = 0;
+
     void Start()
     {   
     }
@@ -17,16 +16,19 @@ public class DialogueCave : APNJTalk
     {        
     }
 
+    public int GetStep()
+    {
+        return _step;
+    }
+
     public override void Talk()
     {
-        if (!hasTalked)
-        {
-            dialManager.GetComponent<DialogueManager>().SimpleDial(dialogue, gameObject, "Héraclès");
-            hasTalked = true;
-        } else
-        {
-            dialManager.GetComponent<DialogueManager>().SimpleDial(postDialogue, gameObject, "Héraclès");
-            hasTalked2 = true;
+        if (_step == 0) {
+            dialManager.GetComponent<DialogueManager>().SimpleDial(_dialogue, gameObject, "Héraclès");
+            _step = 1;
+        } else if (_step != 2) {
+            dialManager.GetComponent<DialogueManager>().SimpleDial(_postDialogue, gameObject, "Héraclès");
+            _step = 2;
         }
     }
 

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class ChangeBackgroundMusic : MonoBehaviour
 {
-    public string musicName;
+    public string _musicName;
 
     // Start is called before the first frame update
     void Start()
     {
         if (GameObject.Find("BMM") != null) {
             BackgroundMusicManager BMM = GameObject.Find("BMM").GetComponent<BackgroundMusicManager>();
-            BMM.Play(musicName);
+            BMM.Play(_musicName);
         }
     }
 

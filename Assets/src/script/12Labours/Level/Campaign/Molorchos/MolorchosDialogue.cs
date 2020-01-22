@@ -6,16 +6,15 @@ using UnityEngine.UI;
 
 public class MolorchosDialogue : APNJTalk
 {
-    public Image black;
-    public Animator anim;
+    public Image _black;
+    public Animator _anim;
 
-    public bool alreadyTalk = false;
-    private int currDialogue = 0;
+    private bool _alreadyTalk = false;
+    private int _currDialogue = 0;
 
-    private string afterTalk = "Bon courage pour ta mission !";
+    private string _afterTalk = "Bon courage pour ta mission !";
 
-    private string[] pnjName =
-    {
+    private string[] _pnjName = {
         "",
         "Molorchos",
         "Héraclès",
@@ -27,8 +26,7 @@ public class MolorchosDialogue : APNJTalk
         "Héraclès"
     };
 
-    private string[] dialogue =
-    {
+    private string[] _dialogue = {
         "",
         "Que faites-vous par ici ?",
         "On m’envoie tuer le lion de Némée.",
@@ -51,25 +49,25 @@ public class MolorchosDialogue : APNJTalk
     }
     public override void Talk()
     {
-        if (alreadyTalk)
-            dialManager.GetComponent<DialogueManager>().SimpleDial(afterTalk, gameObject, "Molorchos");
+        if (_alreadyTalk)
+            dialManager.GetComponent<DialogueManager>().SimpleDial(_afterTalk, gameObject, "Molorchos");
         else
-            dialManager.GetComponent<DialogueManager>().SimpleDial(dialogue[0], gameObject, "Molorchos");
+            dialManager.GetComponent<DialogueManager>().SimpleDial(_dialogue[0], gameObject, "Molorchos");
     }
 
     public override bool continueTalk()
     {
-        ++currDialogue;
-        if (!(currDialogue < dialogue.Length) && !alreadyTalk)
+        ++_currDialogue;
+        if (!(_currDialogue < _dialogue.Length) && !_alreadyTalk)
         {
-            alreadyTalk = true;
+            _alreadyTalk = true;
             StartCoroutine(FadeIn());
             return false;
-        } else if (alreadyTalk)
+        } else if (_alreadyTalk)
         {
             return false;
         }
-        dialManager.GetComponent<DialogueManager>().SimpleDial(dialogue[currDialogue], gameObject, pnjName[currDialogue]);
+        dialManager.GetComponent<DialogueManager>().SimpleDial(_dialogue[_currDialogue], gameObject, _pnjName[_currDialogue]);
         return true;
     }
 
@@ -80,7 +78,12 @@ public class MolorchosDialogue : APNJTalk
 
     IEnumerator FadeIn()
     {
-        anim.SetBool("Fade", true);
-        yield return new WaitUntil(() => black.color.a == 1);
+        _anim.SetBool("Fade", true);
+        yield return new WaitUntil(() => _black.color.a == 1);
+    }
+
+    public bool GetAlreadyTalk()
+    {
+        return _alreadyTalk;
     }
 }

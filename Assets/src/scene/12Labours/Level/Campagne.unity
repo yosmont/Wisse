@@ -27582,7 +27582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ca6cf6fa59fe514183ffbf0d9c0b20b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicName: forest
+  _musicName: foret
 --- !u!4 &649738661
 Transform:
   m_ObjectHideFlags: 0
@@ -27719,8 +27719,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 641ea955e55e0da4fa3ab37babb3eb3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  black: {fileID: 394125727}
-  anim: {fileID: 394125726}
+  _black: {fileID: 394125727}
+  _anim: {fileID: 394125726}
 --- !u!1 &895888178
 GameObject:
   m_ObjectHideFlags: 0
@@ -36305,9 +36305,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialManager: {fileID: 1909363885}
-  black: {fileID: 394125727}
-  anim: {fileID: 394125726}
-  alreadyTalk: 0
+  _black: {fileID: 394125727}
+  _anim: {fileID: 394125726}
 --- !u!61 &1945935739
 BoxCollider2D:
   m_ObjectHideFlags: 0

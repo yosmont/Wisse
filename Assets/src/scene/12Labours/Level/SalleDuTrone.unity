@@ -875,15 +875,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1baa981c58f498746890b85b5801256f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicName:
-  - king
-  - forest
-  - hunt
-  MusicClip:
+  _musicName:
+  - roi
+  - foret
+  - chasseLion
+  _musicClip:
   - {fileID: 8300000, guid: 4ab004841a5eaa748b7fc1dd00df3b8c, type: 3}
   - {fileID: 8300000, guid: 3d9b26f463ab9974fb20a4d6ff6fe199, type: 3}
   - {fileID: 8300000, guid: 206a82665e5a2694a91289de76dd80f4, type: 3}
-  current: 
 --- !u!4 &702847591
 Transform:
   m_ObjectHideFlags: 0
@@ -1223,7 +1222,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialManager: {fileID: 1269128832}
-  isTalking: 1
 --- !u!114 &753691791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1286,7 +1284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ca6cf6fa59fe514183ffbf0d9c0b20b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicName: king
+  _musicName: roi
 --- !u!4 &824330449
 Transform:
   m_ObjectHideFlags: 0
@@ -7492,10 +7490,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea7ff3cee2f233d4d9bad5c74a2be065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelPath: 12Labours/Level/Campagne
-  cam: {fileID: 708488595}
-  black: {fileID: 1007599294}
-  anim: {fileID: 1007599293}
+  _levelPath: 12Labours/Level/Campagne
+  _cam: {fileID: 708488595}
+  _black: {fileID: 1007599294}
+  _anim: {fileID: 1007599293}
 --- !u!4 &2033403587
 Transform:
   m_ObjectHideFlags: 0

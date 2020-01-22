@@ -602,7 +602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ca6cf6fa59fe514183ffbf0d9c0b20b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicName: hunt
+  _musicName: chasseLion
 --- !u!4 &704018886
 Transform:
   m_ObjectHideFlags: 0
@@ -982,6 +982,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelPath: 12Labours/Level/Forest2
+  GameIsPaused: 1
+  GameIsEnded: 0
   PauseMenuUI: {fileID: 1292923967}
   displayText: {fileID: 1391160451}
 --- !u!1 &969830880

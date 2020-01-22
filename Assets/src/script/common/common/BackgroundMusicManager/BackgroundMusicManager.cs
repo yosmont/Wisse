@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class BackgroundMusicManager : MonoBehaviour
 {
-    public string[] MusicName;
-    public AudioClip[] MusicClip;
-    [HideInInspector]
-    public string current;
-    private Dictionary<string, AudioClip> MusicList = new Dictionary<string, AudioClip>();
-    private AudioSource src;
+    public string[] _musicName;
+    public AudioClip[] _musicClip;
+    private string _current;
+    private Dictionary<string, AudioClip> _musicList = new Dictionary<string, AudioClip>();
+    private AudioSource _src;
+    private static BackgroundMusicManager _instance;
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-        src = GetComponent<AudioSource>();
-        for (int i = 0; i < MusicName.Length; ++i)
-            MusicList.Add(MusicName[i], MusicClip[i]);
+        if (_instance == null) {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+            _src = GetComponent<AudioSource>();
+            for (int i = 0; i < _musicName.Length; ++i)
+                _musicList.Add(_musicName[i], _musicClip[i]);
+        } else {
+            Destroy(this);
+        }
     }
 
     // Start is called before the first frame update
@@ -29,16 +34,21 @@ public class BackgroundMusicManager : MonoBehaviour
     {
     }
 
+    public string GetCurrent()
+    {
+        return _current;
+    }
+
     public void Play(string name)
     {
-        if (current == name)
+        if (_current == name)
             return;
-        AudioClip res = MusicList[name];
+        AudioClip res = _musicList[name];
         if (res != null) {
-            current = name;
-            src.Stop();
-            src.clip = res;
-            src.Play();
+            _current = name;
+            _src.Stop();
+            _src.clip = res;
+            _src.Play();
         }
     }
 }

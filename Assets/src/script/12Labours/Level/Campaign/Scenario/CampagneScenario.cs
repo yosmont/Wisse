@@ -7,10 +7,10 @@ using UnityEngine.UI;
 
 public class CampagneScenario : MonoBehaviour
 {
-    public Image black;
-    public Animator anim;
+    public Image _black;
+    public Animator _anim;
 
-    private bool hasSleep = false;
+    private bool _hasSleep = false;
 
     void Start()
     {
@@ -19,15 +19,15 @@ public class CampagneScenario : MonoBehaviour
 
     void Update()
     {
-        if (black.color.a == 1 && !hasSleep && GameObject.Find("Molorchos").GetComponent<MolorchosDialogue>().alreadyTalk)
+        if (_black.color.a == 1 && !_hasSleep && GameObject.Find("Molorchos").GetComponent<MolorchosDialogue>().GetAlreadyTalk())
             StartCoroutine(FadeOut());
     }
 
     IEnumerator FadeOut()
     {
-        hasSleep = true;
-        anim.SetBool("Sleeped", true);
-        anim.SetBool("Fade", false);
-        yield return new WaitUntil(() => black.color.a == 0);
+        _hasSleep = true;
+        _anim.SetBool("Sleeped", true);
+        _anim.SetBool("Fade", false);
+        yield return new WaitUntil(() => _black.color.a == 0);
     }
 }
