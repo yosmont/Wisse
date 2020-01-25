@@ -6,25 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class gameLoop : MonoBehaviour
 {
-    public Transform rock1;
-    public Transform rockContainer1;
+    public Transform[] _rock;
+    public Transform[] _rockContainer;
 
-    public Transform rock2;
-    public Transform rockContainer2;
+    public string _levelPath;
 
-    public Transform rock3;
-    public Transform rockContainer3;
-
-    public Transform rock4;
-    public Transform rockContainer4;
-
-    public Transform rock5;
-    public Transform rockContainer5;
-
-    public string levelPath;
-
-    public Image black;
-    public Animator anim;
+    public Image _black;
+    public Animator _anim;
 
     // Start is called before the first frame update
     void Start()
@@ -35,19 +23,21 @@ public class gameLoop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rock1.position == rockContainer1.position 
-            && rock2.position == rockContainer2.position 
-            && rock3.position == rockContainer3.position 
-            && rock4.position == rockContainer4.position 
-            && rock5.position == rockContainer5.position)
+        bool check = true;
+        for (int i = 0; i < _rock.Length; ++i)
+            if (_rock[i].position != _rockContainer[i].position) {
+                check = false;
+                break;
+            }
+        if (check == true)
             StartCoroutine(Fading());
     }
 
     IEnumerator Fading()
     {
-        anim.SetBool("Fade", true);
-        yield return new WaitUntil(() => black.color.a == 1);
-        SceneManager.LoadScene("src/scene/" + levelPath);
+        _anim.SetBool("Fade", true);
+        yield return new WaitUntil(() => _black.color.a == 1);
+        SceneManager.LoadScene("src/scene/" + _levelPath);
     }
 
 }

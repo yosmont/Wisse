@@ -5,13 +5,13 @@ using System.Collections;
 
 public class MyLog : MonoBehaviour
 {
-    string myLog;
-    Queue myLogQueue = new Queue();
-    GUIStyle style = new GUIStyle();
+    string _myLog;
+    Queue _myLogQueue = new Queue();
+    GUIStyle _style = new GUIStyle();
 
     void Start()
     {
-        style.normal.textColor = Color.black;
+        _style.normal.textColor = Color.black;
         Debug.Log("Log1");
         Debug.Log("Log2");
         Debug.Log("Log3");
@@ -30,21 +30,21 @@ public class MyLog : MonoBehaviour
 
     void HandleLog(string logString, string stackTrace, LogType type)
     {
-        myLog = logString;
-        string newString = "\n [" + type + "] : " + myLog;
-        myLogQueue.Enqueue(newString);
+        _myLog = logString;
+        string newString = "\n [" + type + "] : " + _myLog;
+        _myLogQueue.Enqueue(newString);
         if (type == LogType.Exception) {
             newString = "\n" + stackTrace;
-            myLogQueue.Enqueue(newString);
+            _myLogQueue.Enqueue(newString);
         }
-        myLog = string.Empty;
-        foreach (string mylog in myLogQueue) {
-            myLog += mylog;
+        _myLog = string.Empty;
+        foreach (string mylog in _myLogQueue) {
+            _myLog += mylog;
         }
     }
 
     void OnGUI()
     {
-        GUILayout.Label(myLog, style);
+        GUILayout.Label(_myLog, _style);
     }
 }

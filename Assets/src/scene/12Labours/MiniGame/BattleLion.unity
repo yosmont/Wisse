@@ -2301,15 +2301,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7284cc76ae4401a4d9cffb1b2e7f6c17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelPath: 12Labours/ProtoLoop/Loading
-  state: 0
-  player: {fileID: 4905974060950741586, guid: 6b8f6a3bed3ad5849ac1f8519d1658b9, type: 3}
-  enemy: {fileID: 6764559227624120642, guid: 14421abae9dc80f49a19939caf35dd6f, type: 3}
-  playerBattleStation: {fileID: 232277481}
-  enemyBattleStation: {fileID: 861430335}
-  playerHUD: {fileID: 2078127377}
-  enemyHUD: {fileID: 1665666763}
-  DialogueText: {fileID: 714713748}
+  _levelPath: 12Labours/ProtoLoop/Loading
+  _state: 0
+  _player: {fileID: 4905974060950741586, guid: 6b8f6a3bed3ad5849ac1f8519d1658b9, type: 3}
+  _enemy: {fileID: 6764559227624120642, guid: 14421abae9dc80f49a19939caf35dd6f, type: 3}
+  _playerBattleStation: {fileID: 232277481}
+  _enemyBattleStation: {fileID: 861430335}
+  _playerHUD: {fileID: 2078127377}
+  _enemyHUD: {fileID: 1665666763}
+  _dialogueText: {fileID: 714713748}
 --- !u!4 &1979954212
 Transform:
   m_ObjectHideFlags: 0

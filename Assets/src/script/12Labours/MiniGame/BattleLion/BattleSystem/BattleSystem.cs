@@ -8,168 +8,168 @@ public enum BattleState { START, PLAYERTURN, PLAYERATTACK, ENEMYTURN, WIN, LOSE 
 
 public class BattleSystem : MonoBehaviour
 {
-    public string levelPath;
+    public string _levelPath;
 
-    public BattleState state;
-    public GameObject player;
-    public GameObject enemy;
-    private GameObject playerGo;
-    private GameObject enemyGo;
+    public BattleState _state;
+    public GameObject _player;
+    public GameObject _enemy;
+    private GameObject _playerGo;
+    private GameObject _enemyGo;
 
-    public Transform playerBattleStation;
-    public Transform enemyBattleStation;
+    public Transform _playerBattleStation;
+    public Transform _enemyBattleStation;
 
-    public BattleHUD playerHUD;
-    public BattleHUD enemyHUD;
+    public BattleHUD _playerHUD;
+    public BattleHUD _enemyHUD;
 
-    public Text DialogueText;
+    public Text _dialogueText;
 
-    private GameObject Button;
-    private bool sword = true;
-    private bool mace = true;
-    Unit playerUnit;
-    Unit enemyUnit;
+    private GameObject _button;
+    private bool _sword = true;
+    private bool _mace = true;
+    Unit _playerUnit;
+    Unit _enemyUnit;
 
     void Start()
     {
-        state = BattleState.START;
+        _state = BattleState.START;
         StartCoroutine(SetupBattle());
     }
 
     IEnumerator SetupBattle()
     {
-        Button = GameObject.Find("Etranglement");
-        Button.SetActive(false);
-        playerGo = Instantiate(player, playerBattleStation);
-        playerUnit = playerGo.GetComponent<Unit>();
+        _button = GameObject.Find("Etranglement");
+        _button.SetActive(false);
+        _playerGo = Instantiate(_player, _playerBattleStation);
+        _playerUnit = _playerGo.GetComponent<Unit>();
 
-        enemyGo = Instantiate(enemy, enemyBattleStation);
-        enemyUnit = enemyGo.GetComponent<Unit>();
+        _enemyGo = Instantiate(_enemy, _enemyBattleStation);
+        _enemyUnit = _enemyGo.GetComponent<Unit>();
 
-        DialogueText.text = enemyUnit.unitName + " apparait !";
-        playerHUD.SetHUD(playerUnit);
-        enemyHUD.SetHUD(enemyUnit);
+        _dialogueText.text = _enemyUnit.unitName + " apparait !";
+        _playerHUD.SetHUD(_playerUnit);
+        _enemyHUD.SetHUD(_enemyUnit);
 
         yield return new WaitForSeconds(1f);
 
-        state = BattleState.PLAYERTURN;
+        _state = BattleState.PLAYERTURN;
         PlayerTurn();
     }
 
     IEnumerator PlayerAttack(string type, int dmg)
     {
-        bool isDead = enemyUnit.TakeDamage(dmg);
+        bool isDead = _enemyUnit.TakeDamage(dmg);
 
-        playerGo.GetComponent<Animator>().Play("Hit");
+        _playerGo.GetComponent<Animator>().Play("Hit");
         yield return new WaitForSeconds(1f);
-        enemyHUD.setHP(enemyUnit.currentHp);
-        DialogueText.text = "Touché !";
+        _enemyHUD.setHP(_enemyUnit.currentHp);
+        _dialogueText.text = "Touché !";
         yield return new WaitForSeconds(2f);
 
         if (type == "sword")
         {
-            DialogueText.text = "Ton épée s'est brisée contre le corps du lion";
+            _dialogueText.text = "Ton épée s'est brisée contre le corps du lion";
             
             yield return new WaitForSeconds(2f);
         }
         if (type == "mace")
         {
-            DialogueText.text = "Le bruit dérange " + enemyUnit.unitName;
+            _dialogueText.text = "Le bruit dérange " + _enemyUnit.unitName;
             yield return new WaitForSeconds(2f);
-            DialogueText.text = "La massue s'est brisée";
+            _dialogueText.text = "La massue s'est brisée";
             yield return new WaitForSeconds(2f);
         }
         if (isDead)
         {
-            state = BattleState.WIN;
+            _state = BattleState.WIN;
             endBattle();
         }
         else {
-            state = BattleState.ENEMYTURN;
+            _state = BattleState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
         }
 
     }
     void endBattle()
     {
-        if (state == BattleState.WIN)
+        if (_state == BattleState.WIN)
         {
-            DialogueText.text = "Tu as gagné ! Mais tu perds un doigt.";
+            _dialogueText.text = "Tu as gagné ! Mais tu perds un doigt.";
             StartCoroutine(LoadScene());
         }
         else
-            DialogueText.text = "Tu as perdu !";
+            _dialogueText.text = "Tu as perdu !";
     }
 
     IEnumerator LoadScene()
     {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("src/scene/" + levelPath);
+        SceneManager.LoadScene("src/scene/" + _levelPath);
     }
 
     IEnumerator EnemyTurn()
     {
-        DialogueText.text = enemyUnit.unitName + " attaque !";
-        enemyGo.GetComponent<Animator>().Play("Hit");
+        _dialogueText.text = _enemyUnit.unitName + " attaque !";
+        _enemyGo.GetComponent<Animator>().Play("Hit");
         yield return new WaitForSeconds(1f);
-        bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
-        playerHUD.setHP(playerUnit.currentHp);
+        bool isDead = _playerUnit.TakeDamage(_enemyUnit.damage);
+        _playerHUD.setHP(_playerUnit.currentHp);
         yield return new WaitForSeconds(2f);
         if (isDead)
         {
-            state = BattleState.LOSE;
+            _state = BattleState.LOSE;
             endBattle();
         }
         else {
-            state = BattleState.PLAYERTURN;
+            _state = BattleState.PLAYERTURN;
             PlayerTurn();
         }
     }
 
     void PlayerTurn()
     {
-        if (sword == false && mace == false)
-            Button.SetActive(true);
-        DialogueText.text = "À ton tour !";
+        if (_sword == false && _mace == false)
+            _button.SetActive(true);
+        _dialogueText.text = "À ton tour !";
     }
 
     public void OnMaceButton()
     {
-        if (mace)
+        if (_mace)
         {
-            if (state != BattleState.PLAYERTURN)
+            if (_state != BattleState.PLAYERTURN)
                 return;
-            state = BattleState.PLAYERATTACK;
-            mace = false;
+            _state = BattleState.PLAYERATTACK;
+            _mace = false;
             StartCoroutine(PlayerAttack("mace", 1));
         }
         else {
-            if (state == BattleState.PLAYERTURN)
-                DialogueText.text = "Ta massue est cassée";
+            if (_state == BattleState.PLAYERTURN)
+                _dialogueText.text = "Ta massue est cassée";
         }
     }
 
     public void OnThrottlingButton()
     {
-        if (state != BattleState.PLAYERTURN)
+        if (_state != BattleState.PLAYERTURN)
             return;
-        state = BattleState.PLAYERATTACK;
+        _state = BattleState.PLAYERATTACK;
         StartCoroutine(PlayerAttack("throttling", 100));
     }
 
     public void OnSwordButton()
     {
-        if (sword)
+        if (_sword)
         {
-            if (state != BattleState.PLAYERTURN)
+            if (_state != BattleState.PLAYERTURN)
                 return;
-            sword = false;
-            state = BattleState.PLAYERATTACK;
+            _sword = false;
+            _state = BattleState.PLAYERATTACK;
             StartCoroutine(PlayerAttack("sword", 1));
         }
         else {
-            if (state == BattleState.PLAYERTURN)
-                DialogueText.text = "Ton épée est cassée";
+            if (_state == BattleState.PLAYERTURN)
+                _dialogueText.text = "Ton épée est cassée";
         }
     }
 

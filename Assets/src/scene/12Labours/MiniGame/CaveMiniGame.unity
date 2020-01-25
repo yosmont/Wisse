@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f48ac012567a7043bbfcd89c259e2d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rockPlace: {fileID: 161392137}
-  locked: 0
+  _rockPlace: {fileID: 161392137}
+  _locked: 0
 --- !u!61 &4968558
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -240,7 +240,7 @@ Transform:
   m_LocalScale: {x: 0.573, y: 0.573, z: 0.573}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &18074295
 GameObject:
@@ -493,7 +493,7 @@ Transform:
   m_LocalScale: {x: 0.512, y: 0.512, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 22.210001}
 --- !u!1 &157732828
 GameObject:
@@ -656,7 +656,7 @@ Transform:
   m_LocalScale: {x: 0.573, y: 0.573, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &175194789
 GameObject:
@@ -689,8 +689,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f48ac012567a7043bbfcd89c259e2d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rockPlace: {fileID: 120084402}
-  locked: 0
+  _rockPlace: {fileID: 120084402}
+  _locked: 0
 --- !u!61 &175194791
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -778,7 +778,7 @@ Transform:
   m_LocalScale: {x: 0.512, y: 0.512, z: 0.512}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 22.21}
 --- !u!1 &206447307
 GameObject:
@@ -858,7 +858,7 @@ Transform:
   m_LocalScale: {x: 1.41645, y: 1.41645, z: 1.41645}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &264719000
 GameObject:
@@ -889,19 +889,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c6b751e12b35564fa7a698eaf86503f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rock1: {fileID: 175194793}
-  rockContainer1: {fileID: 120084402}
-  rock2: {fileID: 4968560}
-  rockContainer2: {fileID: 161392137}
-  rock3: {fileID: 1268406332}
-  rockContainer3: {fileID: 2065991444}
-  rock4: {fileID: 818133952}
-  rockContainer4: {fileID: 1781930335}
-  rock5: {fileID: 739668773}
-  rockContainer5: {fileID: 1132410736}
-  levelPath: 12Labours/Level/LionCave2
-  black: {fileID: 1941953293}
-  anim: {fileID: 1941953292}
+  _rock:
+  - {fileID: 175194793}
+  - {fileID: 4968560}
+  - {fileID: 1268406332}
+  - {fileID: 818133952}
+  - {fileID: 739668773}
+  _rockContainer:
+  - {fileID: 120084402}
+  - {fileID: 161392137}
+  - {fileID: 2065991444}
+  - {fileID: 1781930335}
+  - {fileID: 1132410736}
+  _levelPath: 12Labours/Level/LionCave2
+  _black: {fileID: 1941953293}
+  _anim: {fileID: 1941953292}
 --- !u!4 &264719002
 Transform:
   m_ObjectHideFlags: 0
@@ -977,8 +979,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f48ac012567a7043bbfcd89c259e2d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rockPlace: {fileID: 1132410736}
-  locked: 0
+  _rockPlace: {fileID: 1132410736}
+  _locked: 0
 --- !u!61 &739668771
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1066,7 +1068,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &818133948
 GameObject:
@@ -1099,8 +1101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f48ac012567a7043bbfcd89c259e2d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rockPlace: {fileID: 1781930335}
-  locked: 0
+  _rockPlace: {fileID: 1781930335}
+  _locked: 0
 --- !u!61 &818133950
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1188,7 +1190,7 @@ Transform:
   m_LocalScale: {x: 0.602, y: 0.602, z: 0.602}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &822032370
 GameObject:
@@ -1252,7 +1254,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1132410737
 SpriteRenderer:
@@ -1461,8 +1463,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f48ac012567a7043bbfcd89c259e2d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rockPlace: {fileID: 2065991444}
-  locked: 0
+  _rockPlace: {fileID: 2065991444}
+  _locked: 0
 --- !u!61 &1268406330
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1550,7 +1552,7 @@ Transform:
   m_LocalScale: {x: 0.706, y: 0.706, z: 0.706}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 51.572}
 --- !u!1 &1293666309
 GameObject:
@@ -1771,7 +1773,7 @@ Transform:
   m_Children:
   - {fileID: 1293666313}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1781930333
 GameObject:
@@ -1851,7 +1853,7 @@ Transform:
   m_LocalScale: {x: 0.602, y: 0.602, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1941953290
 GameObject:
@@ -2123,5 +2125,5 @@ Transform:
   m_LocalScale: {x: 0.706, y: 0.706, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 51.572002}
