@@ -4,60 +4,60 @@ using UnityEngine;
 
 public class LionMove : MonoBehaviour
 {
-    private float currentTime = 0f;
-    private float startingTime = 15f;
+    private float _currentTime = 0f;
+    private float _startingTime = 15f;
 
-    private Rigidbody2D lion;
-    private Vector3 speed;
-    private float moveSpeed = 150.0f;
-    private int dirUp = -1;
-    private Vector3 pos;
+    private Rigidbody2D _lion;
+    private Vector3 _speed;
+    private float _moveSpeed = 150.0f;
+    private int _dirUp = -1;
+    private Vector3 _pos;
 
-    private Animator moveType;
-    private bool gameEnded = false;
-    public Camera cam;
-    public StartMenu menu = null;
+    private Animator _moveType;
+    private bool _gameEnded = false;
+    public Camera _cam;
+    public StartMenu _menu = null;
 
     void Start()
     {
-        currentTime = Time.deltaTime;
-        currentTime = startingTime;
-        moveType = GetComponent<Animator>();
-        lion = GetComponent<Rigidbody2D>();
-        pos = new Vector3(7.5f, -3.7f, 0);
-        speed = new Vector3(0, dirUp * moveSpeed * Time.deltaTime, 0);
-        lion.velocity = speed;
-        moveType.Play("walk");
+        _currentTime = Time.deltaTime;
+        _currentTime = _startingTime;
+        _moveType = GetComponent<Animator>();
+        _lion = GetComponent<Rigidbody2D>();
+        _pos = new Vector3(7.5f, -3.7f, 0);
+        _speed = new Vector3(0, _dirUp * _moveSpeed * Time.deltaTime, 0);
+        _lion.velocity = _speed;
+        _moveType.Play("walk");
     }
 
     void Update()
     {
-        currentTime -= 1 * Time.deltaTime;
-        lion.transform.rotation = Quaternion.Euler(0, 0, 0);
+        _currentTime -= 1 * Time.deltaTime;
+        _lion.transform.rotation = Quaternion.Euler(0, 0, 0);
 
-        if (currentTime <= 0 && !gameEnded)
+        if (_currentTime <= 0 && !_gameEnded)
         {
-            currentTime = startingTime;
-            lion.position = pos;
+            _currentTime = _startingTime;
+            _lion.position = _pos;
         }
 
-        if (cam.WorldToViewportPoint(lion.position).y >= 0.85)
+        if (_cam.WorldToViewportPoint(_lion.position).y >= 0.85)
         {
-            dirUp = -1;
-            speed.y = dirUp * moveSpeed * Time.deltaTime;
-            lion.velocity = speed;
-        } else if (cam.WorldToViewportPoint(lion.position).y <= 0.15)
+            _dirUp = -1;
+            _speed.y = _dirUp * _moveSpeed * Time.deltaTime;
+            _lion.velocity = _speed;
+        } else if (_cam.WorldToViewportPoint(_lion.position).y <= 0.15)
         {
-            dirUp = 1;
-            speed.y = dirUp * moveSpeed * Time.deltaTime;
-            lion.velocity = speed;
-        } else if ((cam.WorldToViewportPoint(lion.position).x - 0.07 >= 1 ||
-          cam.WorldToViewportPoint(lion.position).x <= 0) ||
-          (cam.WorldToViewportPoint(lion.position).y >= 1 ||
-          cam.WorldToViewportPoint(lion.position).y <= 0))
+            _dirUp = 1;
+            _speed.y = _dirUp * _moveSpeed * Time.deltaTime;
+            _lion.velocity = _speed;
+        } else if ((_cam.WorldToViewportPoint(_lion.position).x - 0.07 >= 1 ||
+          _cam.WorldToViewportPoint(_lion.position).x <= 0) ||
+          (_cam.WorldToViewportPoint(_lion.position).y >= 1 ||
+          _cam.WorldToViewportPoint(_lion.position).y <= 0))
         {
-            gameEnded = true;
-            menu.Win();
+            _gameEnded = true;
+            _menu.Win();
         }
     }
 }

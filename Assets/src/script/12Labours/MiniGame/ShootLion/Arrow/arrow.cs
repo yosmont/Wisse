@@ -6,86 +6,86 @@ using static UnityEngine.Mathf;
 
 public class arrow : MonoBehaviour
 {
-    private bool IsPressed;
+    private bool _isPressed;
 
-    private Rigidbody2D rb;
-    private SpringJoint2D sj;
-    private Rigidbody2D slingRb;
-    public Camera cam;
+    private Rigidbody2D _rb;
+    private SpringJoint2D _sj;
+    private Rigidbody2D _slingRb;
+    public Camera _cam;
 
-    public GameObject bow;
+    public GameObject _bow;
 
-    private float releaseDelay;
-    private float maxDragDistance = 1.5f;
+    private float _releaseDelay;
+    private float _maxDragDistance = 1.5f;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        sj = GetComponent<SpringJoint2D>();
-        slingRb = sj.connectedBody;
+        _rb = GetComponent<Rigidbody2D>();
+        _sj = GetComponent<SpringJoint2D>();
+        _slingRb = _sj.connectedBody;
 
-        releaseDelay = 1 / (sj.frequency * 4);
+        _releaseDelay = 1 / (_sj.frequency * 4);
     }
 
     void Update()
     {
-        if (IsPressed)
+        if (_isPressed)
         {
             DragBall();
         }
-        if (!((cam.WorldToViewportPoint(rb.position).x > 0 &&
-            cam.WorldToViewportPoint(rb.position).x < 1) &&
-            (cam.WorldToViewportPoint(rb.position).y < 1 &&
-            cam.WorldToViewportPoint(rb.position).y > 0))) {
-            bow.transform.eulerAngles = new Vector3(0, 0, 180);
+        if (!((_cam.WorldToViewportPoint(_rb.position).x > 0 &&
+            _cam.WorldToViewportPoint(_rb.position).x < 1) &&
+            (_cam.WorldToViewportPoint(_rb.position).y < 1 &&
+            _cam.WorldToViewportPoint(_rb.position).y > 0))) {
+            _bow.transform.eulerAngles = new Vector3(0, 0, 180);
             transform.position = new Vector3((float)-7.7, 0, 0);
             transform.eulerAngles = new Vector3(0, 0, 0);
-            sj.enabled = true;
-            rb.isKinematic = false;
-            rb.bodyType = RigidbodyType2D.Static;
-            rb.GetComponent<BoxCollider2D>().size = new Vector2(6.57f, 10f);
-            rb.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0f);
+            _sj.enabled = true;
+            _rb.isKinematic = false;
+            _rb.bodyType = RigidbodyType2D.Static;
+            _rb.GetComponent<BoxCollider2D>().size = new Vector2(6.57f, 10f);
+            _rb.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0f);
         }
     }
 
     private void DragBall()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        float distance = Vector2.Distance(mousePosition, slingRb.position);
+        float distance = Vector2.Distance(mousePosition, _slingRb.position);
 
-        if (distance > maxDragDistance) {
-            Vector2 direction = (mousePosition - slingRb.position).normalized;
-            rb.position = slingRb.position + direction * maxDragDistance;
+        if (distance > _maxDragDistance) {
+            Vector2 direction = (mousePosition - _slingRb.position).normalized;
+            _rb.position = _slingRb.position + direction * _maxDragDistance;
         } else {
-            rb.position = mousePosition;
+            _rb.position = mousePosition;
         }
         float o = mousePosition.x - (float)-7.7;
         float a = mousePosition.y - 0;
         double angle = 90 - Atan(o / a) * (180.0 / PI);
        if (mousePosition.y < 0)
             angle += 180;
-        rb.rotation = (float)angle + 180;
-        bow.transform.eulerAngles = new Vector3(0, 0, (float)angle);
+        _rb.rotation = (float)angle + 180;
+        _bow.transform.eulerAngles = new Vector3(0, 0, (float)angle);
     }
 
     private void OnMouseDown()
     {
-        IsPressed = true;
-        rb.isKinematic = true;
+        _isPressed = true;
+        _rb.isKinematic = true;
     }
 
     private void OnMouseUp()
     {
-        IsPressed = false;
-        rb.isKinematic = false;
+        _isPressed = false;
+        _rb.isKinematic = false;
         StartCoroutine(Release());
     }
 
     private IEnumerator Release() {
-        yield return new WaitForSeconds(releaseDelay);
-        sj.enabled = false;
-        rb.GetComponent<BoxCollider2D>().size = new Vector2(6f, 0.6f);
-        rb.GetComponent<BoxCollider2D>().offset = new Vector2(3f, 0f);
+        yield return new WaitForSeconds(_releaseDelay);
+        _sj.enabled = false;
+        _rb.GetComponent<BoxCollider2D>().size = new Vector2(6f, 0.6f);
+        _rb.GetComponent<BoxCollider2D>().offset = new Vector2(3f, 0f);
     }
 }
 

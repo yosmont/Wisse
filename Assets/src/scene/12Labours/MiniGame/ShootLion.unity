@@ -413,8 +413,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 365c90bf199826846b20e8d488e5e802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 183119564}
-  menu: {fileID: 948377725}
+  _cam: {fileID: 183119564}
+  _menu: {fileID: 948377725}
 --- !u!50 &235649599
 Rigidbody2D:
   serializedVersion: 4
@@ -967,8 +967,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb7f1c8ed0f70744e88a1da852402079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countDownText: {fileID: 924712772}
-  menu: {fileID: 948377725}
+  _countDownText: {fileID: 924712772}
+  _menu: {fileID: 948377725}
 --- !u!114 &948377725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -981,11 +981,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51e0d275e037d842850533519d50598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelPath: 12Labours/Level/Forest2
-  GameIsPaused: 1
-  GameIsEnded: 0
-  PauseMenuUI: {fileID: 1292923967}
-  displayText: {fileID: 1391160451}
+  _levelPath: 12Labours/Level/Forest2
+  _pauseMenuUI: {fileID: 1292923967}
+  _displayText: {fileID: 1391160451}
 --- !u!1 &969830880
 GameObject:
   m_ObjectHideFlags: 0
@@ -1635,8 +1633,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6310c2e5c6e10454986b731c647ac4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 183119564}
-  bow: {fileID: 442420213}
+  _cam: {fileID: 183119564}
+  _bow: {fileID: 442420213}
 --- !u!1 &1711714718
 GameObject:
   m_ObjectHideFlags: 0

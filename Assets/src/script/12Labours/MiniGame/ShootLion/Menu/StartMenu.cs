@@ -6,16 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
-    public string levelPath;
+    public string _levelPath;
 
-    public bool GameIsPaused = true;
-    public bool GameIsEnded = false;
-    public GameObject PauseMenuUI;
-    [SerializeField] Text displayText = null;
+    private bool _gameIsPaused = true;
+    private bool _gameIsEnded = false;
+    public GameObject _pauseMenuUI;
+    [SerializeField] public Text _displayText = null;
 
     void Start()
     {
-        PauseMenuUI.SetActive(true);
+        _pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
     }
 
@@ -25,30 +25,30 @@ public class StartMenu : MonoBehaviour
 
     void Resume()
     {
-        if (!GameIsEnded)
+        if (!_gameIsEnded)
         {
             Time.timeScale = 1f;
-            PauseMenuUI.SetActive(false);
-            GameIsPaused = false;
+            _pauseMenuUI.SetActive(false);
+            _gameIsPaused = false;
         } else
         {
-            SceneManager.LoadScene("src/scene/" + levelPath);
+            SceneManager.LoadScene("src/scene/" + _levelPath);
         }
     }
 
     public void End()
     {
-        PauseMenuUI.SetActive(true);
+        _pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
-        GameIsPaused = true;
+        _gameIsPaused = true;
     }
 
     public void Win()
     {
-        PauseMenuUI.SetActive(true);
-        displayText.text = "Mes flèches lui rebondissent dessus, en plus il s'est enfui.\n\nIl va falloir trouver autre chose.";
+        _pauseMenuUI.SetActive(true);
+        _displayText.text = "Mes flèches lui rebondissent dessus, en plus il s'est enfui.\n\nIl va falloir trouver autre chose.";
         GetComponent<CountDownTimer>().enabled = false;
-        GameIsPaused = true;
-        GameIsEnded = true;
+        _gameIsPaused = true;
+        _gameIsEnded = true;
     }
 }

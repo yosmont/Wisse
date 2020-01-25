@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class ProgressBar : MonoBehaviour
 {
     //public GameObject player = null;
-    public SceneLoader loader;
+    //public SceneLoader _loader;
     /*public Transform playerTransform;
     public float playerStart = -4.3f;
     public float playerEnd = 4.3f;*/
 
     [Range(0f, 1f)]
-    public float progress = 0;
+    private float _progress = 0;
 
-    Image redBar;
+    Image _redBar;
     //bool moving = false;
 
     [ExecuteInEditMode]
@@ -28,15 +28,15 @@ public class ProgressBar : MonoBehaviour
         }
 
         playerTransform = GameObject.Find("playerSprite").GetComponent<Transform>();*/
-        redBar = GameObject.Find("LoadBar").GetComponent<Image>();
+        _redBar = GameObject.Find("LoadBar").GetComponent<Image>();
         Debug.Log($"[Load] - Should be loading {Config.Instance.sceneToLoad}");
     }
 
     // Update is called once per frame
     void Update()
     {
-        progress = Config.Instance.loadingProgress;
-        redBar.fillAmount = 1 - progress;
+        _progress = Config.Instance.loadingProgress;
+        _redBar.fillAmount = 1 - _progress;
         /*if (!moving && progress > 0.05 && progress < 0.95)
         {
             player.GetComponentInChildren<Animator>().Play("Move");

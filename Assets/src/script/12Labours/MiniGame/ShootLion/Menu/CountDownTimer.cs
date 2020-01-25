@@ -5,28 +5,28 @@ using UnityEngine.UI;
 
 public class CountDownTimer : MonoBehaviour
 {
-    private float currentTime = 0f;
-    private float startingTime = 15f;
-    [SerializeField] Text countDownText = null;
+    private float _currentTime = 0f;
+    private float _startingTime = 15f;
+    [SerializeField] Text _countDownText = null;
 
-    public StartMenu menu = null;
+    public StartMenu _menu = null;
 
     void Start()
     {
-        currentTime = startingTime;
-        countDownText.text = "00";
+        _currentTime = _startingTime;
+        _countDownText.text = "00";
     }
 
     void Update()
     {
-        currentTime -= 1 * Time.deltaTime;
-        countDownText.text = currentTime.ToString("0");
+        _currentTime -= 1 * Time.deltaTime;
+        _countDownText.text = _currentTime.ToString("0");
 
-        if (currentTime <= 0)
+        if (_currentTime <= 0)
         {
-            menu.End();
-            currentTime = startingTime;
-            countDownText.text = currentTime.ToString("0");
+            _menu.End();
+            _currentTime = _startingTime;
+            _countDownText.text = _currentTime.ToString("0");
         }
     }
 }

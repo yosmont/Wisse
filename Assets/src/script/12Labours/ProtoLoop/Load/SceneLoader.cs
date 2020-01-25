@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public float coef = 0.1f;
-    public string levelPath = "12Labours/Level/SalleDuTrone";
+    public float _coef = 0.1f;
+    public string _levelPath = "12Labours/Level/SalleDuTrone";
 
     // Start is called before the first frame update
     void Start()
@@ -18,10 +18,10 @@ public class SceneLoader : MonoBehaviour
     void Update()
     {
         if (Config.Instance.loadingProgress < 1)
-            Config.Instance.loadingProgress += coef * Time.deltaTime;
+            Config.Instance.loadingProgress += _coef * Time.deltaTime;
         else
         {
-            SceneManager.LoadScene("src/scene/" + this.levelPath);
+            SceneManager.LoadScene("src/scene/" + this._levelPath);
 
         }
         /*

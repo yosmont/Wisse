@@ -149,7 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 700b06be67fcbf341964b31a2d8acc77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coef: 0.25
+  _coef: 0.25
+  _levelPath: 12Labours/Level/SalleDuTrone
 --- !u!4 &2602405
 Transform:
   m_ObjectHideFlags: 0
@@ -303,12 +304,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1488210099 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6641745718671057632, guid: 34ea76d23ac4fdc49ab65a239c260fb7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1627796322}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1488210102 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6641745718671057635, guid: 34ea76d23ac4fdc49ab65a239c260fb7,
@@ -574,12 +569,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7ded55f12a126b489a846dbf7399f15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1488210099}
-  loader: {fileID: 2602404}
-  playerTransform: {fileID: 0}
-  playerStart: -4.5
-  playerEnd: 4.5
-  progress: 0
 --- !u!1 &1806403885
 GameObject:
   m_ObjectHideFlags: 0
