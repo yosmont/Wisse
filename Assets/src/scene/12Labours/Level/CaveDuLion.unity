@@ -14549,10 +14549,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed802a5c3b9014478c77467a07d3b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: rock1
-  levelPath: 12Labours/MiniGame/CaveMiniGame
-  black: {fileID: 91891620}
-  anim: {fileID: 91891619}
+  _levelPath: 12Labours/MiniGame/CaveMiniGame
+  _black: {fileID: 91891620}
+  _anim: {fileID: 91891619}
 --- !u!50 &1724449617
 Rigidbody2D:
   serializedVersion: 4
@@ -14593,8 +14592,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialManager: {fileID: 844349862}
-  hasTalked: 0
-  hasTalked2: 0
 --- !u!50 &1804490579
 Rigidbody2D:
   serializedVersion: 4

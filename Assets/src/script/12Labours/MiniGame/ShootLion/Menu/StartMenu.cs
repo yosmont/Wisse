@@ -8,7 +8,6 @@ public class StartMenu : MonoBehaviour
 {
     public string _levelPath;
 
-    private bool _gameIsPaused = true;
     private bool _gameIsEnded = false;
     public GameObject _pauseMenuUI;
     [SerializeField] public Text _displayText = null;
@@ -29,7 +28,6 @@ public class StartMenu : MonoBehaviour
         {
             Time.timeScale = 1f;
             _pauseMenuUI.SetActive(false);
-            _gameIsPaused = false;
         } else
         {
             SceneManager.LoadScene("src/scene/" + _levelPath);
@@ -40,7 +38,6 @@ public class StartMenu : MonoBehaviour
     {
         _pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
-        _gameIsPaused = true;
     }
 
     public void Win()
@@ -48,7 +45,6 @@ public class StartMenu : MonoBehaviour
         _pauseMenuUI.SetActive(true);
         _displayText.text = "Mes flèches lui rebondissent dessus, en plus il s'est enfui.\n\nIl va falloir trouver autre chose.";
         GetComponent<CountDownTimer>().enabled = false;
-        _gameIsPaused = true;
         _gameIsEnded = true;
     }
 }

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ConfigSingleton : MonoBehaviour
 {
-    public static ConfigSingleton Instance { get; private set; }
+    private static ConfigSingleton _instance;
 
     private void Awake()
     {
-        if (Instance == null)
+        if (_instance == null)
         {
-            Instance = this;
+            _instance = this;
             DontDestroyOnLoad(gameObject);
             // Run the init functions here
         }

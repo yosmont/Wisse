@@ -35322,10 +35322,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed802a5c3b9014478c77467a07d3b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: lion
-  levelPath: 12Labours/MiniGame/ShootLion
-  black: {fileID: 1843917890}
-  anim: {fileID: 1843917889}
+  _levelPath: 12Labours/MiniGame/ShootLion
+  _black: {fileID: 1843917890}
+  _anim: {fileID: 1843917889}
 --- !u!1 &325843974
 GameObject:
   m_ObjectHideFlags: 0

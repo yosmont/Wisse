@@ -6,11 +6,10 @@ using UnityEngine.UI;
 
 public class LaunchGame : MonoBehaviour
 {
-    public string name;
-    public string levelPath;
+    public string _levelPath;
 
-    public Image black;
-    public Animator anim;
+    public Image _black;
+    public Animator _anim;
 
     void Start()
     {
@@ -33,15 +32,15 @@ public class LaunchGame : MonoBehaviour
         }
         if (InputWorldPoint != Vector3.zero) {
             RaycastHit2D hit = Physics2D.Raycast(new Vector2(InputWorldPoint.x, InputWorldPoint.y), Vector2.zero);
-            if (hit.collider != null && hit.collider.name == name)
+            if (hit.collider != null && hit.collider.name == gameObject.name)
                 StartCoroutine(Fading());
         }
     }
 
     IEnumerator Fading()
     {
-        anim.SetBool("Fade", true);
-        yield return new WaitUntil(() => black.color.a == 1);
-        SceneManager.LoadScene("src/scene/" + levelPath);
+        _anim.SetBool("Fade", true);
+        yield return new WaitUntil(() => _black.color.a == 1);
+        SceneManager.LoadScene("src/scene/" + _levelPath);
     }
 }

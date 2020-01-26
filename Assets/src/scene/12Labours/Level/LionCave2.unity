@@ -4241,10 +4241,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed802a5c3b9014478c77467a07d3b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: lion
-  levelPath: 12Labours/MiniGame/BattleLion
-  black: {fileID: 1063868227}
-  anim: {fileID: 1063868226}
+  _levelPath: 12Labours/MiniGame/BattleLion
+  _black: {fileID: 1063868227}
+  _anim: {fileID: 1063868226}
 --- !u!61 &916001087
 BoxCollider2D:
   m_ObjectHideFlags: 0
