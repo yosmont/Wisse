@@ -5,27 +5,26 @@ using UnityEngine.UI;
 
 public class PingController : MonoBehaviour
 {
-    [HideInInspector]
-    public bool isDisplay = false;
-    private Image sprite  = null;
-    private Vector3 dest;
+    private bool _isDisplay = false;
+    private Image _sprite  = null;
+    private Vector3 _dest;
 
     private void Awake()
     {
-        sprite = GetComponent<Image>();
+        _sprite = GetComponent<Image>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        sprite.enabled = false;
+        _sprite.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isDisplay) {
-            Vector3 screenPos = Camera.main.WorldToScreenPoint(dest);
+        if (_isDisplay) {
+            Vector3 screenPos = Camera.main.WorldToScreenPoint(_dest);
             screenPos = new Vector3(screenPos.x, screenPos.y + 7, screenPos.z);
             transform.position = screenPos;
         }
@@ -33,12 +32,12 @@ public class PingController : MonoBehaviour
 
     public void Move(Vector3 worldPos)
     {
-        if (!isDisplay) {
-            isDisplay = true;
-            sprite.enabled = true;
+        if (!_isDisplay) {
+            _isDisplay = true;
+            _sprite.enabled = true;
         }
-        dest = worldPos;
-        Vector3 screenPos = Camera.main.WorldToScreenPoint(dest);
+        _dest = worldPos;
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(_dest);
         screenPos = new Vector3(screenPos.x, screenPos.y + 7, screenPos.z);
         transform.position = screenPos;
         GetComponent<Animator>().Play("Ping");
@@ -46,9 +45,9 @@ public class PingController : MonoBehaviour
 
     public void Stop()
     {
-        if (isDisplay) {
-            isDisplay = false;
-            sprite.enabled = false;
+        if (_isDisplay) {
+            _isDisplay = false;
+            _sprite.enabled = false;
         }
     }
 }

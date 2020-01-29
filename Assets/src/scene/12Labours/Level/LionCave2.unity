@@ -162,6 +162,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1804490577}
+    - target: {fileID: 3580172366829756181, guid: 97cefdbdcfda41e47b8dc8d482ca12c1,
+        type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1804490577}
     - target: {fileID: 3580172366829756186, guid: 97cefdbdcfda41e47b8dc8d482ca12c1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15476,8 +15481,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4ed655e2ae01640a65aa316a1403e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noMoveSize: {x: 1, y: 1}
-  player: {fileID: 1804490577}
+  _noMoveSize: {x: 1, y: 1}
+  _player: {fileID: 1804490577}
 --- !u!1 &1933871300
 GameObject:
   m_ObjectHideFlags: 0

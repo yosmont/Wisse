@@ -6,26 +6,26 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    public GameObject player;
-    public Vector2 followShift = new Vector2(125, -100);
-    public float followLifeTime = 2;
-    private float followLifeTimer;
-    private GameObject dialBox;
-    private GameObject dialFollowBox;
-    private GameObject currentPNJ = null;
-    private GameObject currentImportantPNJ = null;
-    private TextMeshProUGUI currentDialogue = null;
+    public GameObject _player;
+    public Vector2 _followShift = new Vector2(125, -100);
+    public float _followLifeTime = 2;
+    private float _followLifeTimer;
+    private GameObject _dialBox;
+    private GameObject _dialFollowBox;
+    private GameObject _currentPNJ = null;
+    private GameObject _currentImportantPNJ = null;
+    private TextMeshProUGUI _currentDialogue = null;
 
     private void Awake()
     {
-        dialBox = transform.Find("DialogueBox").gameObject;
-        dialFollowBox = transform.Find("DialogueFollowBox").gameObject;
-        if (!player)
+        _dialBox = transform.Find("DialogueBox").gameObject;
+        _dialFollowBox = transform.Find("DialogueFollowBox").gameObject;
+        if (!_player)
             transform.Find("ping").gameObject.SetActive(false);
-        foreach (Transform child in dialBox.transform)
+        foreach (Transform child in _dialBox.transform)
             child.gameObject.SetActive(false);
-        dialBox.SetActive(false);
-        dialFollowBox.SetActive(false);
+        _dialBox.SetActive(false);
+        _dialFollowBox.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -36,27 +36,27 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentPNJ) {
-            Vector3 wantedPos = Camera.main.WorldToScreenPoint(currentPNJ.transform.position);
-            wantedPos.x -= followShift.x;
-            wantedPos.y -= followShift.y;
-            dialFollowBox.transform.position = wantedPos;
-            followLifeTimer -= Time.deltaTime;
-            if (followLifeTimer <= 0) {
-                currentPNJ = null;
-                dialFollowBox.SetActive(false);
+        if (_currentPNJ) {
+            Vector3 wantedPos = Camera.main.WorldToScreenPoint(_currentPNJ.transform.position);
+            wantedPos.x -= _followShift.x;
+            wantedPos.y -= _followShift.y;
+            _dialFollowBox.transform.position = wantedPos;
+            _followLifeTimer -= Time.deltaTime;
+            if (_followLifeTimer <= 0) {
+                _currentPNJ = null;
+                _dialFollowBox.SetActive(false);
             }
         }
-        if (currentImportantPNJ) {
+        if (_currentImportantPNJ) {
             if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)) {
-                ++currentDialogue.pageToDisplay;
-                if (currentDialogue.pageToDisplay > currentDialogue.textInfo.pageCount) {
-                    if (!currentImportantPNJ.GetComponent<APNJTalk>().continueTalk()) {
-                        if (player)
-                            player.GetComponent<PlayerMove>().enabled = true;
-                        dialBox.SetActive(false);
-                        currentDialogue = null;
-                        currentImportantPNJ = null;
+                ++_currentDialogue.pageToDisplay;
+                if (_currentDialogue.pageToDisplay > _currentDialogue.textInfo.pageCount) {
+                    if (!_currentImportantPNJ.GetComponent<APNJTalk>().continueTalk()) {
+                        if (_player)
+                            _player.GetComponent<PlayerMove>().enabled = true;
+                        _dialBox.SetActive(false);
+                        _currentDialogue = null;
+                        _currentImportantPNJ = null;
                     }
                 }
             }
@@ -65,20 +65,20 @@ public class DialogueManager : MonoBehaviour
 
     public void SimpleDial(string dial, GameObject PNJ, string talkerName)
     {
-        currentImportantPNJ = PNJ;
-        if (player) {
-            player.GetComponent<PlayerMove>().Stop();
-            player.GetComponent<PlayerMove>().enabled = false;
+        _currentImportantPNJ = PNJ;
+        if (_player) {
+            _player.GetComponent<PlayerMove>().Stop();
+            _player.GetComponent<PlayerMove>().enabled = false;
         }
-        dialBox.SetActive(true);
-        foreach (Transform child in dialBox.transform)
+        _dialBox.SetActive(true);
+        foreach (Transform child in _dialBox.transform)
             child.gameObject.SetActive(false);
-        GameObject tmp = dialBox.transform.Find("DialBasic").gameObject;
+        GameObject tmp = _dialBox.transform.Find("DialBasic").gameObject;
         tmp.SetActive(true);
         tmp.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = talkerName + ":";
-        currentDialogue = tmp.transform.Find("Dialogue").GetComponent<TextMeshProUGUI>();
-        currentDialogue.text = dial;
-        currentDialogue.pageToDisplay = 1;
+        _currentDialogue = tmp.transform.Find("Dialogue").GetComponent<TextMeshProUGUI>();
+        _currentDialogue.text = dial;
+        _currentDialogue.pageToDisplay = 1;
     }
 
     public void SimpleDial(string dial, GameObject PNJ)
@@ -97,13 +97,13 @@ public class DialogueManager : MonoBehaviour
 
     public void FollowDial(string dial, GameObject PNJ)
     {
-        currentPNJ = PNJ;
-        followLifeTimer = followLifeTime;
-        dialFollowBox.SetActive(true);
-        dialFollowBox.transform.Find("Dialogue").GetComponent<TextMeshProUGUI>().text = dial;
+        _currentPNJ = PNJ;
+        _followLifeTimer = _followLifeTime;
+        _dialFollowBox.SetActive(true);
+        _dialFollowBox.transform.Find("Dialogue").GetComponent<TextMeshProUGUI>().text = dial;
         Vector3 wantedPos = Camera.main.WorldToScreenPoint(PNJ.transform.position);
-        wantedPos.x -= followShift.x;
-        wantedPos.y -= followShift.y;
-        dialFollowBox.transform.position = wantedPos;
+        wantedPos.x -= _followShift.x;
+        wantedPos.y -= _followShift.y;
+        _dialFollowBox.transform.position = wantedPos;
     }
 }

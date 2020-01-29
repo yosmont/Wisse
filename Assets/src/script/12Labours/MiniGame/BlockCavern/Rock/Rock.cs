@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rock1 : MonoBehaviour
+public class Rock : MonoBehaviour
 {
 //    [SerializeField]
     public Transform _rockPlace;
