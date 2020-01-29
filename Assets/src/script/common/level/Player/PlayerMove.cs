@@ -5,28 +5,28 @@ using UnityEngine.AI;
 
 public class PlayerMove : MonoBehaviour
 {
-    public PingController ping;
+    public PingController _ping;
     [HideInInspector]
-    public Dictionary<string, bool> inventory = new Dictionary<string, bool>();
-    public bool isMoving = false;
-    private GameObject spriteObject;
-    private bool moveRight = true;
-    private NavMeshAgent agent;
+    public Dictionary<string, bool> _inventory = new Dictionary<string, bool>();
+    public bool _isMoving = false;
+    private GameObject _spriteObject;
+    private bool _moveRight = true;
+    private NavMeshAgent _agent;
 
     private void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
-        spriteObject = transform.Find("playerSprite").gameObject;
-        spriteObject.GetComponent<Animator>().Play("Idle");
+        _agent = GetComponent<NavMeshAgent>();
+        _spriteObject = transform.Find("playerSprite").gameObject;
+        _spriteObject.GetComponent<Animator>().Play("Idle");
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
+        _agent.updateRotation = false;
+        _agent.updateUpAxis = false;
         foreach (GameObject elem in GameObject.FindGameObjectsWithTag("CollectableItem"))
-            inventory.Add(elem.name, false);
+            _inventory.Add(elem.name, false);
     }
 
     // Update is called once per frame
@@ -49,12 +49,12 @@ public class PlayerMove : MonoBehaviour
             if (hit.collider != null && hit.collider.tag == "PNJ") {
                 hit.collider.GetComponent<APNJTalk>().Talk();
             } else if (hit.collider != null && hit.collider.tag == "CollectableItem") {
-                inventory[hit.collider.name] = true;
+                _inventory[hit.collider.name] = true;
                 Destroy(hit.collider.gameObject);
             } else {
                 InputWorldPoint.z = 0;
-                agent.SetDestination(InputWorldPoint);
-                ping.Move(agent.destination);
+                _agent.SetDestination(InputWorldPoint);
+                _ping.Move(_agent.destination);
             }
         }
         Move();
@@ -62,32 +62,32 @@ public class PlayerMove : MonoBehaviour
 
     void Move()
     {
-        if (agent.velocity != Vector3.zero) {
-            if (agent.velocity.x < 0 && !moveRight) {
-                spriteObject.GetComponent<SpriteRenderer>().flipX = true;
-                moveRight = true;
-            } else if (agent.velocity.x > 0 && moveRight) {
-                spriteObject.GetComponent<SpriteRenderer>().flipX = false;
-                moveRight = false;
+        if (_agent.velocity != Vector3.zero) {
+            if (_agent.velocity.x < 0 && !_moveRight) {
+                _spriteObject.GetComponent<SpriteRenderer>().flipX = true;
+                _moveRight = true;
+            } else if (_agent.velocity.x > 0 && _moveRight) {
+                _spriteObject.GetComponent<SpriteRenderer>().flipX = false;
+                _moveRight = false;
             }
-            if (!isMoving) {
-                isMoving = true;
-                spriteObject.GetComponent<Animator>().Play("Move");
+            if (!_isMoving) {
+                _isMoving = true;
+                _spriteObject.GetComponent<Animator>().Play("Move");
             }
-        } else if (isMoving) {
+        } else if (_isMoving) {
             RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.zero);
             if (hit.collider != null && hit.collider.tag == "PortalToLevel")
                 hit.collider.GetComponent<PortalToLevel>().ChangeLevel();
-            isMoving = false;
-            spriteObject.GetComponent<Animator>().Play("Idle");
-            ping.Stop();
+            _isMoving = false;
+            _spriteObject.GetComponent<Animator>().Play("Idle");
+            _ping.Stop();
         }
     }
 
     public void Stop()
     {
-        ping.Stop();
-        agent.SetDestination(new Vector3(transform.position.x, transform.position.y, 0));
-        spriteObject.GetComponent<Animator>().Play("Idle");
+        _ping.Stop();
+        _agent.SetDestination(new Vector3(transform.position.x, transform.position.y, 0));
+        _spriteObject.GetComponent<Animator>().Play("Idle");
     }
 }

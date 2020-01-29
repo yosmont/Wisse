@@ -35837,6 +35837,11 @@ PrefabInstance:
       propertyPath: ping
       value: 
       objectReference: {fileID: 337102985}
+    - target: {fileID: 3411235799439537529, guid: 01d9785404cf20341bd80a8aff1fa3c0,
+        type: 3}
+      propertyPath: _ping
+      value: 
+      objectReference: {fileID: 337102985}
     - target: {fileID: 3411235799439537531, guid: 01d9785404cf20341bd80a8aff1fa3c0,
         type: 3}
       propertyPath: m_Name

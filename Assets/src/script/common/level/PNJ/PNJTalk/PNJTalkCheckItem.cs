@@ -19,7 +19,7 @@ public class PNJTalkCheckItem : APNJTalk
 
     public override void Talk()
     {
-        int i = (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMove>().inventory[itemName]) ? 1 : 0;
+        int i = (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMove>()._inventory[itemName]) ? 1 : 0;
         dialManager.GetComponent<DialogueManager>().FollowDial(ifOk[i], gameObject);
     }
 
