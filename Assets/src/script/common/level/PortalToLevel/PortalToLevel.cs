@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PortalToLevel : MonoBehaviour
 {
-    public string levelPath;
+    public string _levelPath;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +21,6 @@ public class PortalToLevel : MonoBehaviour
 
     public void ChangeLevel()
     {
-        SceneManager.LoadScene("src/scene/" + levelPath);
+        SceneManager.LoadScene("src/scene/" + _levelPath);
     }
 }
