@@ -6,36 +6,36 @@ using UnityEngine.UI;
 public class PinController : MonoBehaviour
 {
     [TextArea(1, 1)]
-    public string Title;
+    public string _title;
 
     [TextArea(1, 4)]
-    public string Description;
+    public string _description;
 
     [Range(1, 12)]
-    public int MissionCount;
+    public int _missionCount;
 
     [ExecuteInEditMode]
-    public string[] SceneNames;
+    public string[] _sceneNames;
 
-    public float moveSpeed;
+    public float _moveSpeed;
 
-    PolygonCollider2D pinShape;
+    private PolygonCollider2D _pinShape;
 
-    GameObject MissionStatement;
-    GameObject player;
-    Text missionTitle;
-    Text missionBody;
+    private GameObject _missionStatement;
+    private GameObject _player;
+    private Text _missionTitle;
+    private Text _missionBody;
 
     MenuPlayerMove mpm;
 
     // Start is called before the first frame update
     void Start()
     {
-        pinShape = GetComponent<PolygonCollider2D>();
-        player = GameObject.Find("Player");
-        mpm = player.GetComponent<MenuPlayerMove>();
-        MissionStatement = GameObject.Find("MissionStatement");
-        missionTitle = GameObject.Find("MissionTitle").GetComponent<Text>();
+        _pinShape = GetComponent<PolygonCollider2D>();
+        _player = GameObject.Find("Player");
+        mpm = _player.GetComponent<MenuPlayerMove>();
+        _missionStatement = GameObject.Find("MissionStatement");
+        _missionTitle = GameObject.Find("MissionTitle").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -48,22 +48,22 @@ public class PinController : MonoBehaviour
             mpos.x = wpos.x;
             mpos.y = wpos.y;
 
-            if (pinShape.bounds.Contains(mpos))
+            if (_pinShape.bounds.Contains(mpos))
             {
-                player.transform.position = Vector3.MoveTowards(player.transform.position, transform.position, moveSpeed * Time.deltaTime);
-                if (MissionStatement.GetComponent<SlideAnimation>().show == false)
+                _player.transform.position = Vector3.MoveTowards(_player.transform.position, transform.position, _moveSpeed * Time.deltaTime);
+                if (_missionStatement.GetComponent<SlideAnimation>()._show == false)
                 {
-                    MissionStatement.GetComponent<SlideAnimation>().show = true;
+                    _missionStatement.GetComponent<SlideAnimation>()._show = true;
                 }
                 Debug.Log($"Pressed pin {name}");
-                Debug.Log($"Setting title to {Title}");
-                MissionStatement.GetComponentInChildren<MissionNodes>().NodeCount = MissionCount;
-                MissionStatement.GetComponentInChildren<MissionNodes>().prefix = name;
-                Debug.Log($"Setting Nodecount to {MissionStatement.GetComponentInChildren<MissionNodes>().NodeCount}");
-                mpm.destination = new Vector3(transform.position.x - 0.8f, transform.position.y + 0.65f, transform.position.z);
-                mpm.moving = true;
+                Debug.Log($"Setting title to {_title}");
+                _missionStatement.GetComponentInChildren<MissionNodes>()._nodeCount = _missionCount;
+                _missionStatement.GetComponentInChildren<MissionNodes>()._prefix = name;
+                Debug.Log($"Setting Nodecount to {_missionStatement.GetComponentInChildren<MissionNodes>()._nodeCount}");
+                mpm._destination = new Vector3(transform.position.x - 0.8f, transform.position.y + 0.65f, transform.position.z);
+                mpm._moving = true;
                 Debug.Log("Move player to pin coordinates");
-                missionTitle.text = Title;
+                _missionTitle.text = _title;
                 
             }
         }

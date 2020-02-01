@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PNJTalkBasic : APNJTalk
 {
     [TextArea]
-    public string talk;
+    public string _talk;
 
     // Start is called before the first frame update
     void Start()
@@ -21,15 +21,15 @@ public class PNJTalkBasic : APNJTalk
 
     public override void Talk()
     {
-        dialManager.GetComponent<DialogueManager>().SimpleDial(talk, gameObject);
+        _dialManager.GetComponent<DialogueManager>().SimpleDial(_talk, gameObject);
     }
 
-    public override bool continueTalk()
+    public override bool ContinueTalk()
     {
         return false;
     }
 
-    public override bool continueTalk(int choice)
+    public override bool ContinueTalk(int choice)
     {
         throw new System.NotImplementedException();
     }

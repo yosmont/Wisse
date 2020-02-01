@@ -7,25 +7,25 @@ using UnityEngine;
 public class MissionNodes : MonoBehaviour
 {
     [Range(1, 12)]
-    public int NodeCount = 4;
+    public int _nodeCount = 4;
 
-    public string prefix;
-    public NodeControl[] ctrlnodes;
+    public string _prefix;
+    public NodeControl[] _ctrlnodes;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        ctrlnodes = GetComponentsInChildren<NodeControl>();
+        _ctrlnodes = GetComponentsInChildren<NodeControl>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        foreach (NodeControl node in ctrlnodes)
+        foreach (NodeControl node in _ctrlnodes)
         {
-            node.open = node.number <= NodeCount;
+            node._open = node._number <= _nodeCount;
         }
     }
 }

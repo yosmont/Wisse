@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PNJTalkCheckItem : APNJTalk
 {
-    public string itemName;
-    public string[] ifOk = new string[2];
+    public string _itemName;
+    public string[] _ifOk = new string[2];
 
     // Start is called before the first frame update
     void Start()
@@ -19,16 +19,16 @@ public class PNJTalkCheckItem : APNJTalk
 
     public override void Talk()
     {
-        int i = (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMove>()._inventory[itemName]) ? 1 : 0;
-        dialManager.GetComponent<DialogueManager>().FollowDial(ifOk[i], gameObject);
+        int i = (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMove>()._inventory[_itemName]) ? 1 : 0;
+        _dialManager.GetComponent<DialogueManager>().FollowDial(_ifOk[i], gameObject);
     }
 
-    public override bool continueTalk()
+    public override bool ContinueTalk()
     {
         throw new System.NotImplementedException();
     }
 
-    public override bool continueTalk(int choice)
+    public override bool ContinueTalk(int choice)
     {
         throw new System.NotImplementedException();
     }

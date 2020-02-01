@@ -51,7 +51,7 @@ public class DialogueManager : MonoBehaviour
             if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)) {
                 ++_currentDialogue.pageToDisplay;
                 if (_currentDialogue.pageToDisplay > _currentDialogue.textInfo.pageCount) {
-                    if (!_currentImportantPNJ.GetComponent<APNJTalk>().continueTalk()) {
+                    if (!_currentImportantPNJ.GetComponent<APNJTalk>().ContinueTalk()) {
                         if (_player)
                             _player.GetComponent<PlayerMove>().enabled = true;
                         _dialBox.SetActive(false);

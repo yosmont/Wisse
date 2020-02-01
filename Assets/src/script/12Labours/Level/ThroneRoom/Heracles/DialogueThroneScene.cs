@@ -71,12 +71,12 @@ public class DialogueThroneScene : APNJTalk
     public override void Talk()
     {
         if (!_next)
-            dialManager.GetComponent<DialogueManager>().SimpleDial(_str[0], gameObject, "Héraclès");
+            _dialManager.GetComponent<DialogueManager>().SimpleDial(_str[0], gameObject, "Héraclès");
         else
-            dialManager.GetComponent<DialogueManager>().SimpleDial(_afterDial[0], gameObject, "Eurysthée");
+            _dialManager.GetComponent<DialogueManager>().SimpleDial(_afterDial[0], gameObject, "Eurysthée");
     }
 
-    public override bool continueTalk()
+    public override bool ContinueTalk()
     {
         if (!_next)
         {
@@ -88,7 +88,7 @@ public class DialogueThroneScene : APNJTalk
                 _currDialogue = 0;
                 return false;
             }
-            dialManager.GetComponent<DialogueManager>().SimpleDial(_str[_currDialogue], gameObject, _pnjName[_currDialogue]);
+            _dialManager.GetComponent<DialogueManager>().SimpleDial(_str[_currDialogue], gameObject, _pnjName[_currDialogue]);
         } else
         {
             ++_currDialogue;
@@ -97,12 +97,12 @@ public class DialogueThroneScene : APNJTalk
                 _isTalking = true;
                 return false;
             }
-            dialManager.GetComponent<DialogueManager>().SimpleDial(_afterDial[_currDialogue], gameObject, _nameAfter[_currDialogue]);
+            _dialManager.GetComponent<DialogueManager>().SimpleDial(_afterDial[_currDialogue], gameObject, _nameAfter[_currDialogue]);
         }
         return true;
     }
 
-    public override bool continueTalk(int choice)
+    public override bool ContinueTalk(int choice)
     {
         return false;
     }

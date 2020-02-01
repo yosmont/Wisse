@@ -36325,7 +36325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2b08851dd0cfa04e8ade09b76474831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialManager: {fileID: 1909363885}
+  _dialManager: {fileID: 1909363885}
   _black: {fileID: 394125727}
   _anim: {fileID: 394125726}
 --- !u!61 &1945935739

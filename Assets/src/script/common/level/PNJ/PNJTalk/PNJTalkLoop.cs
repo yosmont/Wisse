@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PNJTalkLoop : APNJTalk
 {
-    public string[] talkArray;
-    private int index = 0;
+    public string[] _talkArray;
+    private int _index = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -21,16 +21,16 @@ public class PNJTalkLoop : APNJTalk
 
     public override void Talk()
     {
-        dialManager.GetComponent<DialogueManager>().FollowDial(talkArray[index], gameObject);
-        index = ((talkArray.Length - 1) > index) ? index + 1 : 0;
+        _dialManager.GetComponent<DialogueManager>().FollowDial(_talkArray[_index], gameObject);
+        _index = ((_talkArray.Length - 1) > _index) ? _index + 1 : 0;
     }
 
-    public override bool continueTalk()
+    public override bool ContinueTalk()
     {
         throw new System.NotImplementedException();
     }
 
-    public override bool continueTalk(int choice)
+    public override bool ContinueTalk(int choice)
     {
         throw new System.NotImplementedException();
     }

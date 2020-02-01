@@ -4,32 +4,32 @@ using UnityEngine;
 
 public class MenuPlayerMove : MonoBehaviour
 {
-    public Vector3 destination;
-    public float speed = 0.1f;
+    public Vector3 _destination;
+    public float _speed = 5.0f;
 
-    public bool moving = false;
+    public bool _moving = false;
 
-    GameObject playerModel;
+    private GameObject _playerModel;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerModel = GameObject.Find("playerSprite");
+        _playerModel = GameObject.Find("playerSprite");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (moving && transform.position != destination)
+        if (_moving && transform.position != _destination)
         {
-            playerModel.GetComponent<Animator>().Play("Move");
-            Vector3 tmp = Vector3.MoveTowards(transform.position, destination, speed * Time.deltaTime);
+            _playerModel.GetComponent<Animator>().Play("Move");
+            Vector3 tmp = Vector3.MoveTowards(transform.position, _destination, _speed * Time.deltaTime);
             transform.position = tmp;
         }
-        if (moving && transform.position == destination)
+        if (_moving && transform.position == _destination)
         {
-            playerModel.GetComponent<Animator>().Play("Idle");
-            moving = false;
+            _playerModel.GetComponent<Animator>().Play("Idle");
+            _moving = false;
         }
     }
 }

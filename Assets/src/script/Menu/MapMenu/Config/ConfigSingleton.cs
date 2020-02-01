@@ -5,6 +5,7 @@ using UnityEngine;
 public class ConfigSingleton : MonoBehaviour
 {
     private static ConfigSingleton _instance;
+    public string _sceneToLoad;
 
     private void Awake()
     {
@@ -33,6 +34,4 @@ public class ConfigSingleton : MonoBehaviour
     {
         // App iz gone
     }
-
-    public string sceneToLoad = "";
 }

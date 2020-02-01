@@ -1221,7 +1221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 572d62fa8b32aaa47b9de91b3ddeeccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialManager: {fileID: 1269128832}
+  _dialManager: {fileID: 1269128832}
 --- !u!114 &753691791
 MonoBehaviour:
   m_ObjectHideFlags: 0

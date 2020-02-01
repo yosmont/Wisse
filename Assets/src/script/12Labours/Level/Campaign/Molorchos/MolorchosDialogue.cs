@@ -50,12 +50,12 @@ public class MolorchosDialogue : APNJTalk
     public override void Talk()
     {
         if (_alreadyTalk)
-            dialManager.GetComponent<DialogueManager>().SimpleDial(_afterTalk, gameObject, "Molorchos");
+            _dialManager.GetComponent<DialogueManager>().SimpleDial(_afterTalk, gameObject, "Molorchos");
         else
-            dialManager.GetComponent<DialogueManager>().SimpleDial(_dialogue[0], gameObject, "Molorchos");
+            _dialManager.GetComponent<DialogueManager>().SimpleDial(_dialogue[0], gameObject, "Molorchos");
     }
 
-    public override bool continueTalk()
+    public override bool ContinueTalk()
     {
         ++_currDialogue;
         if (!(_currDialogue < _dialogue.Length) && !_alreadyTalk)
@@ -67,11 +67,11 @@ public class MolorchosDialogue : APNJTalk
         {
             return false;
         }
-        dialManager.GetComponent<DialogueManager>().SimpleDial(_dialogue[_currDialogue], gameObject, _pnjName[_currDialogue]);
+        _dialManager.GetComponent<DialogueManager>().SimpleDial(_dialogue[_currDialogue], gameObject, _pnjName[_currDialogue]);
         return true;
     }
 
-    public override bool continueTalk(int choice)
+    public override bool ContinueTalk(int choice)
     {
         return false;
     }

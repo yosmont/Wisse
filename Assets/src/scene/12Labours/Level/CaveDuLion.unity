@@ -14601,7 +14601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c2b577321fbd7d42a25d463504d06b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialManager: {fileID: 844349862}
+  _dialManager: {fileID: 844349862}
 --- !u!50 &1804490579
 Rigidbody2D:
   serializedVersion: 4
