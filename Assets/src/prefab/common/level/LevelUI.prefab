@@ -181,7 +181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c27905a9a81ed646baa206dd1ee3ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDisplay: 0
 --- !u!1 &3580172366829756190
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,9 +295,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 573b16af055eebd4796553396fe5801a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  followShift: {x: 125, y: -100}
-  followLifeTime: 2
+  _player: {fileID: 0}
+  _followShift: {x: 125, y: -100}
+  _followLifeTime: 5
 --- !u!1 &3580172366917852636
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,7 +488,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 140, y: 20}
+  m_SizeDelta: {x: 140, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3580172366985725193
 CanvasRenderer:
@@ -552,7 +551,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 514
+  m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -561,7 +560,7 @@ MonoBehaviour:
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
-  m_overflowMode: 1
+  m_overflowMode: 5
   m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
@@ -583,7 +582,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -2.5787294, y: -2.836623, z: -3.0944939, w: -3.0944939}
   m_textInfo:
     textComponent: {fileID: 3580172366985725198}
     characterCount: 0
@@ -800,7 +799,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 150, y: 25}
+  m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3580172367781326909
 CanvasRenderer:

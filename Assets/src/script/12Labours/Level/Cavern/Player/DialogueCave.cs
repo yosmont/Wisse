@@ -24,10 +24,12 @@ public class DialogueCave : APNJTalk
     public override void Talk()
     {
         if (_step == 0) {
-            _dialManager.GetComponent<DialogueManager>().SimpleDial(_dialogue, gameObject, "Héraclès");
+            //_dialManager.GetComponent<DialogueManager>().SimpleDial(_dialogue, gameObject, "Héraclès");
+            _dialManager.GetComponent<DialogueManager>().FollowDial(_dialogue, gameObject);
             _step = 1;
         } else if (_step != 2) {
-            _dialManager.GetComponent<DialogueManager>().SimpleDial(_postDialogue, gameObject, "Héraclès");
+            //_dialManager.GetComponent<DialogueManager>().SimpleDial(_postDialogue, gameObject, "Héraclès");
+            _dialManager.GetComponent<DialogueManager>().FollowDial(_postDialogue, gameObject);
             _step = 2;
         }
     }

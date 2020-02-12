@@ -15,6 +15,7 @@ public class DialogueManager : MonoBehaviour
     private GameObject _currentPNJ = null;
     private GameObject _currentImportantPNJ = null;
     private TextMeshProUGUI _currentDialogue = null;
+    private TextMeshProUGUI _currentFollowDialogue = null;
 
     private void Awake()
     {
@@ -43,8 +44,12 @@ public class DialogueManager : MonoBehaviour
             _dialFollowBox.transform.position = wantedPos;
             _followLifeTimer -= Time.deltaTime;
             if (_followLifeTimer <= 0) {
-                _currentPNJ = null;
-                _dialFollowBox.SetActive(false);
+                _followLifeTimer = _followLifeTime;
+                ++_currentFollowDialogue.pageToDisplay;
+                if (_currentFollowDialogue.pageToDisplay > _currentFollowDialogue.textInfo.pageCount) {
+                    _currentPNJ = null;
+                    _dialFollowBox.SetActive(false);
+                }
             }
         }
         if (_currentImportantPNJ) {
@@ -100,7 +105,9 @@ public class DialogueManager : MonoBehaviour
         _currentPNJ = PNJ;
         _followLifeTimer = _followLifeTime;
         _dialFollowBox.SetActive(true);
-        _dialFollowBox.transform.Find("Dialogue").GetComponent<TextMeshProUGUI>().text = dial;
+        _currentFollowDialogue = _dialFollowBox.transform.Find("Dialogue").GetComponent<TextMeshProUGUI>();
+        _currentFollowDialogue.text = dial;
+        _currentFollowDialogue.pageToDisplay = 1;
         Vector3 wantedPos = Camera.main.WorldToScreenPoint(PNJ.transform.position);
         wantedPos.x -= _followShift.x;
         wantedPos.y -= _followShift.y;
