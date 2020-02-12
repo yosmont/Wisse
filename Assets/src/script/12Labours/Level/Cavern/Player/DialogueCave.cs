@@ -29,7 +29,7 @@ public class DialogueCave : APNJTalk
             _step = 1;
         } else if (_step != 2) {
             //_dialManager.GetComponent<DialogueManager>().SimpleDial(_postDialogue, gameObject, "Héraclès");
-            _dialManager.GetComponent<DialogueManager>().FollowDial(_postDialogue, gameObject);
+            _dialManager.GetComponent<DialogueManager>().FollowDial(_postDialogue, gameObject); 
             _step = 2;
         }
     }
