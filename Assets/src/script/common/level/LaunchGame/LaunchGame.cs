@@ -7,9 +7,7 @@ using UnityEngine.UI;
 public class LaunchGame : MonoBehaviour
 {
     public string _levelPath;
-
-    public Image _black;
-    public Animator _anim;
+    public FadeController _fade;
 
     void Start()
     {
@@ -33,14 +31,7 @@ public class LaunchGame : MonoBehaviour
         if (InputWorldPoint != Vector3.zero) {
             RaycastHit2D hit = Physics2D.Raycast(new Vector2(InputWorldPoint.x, InputWorldPoint.y), Vector2.zero);
             if (hit.collider != null && hit.collider.name == gameObject.name)
-                StartCoroutine(Fading());
+                _fade.StartFadeInLevel(_levelPath);
         }
-    }
-
-    IEnumerator Fading()
-    {
-        _anim.SetBool("Fade", true);
-        yield return new WaitUntil(() => _black.color.a == 1);
-        SceneManager.LoadScene("src/scene/" + _levelPath);
     }
 }

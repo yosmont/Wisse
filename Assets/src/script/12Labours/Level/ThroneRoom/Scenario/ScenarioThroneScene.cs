@@ -16,8 +16,7 @@ public class ScenarioThroneScene : MonoBehaviour
     private bool _isTalking = true;
     private int _second = 0;
 
-    public Image _black;
-    public Animator _anim;
+    public FadeController _fade;
 
     void Start()
     {
@@ -30,8 +29,7 @@ public class ScenarioThroneScene : MonoBehaviour
     void Update()
     {
         _isTalking = GameObject.Find("Héraclès").GetComponent<DialogueThroneScene>().GetIsTalking();
-        if (!_isTalking && _second == 0)
-        {
+        if (!_isTalking && _second == 0) {
             _second = 1;
             _heracles.velocity = _speed;
             _moveType.Play("Move");
@@ -39,18 +37,10 @@ public class ScenarioThroneScene : MonoBehaviour
         } else if (_second == 1 && ((_cam.WorldToViewportPoint(_heracles.position).x - 0.07 >= 1 ||
                _cam.WorldToViewportPoint(_heracles.position).x + 0.07 <= 0) ||
                (_cam.WorldToViewportPoint(_heracles.position).y + 0.07 >= 1 ||
-               _cam.WorldToViewportPoint(_heracles.position).y  + 0.07 <= 0)))
-        {
+               _cam.WorldToViewportPoint(_heracles.position).y + 0.07 <= 0))) {
             _second = 3;
             GameObject.Find("Héraclès").GetComponent<APNJTalk>().Talk();
         } else if (_isTalking && _second == 3)
-            StartCoroutine(Fading());
-    }
-
-    IEnumerator Fading()
-    {
-        _anim.SetBool("Fade", true);
-        yield return new WaitUntil(()=>_black.color.a == 1);
-        SceneManager.LoadScene("src/scene/" + _levelPath);
+            _fade.StartFadeInLevel(_levelPath);
     }
 }

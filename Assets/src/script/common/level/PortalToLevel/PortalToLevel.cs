@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PortalToLevel : MonoBehaviour
 {
     public string _levelPath;
+    public FadeController _fade;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,6 @@ public class PortalToLevel : MonoBehaviour
 
     public void ChangeLevel()
     {
-        SceneManager.LoadScene("src/scene/" + _levelPath);
+        _fade.StartFadeInLevel(_levelPath);
     }
 }

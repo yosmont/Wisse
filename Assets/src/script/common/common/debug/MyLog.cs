@@ -45,6 +45,7 @@ public class MyLog : MonoBehaviour
 
     void OnGUI()
     {
-        GUILayout.Label(_myLog, _style);
+        if (Debug.isDebugBuild)
+            GUILayout.Label(_myLog, _style);
     }
 }

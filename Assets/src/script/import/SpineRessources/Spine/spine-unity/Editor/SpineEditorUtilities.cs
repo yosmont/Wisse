@@ -1168,7 +1168,8 @@ namespace Spine.Unity.Editor {
 
 			if (prefab == null) {
 				root = new GameObject("temp", typeof(MeshFilter), typeof(MeshRenderer));
-				prefab = PrefabUtility.CreatePrefab(bakedPrefabPath, root);
+				//prefab = PrefabUtility.CreatePrefab(bakedPrefabPath, root);
+                prefab = PrefabUtility.SaveAsPrefabAsset(root, bakedPrefabPath);
 				isNewPrefab = true;
 				Object.DestroyImmediate(root);
 			}

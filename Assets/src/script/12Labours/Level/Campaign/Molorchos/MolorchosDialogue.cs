@@ -6,8 +6,7 @@ using UnityEngine.UI;
 
 public class MolorchosDialogue : APNJTalk
 {
-    public Image _black;
-    public Animator _anim;
+    public FadeController _fade;
 
     private bool _alreadyTalk = false;
     private int _currDialogue = 0;
@@ -15,7 +14,6 @@ public class MolorchosDialogue : APNJTalk
     private string _afterTalk = "Bon courage pour ta mission !";
 
     private string[] _pnjName = {
-        "",
         "Molorchos",
         "Héraclès",
         "Molorchos",
@@ -27,7 +25,6 @@ public class MolorchosDialogue : APNJTalk
     };
 
     private string[] _dialogue = {
-        "",
         "Que faites-vous par ici ?",
         "On m’envoie tuer le lion de Némée.",
         "Qui donc serait assez fou pour vous confier une telle tâche.",
@@ -61,7 +58,8 @@ public class MolorchosDialogue : APNJTalk
         if (!(_currDialogue < _dialogue.Length) && !_alreadyTalk)
         {
             _alreadyTalk = true;
-            StartCoroutine(FadeIn());
+            _fade.StartFadeIn();
+            _fade.StartFadeOut();
             return false;
         } else if (_alreadyTalk)
         {
@@ -74,12 +72,6 @@ public class MolorchosDialogue : APNJTalk
     public override bool ContinueTalk(int choice)
     {
         return false;
-    }
-
-    IEnumerator FadeIn()
-    {
-        _anim.SetBool("Fade", true);
-        yield return new WaitUntil(() => _black.color.a == 1);
     }
 
     public bool GetAlreadyTalk()
