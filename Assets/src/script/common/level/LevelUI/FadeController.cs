@@ -40,9 +40,9 @@ public class FadeController : MonoBehaviour
     {   
         if (_cmd.Count != 0) {
             if (_outDic.ContainsKey(_cmd.Peek()) && _black.color.a == 1) {
-                ForceStartFadeOut(_cmd.Dequeue());
+                StartCoroutine((IEnumerator)_outDic[_cmd.Dequeue()].DynamicInvoke());
             } else if (_inDic.ContainsKey(_cmd.Peek()) && _black.color.a == 0) {
-                ForceStartFadeIn(_cmd.Dequeue());
+                StartCoroutine((IEnumerator)_inDic[_cmd.Dequeue()].DynamicInvoke());
             }
         }
     }
@@ -76,16 +76,6 @@ public class FadeController : MonoBehaviour
             if (_cmd.Count == 0 || _inDic.ContainsKey(_cmd.Peek()))
                 _cmd.Enqueue("inLevel");
         }
-    }
-
-    private void ForceStartFadeIn(string tmp)
-    {
-        StartCoroutine((IEnumerator)_inDic[tmp].DynamicInvoke());
-    }
-
-    private void ForceStartFadeOut(string tmp)
-    {
-        StartCoroutine((IEnumerator)_outDic[tmp].DynamicInvoke());
     }
 
     IEnumerator FadeIn()
