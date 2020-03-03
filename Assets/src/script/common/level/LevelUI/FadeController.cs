@@ -51,20 +51,16 @@ public class FadeController : MonoBehaviour
     {
         if (_black.color.a == 0)
             StartCoroutine(FadeIn());
-        else {
-            if (_cmd.Count == 0 || _inDic.ContainsKey(_cmd.Peek()))
-                _cmd.Enqueue("in");
-        }
+        else if (_cmd.Count == 0 || _inDic.ContainsKey(_cmd.Peek()))
+            _cmd.Enqueue("in");
     }
 
     public void StartFadeOut()
     {
         if (_black.color.a == 1)
             StartCoroutine(FadeOut());
-        else {
-            if (_cmd.Count == 0 || _outDic.ContainsKey(_cmd.Peek()))
-                _cmd.Enqueue("out");
-        }
+        else if (_cmd.Count == 0 || _outDic.ContainsKey(_cmd.Peek()))
+            _cmd.Enqueue("out");
     }
 
     public void StartFadeInLevel(string levelPath)
@@ -72,10 +68,8 @@ public class FadeController : MonoBehaviour
         this._levelPath = levelPath;
         if (_black.color.a == 0)
             StartCoroutine(FadeInLevel());
-        else {
-            if (_cmd.Count == 0 || _inDic.ContainsKey(_cmd.Peek()))
-                _cmd.Enqueue("inLevel");
-        }
+        else if (_cmd.Count == 0 || _inDic.ContainsKey(_cmd.Peek()))
+            _cmd.Enqueue("inLevel");
     }
 
     IEnumerator FadeIn()

@@ -47,7 +47,7 @@ public class NodeControl : MonoBehaviour
                 Debug.Log($"[Map] - The scene to load should be {names[_number - 1]}");
                 if (Application.CanStreamedLevelBeLoaded(names[_number - 1]) == false)
                 {
-                    Debug.Log("[Map] - Scene doesnt' exist, so fuck you");
+                    Debug.Log("[Map] - Scene doesnt' exist");
                 } else {
                     Config.Instance.sceneToLoad = names[_number - 1];
                     //Config.Instance.loadingScene = 1;
