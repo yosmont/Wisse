@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 3580172366753525568}
   - component: {fileID: 1947201164939832084}
   m_Layer: 5
-  m_Name: ping
+  m_Name: cursor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
