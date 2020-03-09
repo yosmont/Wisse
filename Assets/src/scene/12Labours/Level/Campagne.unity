@@ -36103,7 +36103,7 @@ GameObject:
   - component: {fileID: 1945935741}
   - component: {fileID: 1945935740}
   - component: {fileID: 1945935739}
-  - component: {fileID: 1945935744}
+  - component: {fileID: 1945935738}
   m_Layer: 0
   m_Name: Molorchos
   m_TagString: PNJ
@@ -36111,6 +36111,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1945935738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945935737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2b08851dd0cfa04e8ade09b76474831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialManager: {fileID: 1909363885}
 --- !u!61 &1945935739
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36248,22 +36261,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1945935744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1945935737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa39441d06421954c900393273696dc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dialManager: {fileID: 1909363885}
-  _talk: What is the good choice?
-  _goodOption: good
-  _badOption: bad
 --- !u!1 &1994417963 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3411235799439537531, guid: 01d9785404cf20341bd80a8aff1fa3c0,
