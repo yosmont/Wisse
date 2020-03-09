@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class MolorchosDialogue : APNJTalk
 {
-    public FadeController _fade;
-
     private bool _alreadyTalk = false;
     private int _currDialogue = 0;
 
@@ -58,8 +56,8 @@ public class MolorchosDialogue : APNJTalk
         if (!(_currDialogue < _dialogue.Length) && !_alreadyTalk)
         {
             _alreadyTalk = true;
-            _fade.StartFadeIn();
-            _fade.StartFadeOut();
+            _dialManager.GetComponent<FadeController>().StartFadeIn();
+            _dialManager.GetComponent<FadeController>().StartFadeOut();
             return false;
         } else if (_alreadyTalk)
         {

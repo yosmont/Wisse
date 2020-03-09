@@ -12,21 +12,25 @@ public class DialogueManager : MonoBehaviour
     private float _followLifeTimer;
     private GameObject _dialBox;
     private GameObject _dialFollowBox;
+    private GameObject _quizButton;
     private GameObject _currentPNJ = null;
     private GameObject _currentImportantPNJ = null;
     private TextMeshProUGUI _currentDialogue = null;
     private TextMeshProUGUI _currentFollowDialogue = null;
+    private int _quizGoodOption = 0;
 
     private void Awake()
     {
         _dialBox = transform.Find("DialogueBox").gameObject;
         _dialFollowBox = transform.Find("DialogueFollowBox").gameObject;
+        _quizButton = transform.Find("QuizButton").gameObject;
         if (!_player)
             transform.Find("ping").gameObject.SetActive(false);
         foreach (Transform child in _dialBox.transform)
             child.gameObject.SetActive(false);
         _dialBox.SetActive(false);
         _dialFollowBox.SetActive(false);
+        _quizButton.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -53,15 +57,11 @@ public class DialogueManager : MonoBehaviour
             }
         }
         if (_currentImportantPNJ) {
-            if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)) {
+            if (!_quizButton.activeInHierarchy && (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began))) {
                 ++_currentDialogue.pageToDisplay;
                 if (_currentDialogue.pageToDisplay > _currentDialogue.textInfo.pageCount) {
                     if (!_currentImportantPNJ.GetComponent<APNJTalk>().ContinueTalk()) {
-                        if (_player)
-                            _player.GetComponent<PlayerMove>().enabled = true;
-                        _dialBox.SetActive(false);
-                        _currentDialogue = null;
-                        _currentImportantPNJ = null;
+                        EndDial();
                     }
                 }
             }
@@ -112,5 +112,39 @@ public class DialogueManager : MonoBehaviour
         wantedPos.x -= _followShift.x;
         wantedPos.y -= _followShift.y;
         _dialFollowBox.transform.position = wantedPos;
+    }
+
+    public void SetQuizButton(string goodOption, string badOption)
+    {
+        _quizButton.SetActive(true);
+        _quizGoodOption = Random.Range(0, 2);
+        if (_quizGoodOption == 0) {
+            _quizButton.transform.Find("QuizChoice1").Find("Text").GetComponent<TextMeshProUGUI>().text = goodOption;
+            _quizButton.transform.Find("QuizChoice2").Find("Text").GetComponent<TextMeshProUGUI>().text = badOption;
+        } else {
+            _quizButton.transform.Find("QuizChoice1").Find("Text").GetComponent<TextMeshProUGUI>().text = badOption;
+            _quizButton.transform.Find("QuizChoice2").Find("Text").GetComponent<TextMeshProUGUI>().text = goodOption;
+        }
+    }
+
+    public void OnClickQuizButton(int index)
+    {
+        if (index == _quizGoodOption) {
+            _quizButton.SetActive(false);
+            if (!_currentImportantPNJ.GetComponent<APNJTalk>().ContinueTalk()) {
+                EndDial();
+            }
+        } else {
+            //bad
+        }
+    }
+
+    private void EndDial()
+    {
+        if (_player)
+            _player.GetComponent<PlayerMove>().enabled = true;
+        _dialBox.SetActive(false);
+        _currentDialogue = null;
+        _currentImportantPNJ = null;
     }
 }
