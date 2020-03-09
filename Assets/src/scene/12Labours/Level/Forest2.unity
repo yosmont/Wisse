@@ -84170,7 +84170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d246f02b07dc46547b5acbe60a773c17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelPath: 12Labours/Level/CaveDuLion
+  _levelPath: 12Labours/Level/LionCave
   _fade: {fileID: 337102986}
 --- !u!58 &1541475268
 CircleCollider2D:
