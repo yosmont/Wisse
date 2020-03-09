@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class PlayerMove : MonoBehaviour
 {
-    public PingController _ping;
+    public CursorController _cursor;
     [HideInInspector]
     public Dictionary<string, bool> _inventory = new Dictionary<string, bool>();
     public bool _isMoving = false;
@@ -54,7 +54,7 @@ public class PlayerMove : MonoBehaviour
             } else {
                 InputWorldPoint.z = 0;
                 _agent.SetDestination(InputWorldPoint);
-                _ping.Move(_agent.destination);
+                _cursor.Move(_agent.destination);
             }
         }
         Move();
@@ -80,13 +80,13 @@ public class PlayerMove : MonoBehaviour
                 hit.collider.GetComponent<PortalToLevel>().ChangeLevel();
             _isMoving = false;
             _spriteObject.GetComponent<Animator>().Play("Idle");
-            _ping.Stop();
+            _cursor.Stop();
         }
     }
 
     public void Stop()
     {
-        _ping.Stop();
+        _cursor.Stop();
         _agent.SetDestination(new Vector3(transform.position.x, transform.position.y, 0));
         _spriteObject.GetComponent<Animator>().Play("Idle");
     }

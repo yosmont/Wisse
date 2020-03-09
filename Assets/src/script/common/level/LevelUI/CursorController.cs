@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PingController : MonoBehaviour
+public class CursorController : MonoBehaviour
 {
     private bool _isDisplay = false;
-    private Image _sprite  = null;
+    private Image _sprite = null;
     private Vector3 _dest;
 
     private void Awake()

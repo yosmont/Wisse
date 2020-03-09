@@ -35657,7 +35657,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 97cefdbdcfda41e47b8dc8d482ca12c1, type: 3}
 --- !u!114 &337102985 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3474694591512758162, guid: 97cefdbdcfda41e47b8dc8d482ca12c1,
+  m_CorrespondingSourceObject: {fileID: 1947201164939832084, guid: 97cefdbdcfda41e47b8dc8d482ca12c1,
     type: 3}
   m_PrefabInstance: {fileID: 337102984}
   m_PrefabAsset: {fileID: 0}
@@ -35848,7 +35848,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ping
       value: 
-      objectReference: {fileID: 337102985}
+      objectReference: {fileID: 0}
     - target: {fileID: 3411235799439537529, guid: 01d9785404cf20341bd80a8aff1fa3c0,
         type: 3}
       propertyPath: _ping

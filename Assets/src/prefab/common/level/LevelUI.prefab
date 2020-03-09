@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 3580172366753525569}
   - component: {fileID: 3580172366753525574}
   - component: {fileID: 3580172366753525568}
-  - component: {fileID: 3474694591512758162}
+  - component: {fileID: 1947201164939832084}
   m_Layer: 5
   m_Name: ping
   m_TagString: Untagged
@@ -169,7 +169,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3474694591512758162
+--- !u!114 &1947201164939832084
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1007,7 +1007,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: -0.000061035156}
   m_SizeDelta: {x: 274, y: 154.09314}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1561733252755481807
