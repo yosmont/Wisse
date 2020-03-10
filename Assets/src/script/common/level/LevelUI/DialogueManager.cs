@@ -25,7 +25,7 @@ public class DialogueManager : MonoBehaviour
         _dialFollowBox = transform.Find("DialogueFollowBox").gameObject;
         _quizButton = transform.Find("QuizButton").gameObject;
         if (!_player)
-            transform.Find("ping").gameObject.SetActive(false);
+            transform.Find("cursor").gameObject.SetActive(false);
         foreach (Transform child in _dialBox.transform)
             child.gameObject.SetActive(false);
         _dialBox.SetActive(false);
@@ -134,13 +134,13 @@ public class DialogueManager : MonoBehaviour
             if (!_currentImportantPNJ.GetComponent<APNJTalk>().ContinueTalk()) {
                 EndDial();
             }
-            //good
+            Debug.Log("[QUIZ]: good choice");
         } else {
             _quizButton.SetActive(false);
             if (!_currentImportantPNJ.GetComponent<APNJTalk>().ContinueTalk()) {
                 EndDial();
             }
-            //bad
+            Debug.Log("[QUIZ]: bad choice");
         }
     }
 
