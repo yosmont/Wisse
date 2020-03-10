@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class MolorchosDialogue : APNJTalk
 {
+    public FadeController _fade;
     private bool _alreadyTalk = false;
     private int _currDialogue = 0;
 
@@ -45,9 +46,9 @@ public class MolorchosDialogue : APNJTalk
     public override void Talk()
     {
         if (_alreadyTalk)
-            _dialManager.GetComponent<DialogueManager>().SimpleDial(_afterTalk, gameObject, "Molorchos");
+            _dialManager.SimpleDial(_afterTalk, gameObject, "Molorchos");
         else
-            _dialManager.GetComponent<DialogueManager>().SimpleDial(_dialogue[0], gameObject, "Molorchos");
+            _dialManager.SimpleDial(_dialogue[0], gameObject, "Molorchos");
     }
 
     public override bool ContinueTalk()
@@ -56,20 +57,15 @@ public class MolorchosDialogue : APNJTalk
         if (!(_currDialogue < _dialogue.Length) && !_alreadyTalk)
         {
             _alreadyTalk = true;
-            _dialManager.GetComponent<FadeController>().StartFadeIn();
-            _dialManager.GetComponent<FadeController>().StartFadeOut();
+            _fade.StartFadeIn();
+            _fade.StartFadeOut();
             return false;
         } else if (_alreadyTalk)
         {
             return false;
         }
-        _dialManager.GetComponent<DialogueManager>().SimpleDial(_dialogue[_currDialogue], gameObject, _pnjName[_currDialogue]);
+        _dialManager.SimpleDial(_dialogue[_currDialogue], gameObject, _pnjName[_currDialogue]);
         return true;
-    }
-
-    public override bool ContinueTalk(int choice)
-    {
-        return false;
     }
 
     public bool GetAlreadyTalk()

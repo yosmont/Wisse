@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class APNJTalk : MonoBehaviour
 {
-    public GameObject _dialManager;
+    public DialogueManager _dialManager;
 
     // Start is called before the first frame update
     void Start()
@@ -19,5 +19,4 @@ public abstract class APNJTalk : MonoBehaviour
 
     public abstract void Talk();
     public abstract bool ContinueTalk();
-    public abstract bool ContinueTalk(int choice);
 }

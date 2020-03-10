@@ -134,7 +134,12 @@ public class DialogueManager : MonoBehaviour
             if (!_currentImportantPNJ.GetComponent<APNJTalk>().ContinueTalk()) {
                 EndDial();
             }
+            //good
         } else {
+            _quizButton.SetActive(false);
+            if (!_currentImportantPNJ.GetComponent<APNJTalk>().ContinueTalk()) {
+                EndDial();
+            }
             //bad
         }
     }

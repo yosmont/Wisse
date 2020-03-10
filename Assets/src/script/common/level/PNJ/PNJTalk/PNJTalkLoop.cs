@@ -21,16 +21,11 @@ public class PNJTalkLoop : APNJTalk
 
     public override void Talk()
     {
-        _dialManager.GetComponent<DialogueManager>().FollowDial(_talkArray[_index], gameObject);
+        _dialManager.FollowDial(_talkArray[_index], gameObject);
         _index = ((_talkArray.Length - 1) > _index) ? _index + 1 : 0;
     }
 
     public override bool ContinueTalk()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override bool ContinueTalk(int choice)
     {
         throw new System.NotImplementedException();
     }

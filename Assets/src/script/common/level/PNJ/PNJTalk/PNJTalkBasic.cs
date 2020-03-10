@@ -21,16 +21,11 @@ public class PNJTalkBasic : APNJTalk
 
     public override void Talk()
     {
-        _dialManager.GetComponent<DialogueManager>().SimpleDial(_talk, gameObject);
+        _dialManager.SimpleDial(_talk, gameObject);
     }
 
     public override bool ContinueTalk()
     {
         return false;
-    }
-
-    public override bool ContinueTalk(int choice)
-    {
-        throw new System.NotImplementedException();
     }
 }

@@ -36042,6 +36042,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c27905a9a81ed646baa206dd1ee3ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1826075300 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3580172366829756181, guid: 97cefdbdcfda41e47b8dc8d482ca12c1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1826075298}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573b16af055eebd4796553396fe5801a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1835600035
 GameObject:
   m_ObjectHideFlags: 0
@@ -36072,19 +36084,13 @@ Transform:
   m_Father: {fileID: 613723481}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1909363885 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3580172366829756190, guid: 97cefdbdcfda41e47b8dc8d482ca12c1,
-    type: 3}
-  m_PrefabInstance: {fileID: 1826075298}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1909363886 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1174196298312862763, guid: 97cefdbdcfda41e47b8dc8d482ca12c1,
     type: 3}
   m_PrefabInstance: {fileID: 1826075298}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1909363885}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ffb96878f1f5ca43927bf4078e1cd0a, type: 3}
@@ -36123,7 +36129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2b08851dd0cfa04e8ade09b76474831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialManager: {fileID: 1909363885}
+  _dialManager: {fileID: 1826075300}
+  _fade: {fileID: 1909363886}
 --- !u!61 &1945935739
 BoxCollider2D:
   m_ObjectHideFlags: 0
