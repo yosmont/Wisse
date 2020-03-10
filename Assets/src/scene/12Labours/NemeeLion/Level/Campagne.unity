@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d246f02b07dc46547b5acbe60a773c17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelPath: 12Labours/Level/Forest
+  _levelPath: 12Labours/NemeeLion/Level/Forest
   _fade: {fileID: 1909363886}
 --- !u!58 &276961127
 CircleCollider2D:

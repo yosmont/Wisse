@@ -14400,7 +14400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed802a5c3b9014478c77467a07d3b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelPath: 12Labours/Level/LionCave2
+  _levelPath: 12Labours/NemeeLion/Level/LionCave2
   _fade: {fileID: 246797843}
 --- !u!50 &1724449617
 Rigidbody2D:
