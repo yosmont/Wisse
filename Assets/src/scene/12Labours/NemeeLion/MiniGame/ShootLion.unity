@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -299,6 +300,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -342,8 +344,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 235649593}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.501999, y: -3.7, z: 0}
-  m_LocalScale: {x: -0.770013, y: 0.74698, z: 1}
+  m_LocalPosition: {x: -0.27, y: 4.58, z: 0}
+  m_LocalScale: {x: -0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 1711714719}
   - {fileID: 1590977985}
@@ -493,6 +495,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -536,7 +539,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 442420213}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -7.7, y: 0, z: 0}
+  m_LocalPosition: {x: -0.43, y: -3.89, z: 0}
   m_LocalScale: {x: 0.378, y: 0.378, z: 0.378}
   m_Children: []
   m_Father: {fileID: 0}
@@ -981,7 +984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51e0d275e037d842850533519d50598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelPath: 12Labours/Level/Forest2
+  _levelPath: 12Labours/NemeeLion/Level/Forest2
   _pauseMenuUI: {fileID: 1292923967}
   _displayText: {fileID: 1391160451}
 --- !u!1 &969830880
@@ -1572,6 +1575,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1615,7 +1619,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1706956984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.7, y: 0, z: 0}
+  m_LocalPosition: {x: -0.42999983, y: -3.89, z: 0}
   m_LocalScale: {x: 0.36399242, y: 0.36399242, z: 0.36399242}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1721,6 +1725,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1764,7 +1769,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1813735032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.7, y: 0, z: 0}
+  m_LocalPosition: {x: -0.42999983, y: -3.89, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

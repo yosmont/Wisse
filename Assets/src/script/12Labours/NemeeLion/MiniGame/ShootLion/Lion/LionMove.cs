@@ -24,8 +24,8 @@ public class LionMove : MonoBehaviour
         _currentTime = _startingTime;
         _moveType = GetComponent<Animator>();
         _lion = GetComponent<Rigidbody2D>();
-        _pos = new Vector3(7.5f, -3.7f, 0);
-        _speed = new Vector3(0, _dirUp * _moveSpeed * Time.deltaTime, 0);
+        _pos = _lion.position;
+        _speed = new Vector3(_dirUp * _moveSpeed * Time.deltaTime, 0, 0);
         _lion.velocity = _speed;
         _moveType.Play("walk");
     }
@@ -41,15 +41,15 @@ public class LionMove : MonoBehaviour
             _lion.position = _pos;
         }
 
-        if (_cam.WorldToViewportPoint(_lion.position).y >= 0.85)
+        if (_cam.WorldToViewportPoint(_lion.position).x >= 0.85)
         {
             _dirUp = -1;
-            _speed.y = _dirUp * _moveSpeed * Time.deltaTime;
+            _speed.x = _dirUp * _moveSpeed * Time.deltaTime;
             _lion.velocity = _speed;
-        } else if (_cam.WorldToViewportPoint(_lion.position).y <= 0.15)
+        } else if (_cam.WorldToViewportPoint(_lion.position).x <= 0.15)
         {
             _dirUp = 1;
-            _speed.y = _dirUp * _moveSpeed * Time.deltaTime;
+            _speed.x = _dirUp * _moveSpeed * Time.deltaTime;
             _lion.velocity = _speed;
         } else if ((_cam.WorldToViewportPoint(_lion.position).x - 0.07 >= 1 ||
           _cam.WorldToViewportPoint(_lion.position).x <= 0) ||

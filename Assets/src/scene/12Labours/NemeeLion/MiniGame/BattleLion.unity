@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -297,6 +298,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1090,6 +1092,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1958,7 +1961,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -333.7}
+  m_AnchoredPosition: {x: 0, y: -333.69998}
   m_SizeDelta: {x: 0, y: -667.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1766155923
@@ -2301,7 +2304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7284cc76ae4401a4d9cffb1b2e7f6c17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelPath: 12Labours/ProtoLoop/Loading
+  _levelPath: 12Labours/NemeeLion/ProtoLoop/Loading
   _state: 0
   _player: {fileID: 4905974060950741586, guid: 6b8f6a3bed3ad5849ac1f8519d1658b9, type: 3}
   _enemy: {fileID: 6764559227624120642, guid: 14421abae9dc80f49a19939caf35dd6f, type: 3}
