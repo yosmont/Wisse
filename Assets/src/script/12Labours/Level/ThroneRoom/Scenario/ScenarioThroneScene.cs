@@ -38,9 +38,7 @@ public class ScenarioThroneScene : MonoBehaviour
                _cam.WorldToViewportPoint(_heracles.position).x + 0.07 <= 0) ||
                (_cam.WorldToViewportPoint(_heracles.position).y + 0.07 >= 1 ||
                _cam.WorldToViewportPoint(_heracles.position).y + 0.07 <= 0))) {
-            _second = 3;
-            GameObject.Find("Héraclès").GetComponent<APNJTalk>().Talk();
-        } else if (_isTalking && _second == 3)
             _fade.StartFadeInLevel(_levelPath);
+        }
     }
 }
