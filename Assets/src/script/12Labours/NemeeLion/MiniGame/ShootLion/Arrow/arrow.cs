@@ -17,9 +17,11 @@ public class arrow : MonoBehaviour
 
     private float _releaseDelay;
     private float _maxDragDistance = 1.5f;
+    private Vector3 _dragBallPos;
 
     private void Awake()
     {
+        _dragBallPos = transform.position;
         _rb = GetComponent<Rigidbody2D>();
         _sj = GetComponent<SpringJoint2D>();
         _slingRb = _sj.connectedBody;
@@ -38,7 +40,7 @@ public class arrow : MonoBehaviour
             (_cam.WorldToViewportPoint(_rb.position).y < 1 &&
             _cam.WorldToViewportPoint(_rb.position).y > 0))) {
             _bow.transform.eulerAngles = new Vector3(0, 0, 180);
-            transform.position = new Vector3((float)-7.7, 0, 0);
+            transform.position = _dragBallPos;
             transform.eulerAngles = new Vector3(0, 0, 0);
             _sj.enabled = true;
             _rb.isKinematic = false;
@@ -59,10 +61,10 @@ public class arrow : MonoBehaviour
         } else {
             _rb.position = mousePosition;
         }
-        float o = mousePosition.x - (float)-7.7;
-        float a = mousePosition.y - 0;
+        float o = mousePosition.x - _dragBallPos.x;
+        float a = mousePosition.y - _dragBallPos.y;
         double angle = 90 - Atan(o / a) * (180.0 / PI);
-       if (mousePosition.y < 0)
+        if (mousePosition.y < _dragBallPos.y)
             angle += 180;
         _rb.rotation = (float)angle + 180;
         _bow.transform.eulerAngles = new Vector3(0, 0, (float)angle);

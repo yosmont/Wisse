@@ -14,6 +14,7 @@ public class StartMenu : MonoBehaviour
 
     void Start()
     {
+        //Screen.orientation = ScreenOrientation.Portrait;
         _pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
     }
@@ -30,6 +31,7 @@ public class StartMenu : MonoBehaviour
             _pauseMenuUI.SetActive(false);
         } else
         {
+            //Screen.orientation = ScreenOrientation.LandscapeLeft;
             SceneManager.LoadScene("src/scene/" + _levelPath);
         }
     }
