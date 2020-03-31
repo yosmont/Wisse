@@ -1,0 +1,194 @@
+{
+"bones": [
+	{ "name": "root" },
+	{ "name": "coccyx", "parent": "root", "x": 2.98, "y": 24.82 },
+	{ "name": "bust", "parent": "coccyx", "length": 54.72, "x": 3.87, "y": 8.46, "rotation": 89.09 },
+	{ "name": "left-feet", "parent": "coccyx", "length": 21.74, "x": 16.68, "rotation": -88.18 },
+	{ "name": "right-feet", "parent": "coccyx", "length": 22.89, "x": -23.66, "y": 1.55, "rotation": -89.98 },
+	{ "name": "left-arm", "parent": "bust", "length": 34.93, "x": 55.93, "y": -21.2, "rotation": -166.68 },
+	{ "name": "neck", "parent": "bust", "length": 21.15, "x": 61.24, "y": 1.2, "rotation": 25.89 },
+	{ "name": "right-arm", "parent": "bust", "length": 34.48, "x": 57.55, "y": 35.91, "rotation": 162.96 },
+	{ "name": "head", "parent": "neck", "length": 139.3, "x": 21.74, "y": -0.73, "rotation": -24.54 },
+	{ "name": "left-hand", "parent": "left-arm", "length": 20.87, "x": 36.17, "y": -0.1, "rotation": -11.13 },
+	{ "name": "right-hand", "parent": "right-arm", "length": 20.94, "x": 38.93, "y": 0.06, "rotation": 12.86 },
+	{ "name": "Head-equipment", "parent": "head", "x": 59.8, "y": 0.65 },
+	{ "name": "sword", "parent": "right-hand", "length": 106.92, "x": 17.88, "y": -0.65, "rotation": 82.81 }
+],
+"slots": [
+	{ "name": "left-feet", "bone": "left-feet", "attachment": "left-feet" },
+	{ "name": "right-feet", "bone": "right-feet", "attachment": "right-feet" },
+	{ "name": "left-hand", "bone": "left-hand", "attachment": "left-hand" },
+	{ "name": "left-shoulder", "bone": "left-arm", "attachment": "left-shoulder" },
+	{ "name": "bust", "bone": "bust", "attachment": "bust" },
+	{ "name": "head", "bone": "head", "attachment": "head" },
+	{ "name": "eyes", "bone": "head", "attachment": "eyes" },
+	{ "name": "Head-equipment", "bone": "Head-equipment" },
+	{ "name": "weapon", "bone": "sword" },
+	{ "name": "right-hand", "bone": "right-hand", "attachment": "right-hand" },
+	{ "name": "right-shoulder", "bone": "right-arm", "attachment": "right-shoulder" }
+],
+"skins": {
+	"default": {
+		"bust": {
+			"bust": { "x": 26.93, "y": 10.47, "rotation": -89.09, "width": 102, "height": 97 }
+		},
+		"eyes": {
+			"eyes": { "x": 26.46, "y": -15.8, "rotation": -90.45, "width": 118, "height": 71 },
+			"eyes-closed": { "x": 26.76, "y": -15.55, "rotation": -90.45, "width": 118, "height": 71 }
+		},
+		"head": {
+			"head": { "x": 61.89, "y": 6.48, "rotation": -90.45, "width": 183, "height": 187 }
+		},
+		"left-feet": {
+			"left-feet": { "x": 7.57, "y": 1.07, "rotation": 88.18, "width": 37, "height": 38 }
+		},
+		"left-hand": {
+			"left-hand": { "x": 6.59, "y": 0.04, "rotation": 88.72, "width": 35, "height": 33 }
+		},
+		"left-shoulder": {
+			"left-shoulder": { "x": 15.59, "y": 0.96, "rotation": 77.58, "width": 36, "height": 45 }
+		},
+		"right-feet": {
+			"right-feet": { "x": 10.07, "y": 0.88, "rotation": 89.98, "width": 39, "height": 39 }
+		},
+		"right-hand": {
+			"right-hand": { "x": 7.02, "y": 0.25, "rotation": 95.07, "width": 39, "height": 41 }
+		},
+		"right-shoulder": {
+			"right-shoulder": { "x": 16.5, "y": -2.98, "rotation": 107.93, "width": 37, "height": 47 }
+		},
+		"weapon": {
+			"sword": { "x": 61.24, "y": 6.93, "rotation": -0.54, "width": 184, "height": 35 }
+		}
+	}
+},
+"animations": {
+	"Idle": {
+		"bones": {
+			"bust": {
+				"rotate": [
+					{ "time": 0, "angle": 2.29 },
+					{ "time": 0.5757, "angle": 3.16 },
+					{ "time": 1.1515, "angle": 2.29 }
+				],
+				"translate": [
+					{ "time": 0, "x": -0.61, "y": 0.5 },
+					{ "time": 0.5757, "x": -0.63, "y": 3.69 },
+					{ "time": 1.1515, "x": -0.61, "y": 0.5 }
+				]
+			},
+			"right-arm": {
+				"rotate": [
+					{ "time": 0, "angle": -0.41 },
+					{ "time": 0.5757, "angle": -11.1 },
+					{ "time": 1.1515, "angle": -0.41 }
+				]
+			},
+			"left-arm": {
+				"rotate": [
+					{ "time": 0, "angle": 0.86 },
+					{ "time": 0.5757, "angle": 10.77 },
+					{ "time": 1.1515, "angle": 0.86 }
+				]
+			},
+			"head": {
+				"rotate": [
+					{ "time": 0, "angle": 1.17 },
+					{ "time": 0.2878, "angle": -2.91 },
+					{ "time": 0.5757, "angle": 3.69 },
+					{ "time": 1.1515, "angle": 1.17 }
+				]
+			}
+		},
+		"slots": {
+			"eyes": {
+				"attachment": [
+					{ "time": 0.7772, "name": "eyes-closed" },
+					{ "time": 0.8636, "name": "eyes" }
+				]
+			}
+		}
+	},
+	"walk": {
+		"bones": {
+			"left-feet": {
+				"rotate": [
+					{ "time": 0, "angle": 359.99 },
+					{ "time": 0.3333, "angle": 53.26 },
+					{ "time": 0.6666, "angle": 359.99 },
+					{ "time": 1, "angle": -56.47 },
+					{ "time": 1.3333, "angle": 359.99 }
+				],
+				"translate": [
+					{ "time": 0, "x": -0.19, "y": 6.39 },
+					{ "time": 0.3333, "x": 0, "y": 0 },
+					{ "time": 1.3333, "x": -0.19, "y": 6.39 }
+				]
+			},
+			"right-feet": {
+				"rotate": [
+					{ "time": 0, "angle": 359.98 },
+					{ "time": 0.3333, "angle": -52.59 },
+					{ "time": 0.6666, "angle": 359.98 },
+					{ "time": 1, "angle": 43.66 },
+					{ "time": 1.3333, "angle": 359.98 }
+				],
+				"translate": [
+					{ "time": 0.3333, "x": -1.99, "y": 2.61 },
+					{ "time": 0.6666, "x": 3.08, "y": 6.91 },
+					{ "time": 1, "x": 5.34, "y": -1.48 }
+				]
+			},
+			"bust": {
+				"rotate": [
+					{ "time": 0, "angle": 2.16 },
+					{ "time": 0.3333, "angle": -5.89 },
+					{ "time": 0.6666, "angle": 1.72 },
+					{ "time": 1, "angle": -5.89 },
+					{ "time": 1.3333, "angle": 2.16 }
+				]
+			},
+			"right-arm": {
+				"rotate": [
+					{ "time": 0, "angle": 0.46 },
+					{ "time": 0.3333, "angle": -299.55 },
+					{ "time": 0.6666, "angle": 0.46 },
+					{ "time": 1, "angle": -41.96 },
+					{ "time": 1.3333, "angle": 0.46 }
+				],
+				"translate": [
+					{ "time": 0, "x": -0.77, "y": 0.23 },
+					{ "time": 0.3333, "x": 5.42, "y": 5.13 },
+					{ "time": 0.6666, "x": -0.91, "y": 1.47 }
+				]
+			},
+			"left-arm": {
+				"rotate": [
+					{ "time": 0, "angle": 7.21 },
+					{ "time": 0.3333, "angle": 307.45 },
+					{ "time": 0.6666, "angle": 7.21 },
+					{ "time": 1, "angle": 47.55 },
+					{ "time": 1.3333, "angle": 7.21 }
+				]
+			},
+			"head": {
+				"rotate": [
+					{ "time": 0, "angle": -0.33 },
+					{ "time": 0.3333, "angle": -5.34 },
+					{ "time": 0.6666, "angle": -0.24 },
+					{ "time": 1, "angle": -4.7 },
+					{ "time": 1.3333, "angle": -0.33 }
+				]
+			}
+		},
+		"slots": {
+			"eyes": {
+				"attachment": [
+					{ "time": 0.0666, "name": "eyes-closed" },
+					{ "time": 0.1666, "name": "eyes" }
+				]
+			}
+		}
+	}
+}
+}
