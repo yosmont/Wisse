@@ -192,6 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHeight: -2.2
   _beginHeight: -8.5
+  _speed: 0.5
   _borderWidth:
   - -7.2
   - 7.2
@@ -200,6 +201,5 @@ MonoBehaviour:
   - -1
   - 0
   - 1.59
-  _cutVersion:
-  - {fileID: 7628280854343500050, guid: 676ec82c530093d488e92804d4be9b7f, type: 3}
-  - {fileID: 3590269012174460701, guid: 972762495210fc049a1b1fe41dfd648b, type: 3}
+  _cutVersion: {fileID: 774049421422154718, guid: 49700af2d37756b4e8acbc3fb351d22c,
+    type: 3}

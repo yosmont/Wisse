@@ -25,14 +25,12 @@ public class Blade : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0))
             StartCutting();
-        } else if (Input.GetMouseButtonUp(0)) {
+        else if (Input.GetMouseButtonUp(0))
             StopCutting();
-        }
-        if (_isCutting) {
+        if (_isCutting)
             UpdateCut();
-        }
     }
 
     void StartCutting()
@@ -60,5 +58,12 @@ public class Blade : MonoBehaviour
             _circleColl.enabled = false;
         }
         _prevPos = _rb.position;
+    }
+
+    private void OnDisable()
+    {
+        _isCutting = false;
+        _circleColl.enabled = false;
+        Destroy(_currentBladeTrail);
     }
 }
