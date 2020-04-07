@@ -13,8 +13,8 @@ public class Blade : MonoBehaviour
     private Camera _cam;
     private Rigidbody2D _rb;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         _circleColl = GetComponent<CircleCollider2D>();
         _circleColl.enabled = false;
@@ -22,13 +22,28 @@ public class Blade : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
+    // Start is called before the first frame update
+    void Start()
+    {
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-            StartCutting();
-        else if (Input.GetMouseButtonUp(0))
-            StopCutting();
+        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.Lumin || Application.platform == RuntimePlatform.IPhonePlayer) {
+            if (Input.touchCount > 0) {
+                if (Input.touches[0].phase == TouchPhase.Began) {
+                    StartCutting();
+                } else if (Input.touches[0].phase == TouchPhase.Ended) {
+                    StopCutting();
+                }
+            }
+        } else {
+            if (Input.GetMouseButtonDown(0))
+                StartCutting();
+            else if (Input.GetMouseButtonUp(0))
+                StopCutting();
+        }
         if (_isCutting)
             UpdateCut();
     }
@@ -36,7 +51,7 @@ public class Blade : MonoBehaviour
     void StartCutting()
     {
         _isCutting = true;
-        _rb.position = _cam.ScreenToWorldPoint(Input.mousePosition);
+        SetPos();
         _prevPos = _rb.position;
         _currentBladeTrail = Instantiate(_bladeTrailPrefab, _rb.transform);
     }
@@ -51,13 +66,21 @@ public class Blade : MonoBehaviour
 
     void UpdateCut()
     {
-        _rb.position = _cam.ScreenToWorldPoint(Input.mousePosition);
+        SetPos();
         if (((_rb.position - _prevPos).magnitude * Time.deltaTime) > _minCuttingVelocity) {
             _circleColl.enabled = true;
         } else {
             _circleColl.enabled = false;
         }
         _prevPos = _rb.position;
+    }
+
+    void SetPos()
+    {
+        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.Lumin || Application.platform == RuntimePlatform.IPhonePlayer)
+            _rb.position = _cam.ScreenToWorldPoint(Input.touches[0].position);
+        else
+            _rb.position = _cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
     private void OnDisable()

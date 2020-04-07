@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpawnHead : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class SpawnHead : MonoBehaviour
     public int _nbHeadTotal = 3;
     public int _nbHeadMax = 9;
     public float _timeBetweenSpawn = 2f;
+    public string _winLevelPath = "";
+    public string _lostLevelPath = "";
     private float _timer;
     private int _nbHead = 0;
     private int _nbBurnHead = 0;
@@ -36,12 +39,12 @@ public class SpawnHead : MonoBehaviour
 
     void Win()
     {
-        Debug.Log("You win!");
+        SceneManager.LoadScene("src/scene/" + _winLevelPath);
     }
 
     void Lost()
     {
-        Debug.Log("You lost!");
+        SceneManager.LoadScene("src/scene/" + _lostLevelPath);
     }
 
     public void AddHead()

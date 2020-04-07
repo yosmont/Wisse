@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/src/scene/12Labours/NemeeLion/MiniGame/BattleLion.unity
     guid: b5d3c9f2318dfe8439a11328cf362cbe
+  - enabled: 1
+    path: Assets/src/scene/12Labours/LernaeanHydra/MiniGame/CutHead.unity
+    guid: b5bc9c24b06d796429ba0500bf0166d6
   m_configObjects: {}

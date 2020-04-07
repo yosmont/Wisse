@@ -10,13 +10,17 @@ public class Torch : MonoBehaviour
     private Rigidbody2D _rb;
     private Camera _cam;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _cam = Camera.main;
         _circleColl = GetComponent<CircleCollider2D>();
         _circleColl.enabled = false;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
     }
 
     // Update is called once per frame
@@ -28,13 +32,21 @@ public class Torch : MonoBehaviour
             else
                 _timer -= Time.deltaTime;
         }
-        if (Input.GetMouseButtonDown(0))
-            BeginBurn();
+        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.Lumin || Application.platform == RuntimePlatform.IPhonePlayer) {
+            if (Input.touchCount > 0) {
+                if (Input.touches[0].phase == TouchPhase.Began) {
+                    BeginBurn();
+                }
+            }
+        } else {
+            if (Input.GetMouseButtonDown(0))
+                BeginBurn();
+        }
     }
 
     void BeginBurn()
     {
-        _rb.position = _cam.ScreenToWorldPoint(Input.mousePosition);
+        SetPos();
         _circleColl.enabled = true;
         _timer = _lifeTime;
     }
@@ -42,6 +54,14 @@ public class Torch : MonoBehaviour
     void StopBurn()
     {
         _circleColl.enabled = false;
+    }
+
+    void SetPos()
+    {
+        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.Lumin || Application.platform == RuntimePlatform.IPhonePlayer)
+            _rb.position = _cam.ScreenToWorldPoint(Input.touches[0].position);
+        else
+            _rb.position = _cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
     private void OnDisable()
