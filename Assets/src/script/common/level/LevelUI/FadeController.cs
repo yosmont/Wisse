@@ -7,9 +7,14 @@ using UnityEngine.UI;
 
 public class FadeController : MonoBehaviour
 {
+    public GameObject _blackImg;
+    public GameObject _loadingSlider;
+    public GameObject _loadingPercentText;
 
-    public Image _black;
-    public Animator _anim;
+    private Image _black;
+    private Animator _anim;
+    private Slider _slider;
+    private TMPro.TextMeshProUGUI _percentText;
 
     private delegate IEnumerator fadeIEnum();
 
@@ -32,6 +37,12 @@ public class FadeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _black = _blackImg.GetComponent<Image>();
+        _anim = _blackImg.GetComponent<Animator>();
+        _slider = _loadingSlider.GetComponent<Slider>();
+        _loadingSlider.SetActive(false);
+        _percentText = _loadingPercentText.GetComponent<TMPro.TextMeshProUGUI>();
+        _loadingPercentText.SetActive(false);
         _cmd.Enqueue("out");
     }
 
@@ -91,6 +102,41 @@ public class FadeController : MonoBehaviour
         _anim.SetBool("Sleeped", false);
         _anim.SetBool("Fade", true);
         yield return new WaitUntil(() => _black.color.a == 1);
-        SceneManager.LoadScene("src/scene/" + _levelPath);
+        //SceneManager.LoadScene("src/scene/" + _levelPath);
+        StartCoroutine(LoadScene());
+    }
+
+    IEnumerator LoadScene()
+    {
+        _loadingSlider.SetActive(true);
+        _loadingPercentText.SetActive(true);
+        yield return null;
+
+        //Begin to load the Scene you specify
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("src/scene/" + _levelPath);
+        //Don't let the Scene activate until you allow it to
+        asyncOperation.allowSceneActivation = true;
+        //Debug.Log("Pro :" + asyncOperation.progress);
+        _percentText.text = ((int)(asyncOperation.progress * 100)) + "%";
+        _slider.value = asyncOperation.progress;
+        //When the load is still in progress, output the Text and progress bar
+        while (!asyncOperation.isDone) {
+            //Output the current progress
+            //Debug.Log("Loading progress: " + (asyncOperation.progress * 100) + "%");
+            _percentText.text = ((int)(asyncOperation.progress * 100)) + "%";
+            _slider.value = asyncOperation.progress;
+
+            /*// Check if the load has finished
+            if (asyncOperation.progress >= 0.9f) {
+                //Change the Text to show the Scene is ready
+                Debug.Log("Press the space bar to continue");
+                //Wait to you press the space key to activate the Scene
+                if (Input.GetKeyDown(KeyCode.Space))
+                    //Activate the Scene
+                    asyncOperation.allowSceneActivation = true;
+            }*/
+
+            yield return null;
+        }
     }
 }
