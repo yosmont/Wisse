@@ -6,6 +6,7 @@ using Spine.Unity;
 
 public class SpineController : MonoBehaviour
 {
+
     public float speed = 5;
     public SkeletonAnimation animation;
     float x;
