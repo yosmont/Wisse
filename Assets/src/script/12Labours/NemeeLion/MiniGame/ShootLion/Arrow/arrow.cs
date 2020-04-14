@@ -39,15 +39,20 @@ public class arrow : MonoBehaviour
             _cam.WorldToViewportPoint(_rb.position).x < 1) &&
             (_cam.WorldToViewportPoint(_rb.position).y < 1 &&
             _cam.WorldToViewportPoint(_rb.position).y > 0))) {
-            _bow.transform.eulerAngles = new Vector3(0, 0, 180);
-            transform.position = _dragBallPos;
-            transform.eulerAngles = new Vector3(0, 0, 0);
-            _sj.enabled = true;
-            _rb.isKinematic = false;
-            _rb.bodyType = RigidbodyType2D.Static;
-            _rb.GetComponent<BoxCollider2D>().size = new Vector2(6.57f, 10f);
-            _rb.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0f);
+            ResetPos();
         }
+    }
+
+    private void ResetPos()
+    {
+        _bow.transform.eulerAngles = new Vector3(0, 0, -90);
+        transform.position = _dragBallPos;
+        transform.eulerAngles = new Vector3(0, 0, 90);
+        _sj.enabled = true;
+        _rb.isKinematic = false;
+        _rb.bodyType = RigidbodyType2D.Static;
+        _rb.GetComponent<BoxCollider2D>().size = new Vector2(6.57f, 10f);
+        _rb.GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0f);
     }
 
     private void DragBall()
@@ -88,6 +93,12 @@ public class arrow : MonoBehaviour
         _sj.enabled = false;
         _rb.GetComponent<BoxCollider2D>().size = new Vector2(6f, 0.6f);
         _rb.GetComponent<BoxCollider2D>().offset = new Vector2(3f, 0f);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name.Equals("tree"))
+            ResetPos();
     }
 }
 

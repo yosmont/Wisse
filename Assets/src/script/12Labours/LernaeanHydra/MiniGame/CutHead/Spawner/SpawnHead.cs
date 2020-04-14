@@ -7,13 +7,12 @@ public class SpawnHead : MonoBehaviour
 {
     public GameObject _headPrefab;
     public int _nbHeadTotal = 3;
-    public int _nbHeadMax = 9;
+    public int _nbHeadMax = 7;
     public float _timeBetweenSpawn = 2f;
     public string _winLevelPath = "";
     public string _lostLevelPath = "";
     private float _timer;
     private int _nbHead = 0;
-    private int _nbBurnHead = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -49,13 +48,15 @@ public class SpawnHead : MonoBehaviour
 
     public void AddHead()
     {
-        _nbHeadTotal += 2;
+        --_nbHead;
+        ++_nbHeadTotal;
     }
 
     public void AddBurnHead()
     {
-        ++_nbBurnHead;
-        if (_nbHeadTotal == _nbBurnHead)
+        --_nbHead;
+        --_nbHeadTotal;
+        if (_nbHeadTotal == 0)
             Win();
     }
 }
