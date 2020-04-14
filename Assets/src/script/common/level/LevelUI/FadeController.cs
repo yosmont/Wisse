@@ -102,41 +102,6 @@ public class FadeController : MonoBehaviour
         _anim.SetBool("Sleeped", false);
         _anim.SetBool("Fade", true);
         yield return new WaitUntil(() => _black.color.a == 1);
-        //SceneManager.LoadScene("src/scene/" + _levelPath);
-        StartCoroutine(LoadScene());
-    }
-
-    IEnumerator LoadScene()
-    {
-        _loadingSlider.SetActive(true);
-        _loadingPercentText.SetActive(true);
-        yield return null;
-
-        //Begin to load the Scene you specify
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("src/scene/" + _levelPath);
-        //Don't let the Scene activate until you allow it to
-        asyncOperation.allowSceneActivation = true;
-        //Debug.Log("Pro :" + asyncOperation.progress);
-        _percentText.text = ((int)(asyncOperation.progress * 100)) + "%";
-        _slider.value = asyncOperation.progress;
-        //When the load is still in progress, output the Text and progress bar
-        while (!asyncOperation.isDone) {
-            //Output the current progress
-            //Debug.Log("Loading progress: " + (asyncOperation.progress * 100) + "%");
-            _percentText.text = ((int)(asyncOperation.progress * 100)) + "%";
-            _slider.value = asyncOperation.progress;
-
-            /*// Check if the load has finished
-            if (asyncOperation.progress >= 0.9f) {
-                //Change the Text to show the Scene is ready
-                Debug.Log("Press the space bar to continue");
-                //Wait to you press the space key to activate the Scene
-                if (Input.GetKeyDown(KeyCode.Space))
-                    //Activate the Scene
-                    asyncOperation.allowSceneActivation = true;
-            }*/
-
-            yield return null;
-        }
+        SceneManager.LoadScene("src/scene/" + _levelPath);
     }
 }
