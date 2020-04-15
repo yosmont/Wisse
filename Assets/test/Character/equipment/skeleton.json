@@ -1,0 +1,30 @@
+{
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "greatsword", "bone": "root", "attachment": "greatsword" },
+	{ "name": "sword", "bone": "root", "attachment": "sword" },
+	{ "name": "sword 1", "bone": "root", "attachment": "sword 1" },
+	{ "name": "sword black", "bone": "root", "attachment": "sword black" }
+],
+"skins": {
+	"default": {
+		"greatsword": {
+			"greatsword": { "x": -14.5, "y": 252, "width": 327, "height": 80 }
+		},
+		"sword": {
+			"sword": { "x": -1.49, "y": 174, "width": 184, "height": 35 }
+		},
+		"sword 1": {
+			"sword 1": { "x": 5.5, "y": 124, "width": 186, "height": 35 }
+		},
+		"sword black": {
+			"sword black": { "x": -13.49, "y": 63.99, "width": 184, "height": 45 }
+		}
+	}
+},
+"animations": {
+	"animation": {}
+}
+}
