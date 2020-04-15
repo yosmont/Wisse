@@ -34,7 +34,10 @@ public class HydraHeadCut : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name.Equals("Torch")) {
+        if (collision.gameObject.name == "Torch") {
+            GameObject.Find("Iolas").GetComponent<Iolas>().AddTarget(transform.GetChild(0).gameObject);
+        } else if (collision.gameObject.name == "Iolas") {
+            GameObject.Find("Iolas").GetComponent<Iolas>().RemoveTarget(transform.GetChild(0).gameObject);
             GetComponent<SpriteRenderer>().sprite = _burnSprite;
             _burnt = true;
         }
