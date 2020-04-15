@@ -1,0 +1,33 @@
+
+skeleton.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+greatsword
+  rotate: false
+  xy: 2, 39
+  size: 327, 80
+  orig: 327, 80
+  offset: 0, 0
+  index: -1
+sword
+  rotate: false
+  xy: 517, 84
+  size: 184, 35
+  orig: 184, 35
+  offset: 0, 0
+  index: -1
+sword 1
+  rotate: false
+  xy: 2, 2
+  size: 186, 35
+  orig: 186, 35
+  offset: 0, 0
+  index: -1
+sword black
+  rotate: false
+  xy: 331, 74
+  size: 184, 45
+  orig: 184, 45
+  offset: 0, 0
+  index: -1
